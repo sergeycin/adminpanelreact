@@ -1,9 +1,41 @@
 {
+  "name": "adminpanelreact",
+  "version": "1.0.0",
+  "description": "adminpanel on react fo node js",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js",
+    "build": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergeycin/adminpanelreact.git"
+  },
+  "keywords": [
+    "adminpanel",
+    "react",
+    "node",
+    "js"
+  ],
+  "author": "CyberDestroyer228@yandex.ru",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sergeycin/adminpanelreact/issues"
+  },
+  "homepage": "https://github.com/sergeycin/adminpanelreact#readme",
   "dependencies": {
-    "@types/react-redux": "^7.1.24",
-    "react-redux": "^8.0.2",
-    "redux": "^4.2.0",
-    "redux-thunk": "^2.4.1",
-    "sass": "^1.53.0"
+    "bcryptjs": "^2.4.3",
+    "config": "^3.3.7",
+    "express": "^4.17.2",
+    "express-validator": "^6.14.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.1.8",
+    "mongose": "^0.0.2-security"
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "cross-env": "^7.0.3",
+    "nodemon": "^2.0.15"
   }
 }

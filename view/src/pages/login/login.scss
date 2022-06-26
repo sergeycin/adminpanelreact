@@ -1,5 +1,93 @@
-/* label color */
-// .input-field label {
-//     color: #000;
-//   }
- 
+
+$purple: #5653F3;
+
+
+.login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    // .row .col{
+    //     padding: 0;
+    // }
+    &__block{
+        display: flex;
+        background: white;
+        width: 861px;
+        height: 441px;
+    }
+    &__left{
+        background: $purple;
+        height: 100%;
+        width: 50%;
+        color: white;
+        padding: 53px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    &__text{
+       
+        h2{
+            font-weight: normal;
+            font-size: 36px;
+        }
+        p{
+            font-size: 18px;
+            font-weight: normal;
+            line-height: 22px;
+
+        }
+    }
+
+
+    &__right{
+        padding: 30px;
+        &-name{
+            display: flex;
+            align-items: center;
+            h3{
+                
+                margin: 0;
+                font-weight: 700;
+                font-size: 20px;
+                margin-left: 8px;
+            }
+        }
+
+        .form{
+            margin-top: 43px;
+        }
+    }
+}
+
+
+
+.login-btn{
+    width: 100px;
+    height: 34px;
+    border: none;
+    box-shadow: none;
+    background: $purple;
+    cursor: pointer;
+    color: white;
+    transition: all 0.4s;
+    display: block;
+    margin: 0 auto;
+    &:hover{
+        color: $purple;
+        background: white;
+        border: 2px solid $purple;
+    }
+
+}   
+
+   input:not([type]):focus:not([readonly])+label, input[type=text]:not(.browser-default):focus:not([readonly])+label, input[type=password]:not(.browser-default):focus:not([readonly])+label, input[type=email]:not(.browser-default):focus:not([readonly])+label, input[type=url]:not(.browser-default):focus:not([readonly])+label, input[type=time]:not(.browser-default):focus:not([readonly])+label, input[type=date]:not(.browser-default):focus:not([readonly])+label, input[type=datetime]:not(.browser-default):focus:not([readonly])+label, input[type=datetime-local]:not(.browser-default):focus:not([readonly])+label, input[type=tel]:not(.browser-default):focus:not([readonly])+label, input[type=number]:not(.browser-default):focus:not([readonly])+label, input[type=search]:not(.browser-default):focus:not([readonly])+label, textarea.materialize-textarea:focus:not([readonly])+label{
+       color: $purple !important;
+   }
+/* label underline focus color */
+input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]){
+    border-bottom: 1px solid $purple !important;
+    box-shadow: 0 1px 0 0 $purple !important;
+   }

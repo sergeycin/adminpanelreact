@@ -7,7 +7,7 @@ import '../login/login.scss'
 function Login() {
   
   return (
-    <div className="Login">
+    <div className="login">
       <div className="login__block">
 
         <div className="login__left">
@@ -36,18 +36,18 @@ function Login() {
           <span className="helper-text" data-error="wrong" data-success="right">Helper text</span>
         </div>
         <div className="input-field col s12">
-          <input id="email" type="email" className="validate"/>
-          <label htmlFor="email">Email</label>
+          <input id="password" type="password" className="validate"/>
+          <label htmlFor="password">Password</label>
           <span className="helper-text" data-error="wrong" data-success="right">Helper text</span>
         </div>
       </div>
-     
+   <button type='submit' className='login-btn'>Login</button>
     </form> 
 
         </div>
 
       </div>
-      <p>ok</p>
+  
     {/* <form className="col s12">
       <div className="row">
         <div className="input-field col s6">
