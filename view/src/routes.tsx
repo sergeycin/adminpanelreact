@@ -7,7 +7,7 @@ return(
     <BrowserRouter>
  <Routes > 
   
-  <Route path="/" element={<Login/>}/>  
+  <Route path="/admin" element={<Login/>}/>  
 
     </Routes>
     </BrowserRouter>  

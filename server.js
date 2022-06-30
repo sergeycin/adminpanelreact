@@ -14,11 +14,15 @@ const PORT =  8000
 
 // Настройки для delpoy
 if(process.env.NODE_ENV === 'production'){
-    app.use('/',express.static(`${__dirname}/view/build`));
-    // app.use('/admin',express.static(path.join(__dirname,'view', 'build')))
+    app.use('/admin',express.static(`${__dirname}/view/build`));
+
 
     app.get('/admin', (req,res)=>{
         res.sendFile(path.resolve(`${__dirname}/view/build/index.html`))
+    } )
+
+    app.get('/', (req,res)=>{
+        res.sendFile(path.resolve(`${__dirname}/client/index.html`))
     } )
 }
 
