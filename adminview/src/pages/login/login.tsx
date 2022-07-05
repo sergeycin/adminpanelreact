@@ -28,14 +28,16 @@ function Login() {
         setForm({ ...form, [event.target.name]: event.target.value})
     }
 
-  const loginHandler = async () =>{
+  const loginHandler = async (event:any) =>{
+    event.preventDefault()
     try{
-    
+    console.log('login')
       const data = await request('/api/auth/login','POST',{...form})
       auth.login(data.token,data.userId)
       // message(data.message)
       console.log('Data',data)
       navigate("/create")
+      
     }catch (e){}
   }
 
@@ -66,13 +68,13 @@ function Login() {
           <form className="form">
       <div className="row">
       <div className="input-field col s12">
-          <input id="email" type="email" className="validate "   value={form.email}
+          <input id="email" type="email" className="validate " name='email'  value={form.email}
            onChange={changeHandler}/>
           <label htmlFor="email">Email</label>
           <span className="helper-text" data-error="wrong" data-success="right">Helper text</span>
         </div>
         <div className="input-field col s12">
-          <input id="password" type="password" className="validate"  value={form.password}
+          <input id="password" type="password" className="validate"  name='password' value={form.password}
            onChange={changeHandler}/>
           <label htmlFor="password">Password</label>
           <span className="helper-text" data-error="wrong" data-success="right">Helper text</span>
