@@ -36,9 +36,9 @@ function Login() {
       auth.login(data.token,data.userId)
       // message(data.message)
       console.log('Data',data)
-      navigate("/create")
+      navigate("/admin/main")
       
-    }catch (e){}
+    }catch (e){console.log(e)}
   }
 
 
