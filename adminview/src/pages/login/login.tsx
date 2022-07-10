@@ -5,12 +5,13 @@ import './login.scss'
 import { useNavigate } from 'react-router-dom';
 import { useHttp } from '../../hooks/http.hook';
 import { AuthContext } from '../../context/AuthContext';
+import { useMessage } from '../../hooks/message.hook';
 
 
 function Login() {
   const navigate= useNavigate();
   const auth = useContext(AuthContext)
-  // const message = useMessage()
+  const message = useMessage()
   const {loading,error,request, clearError} = useHttp() 
 
     const [form,setForm] = useState({
@@ -18,10 +19,10 @@ function Login() {
     })
 
     useEffect(()=>{
-      // message(error)
+      message(error)
       // alert(error)
       clearError()
-    }, [error,clearError])
+    }, [error,message,clearError])
 
 
     const changeHandler = (event:any) =>{
@@ -35,7 +36,7 @@ function Login() {
       const data = await request('/api/auth/login','POST',{...form})
       auth.login(data.token,data.userId)
       // message(data.message)
-      console.log('Data',data)
+  
       navigate("/admin/main")
       
     }catch (e){console.log(e)}

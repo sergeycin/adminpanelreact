@@ -1,13 +1,15 @@
 import React from 'react'
-import {BrowserRouter,Route,Routes } from 'react-router-dom'
+import {BrowserRouter,Navigate,Route,Routes } from 'react-router-dom'
 import Login from './pages/login/login'
 import Main from './pages/main/main'
 
-export const useRoutes = (isAuthenticated:any)=>{
+export const MyRoutes : React.FC<{Authenticated: string}> = ({Authenticated}) => {
 
-  if(isAuthenticated){
+  if(Authenticated){
+    console.log('login',Authenticated)
     return(
   <>
+     <Navigate to="/admin/main" />
     <Routes > 
        
 
@@ -19,7 +21,7 @@ export const useRoutes = (isAuthenticated:any)=>{
     )
  
   }
-
+  console.log(Authenticated)
     return(
   <>
     <Routes > 

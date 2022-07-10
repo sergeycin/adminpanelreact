@@ -3,22 +3,23 @@ import { useAuth } from './hooks/auth.hook';
 
 import { AuthContext } from "./context/AuthContext";
 import { BrowserRouter, useRoutes } from 'react-router-dom';
+import { MyRoutes } from './routes';
+import Navbar from './pages/navbar/navbar';
 
 function App() {
   const {token,login,logout,userId} = useAuth()
-  const isAuthenticated:any = !!token //boolean
-  const routes = useRoutes(isAuthenticated)
+ const isAuthenticated:any = !!token //boolean
+
   return (
    <>
       <AuthContext.Provider value={{
       token,login,logout,userId, isAuthenticated
     }}>
 
-  {isAuthenticated}
-      {routes}   
-   
-   
-         
+{isAuthenticated && <Navbar/>}
+<MyRoutes Authenticated={isAuthenticated} />
+  
+  
     </AuthContext.Provider>
 
 

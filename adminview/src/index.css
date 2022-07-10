@@ -1,3 +1,6 @@
+html,body{
+  font-size: 20px;
+}
 body {
   margin: 0;
   /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -9,6 +12,12 @@ body {
   background: #F6F7FB;
 }
 
+
+@media(max-width: 1600px){
+  html,body{
+    font-size: 14px;
+  }
+}
 /* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
