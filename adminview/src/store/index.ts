@@ -1,13 +1,13 @@
 import {combineReducers, createStore, applyMiddleware} from 'redux'
 import {composeWithDevTools} from 'redux-devtools-extension'
-import { userReducer } from './reducers/userReducer';
+import { authReducer} from './reducers/authReducer';
 import thunk from "redux-thunk"
 
 
 import { TypedUseSelectorHook, useSelector} from 'react-redux';
 
 export  const rootReducer = combineReducers({
-    userReducer: userReducer
+    userReducer: authReducer
    
 })
   /*Хук для использования данных в useSelector */

@@ -3,8 +3,8 @@ import {useState,useCallback} from 'react'
 
 
 export const useHttp = () =>{
-    const [loading] = useState(false)
-    const [error,setError] = useState(null)
+    const [loading] = useState<boolean | undefined>(false)
+    const [error,setError] = useState<String | null>(null)
     const request = useCallback(async(url:any,method='GET',body:any = null, headers:any= {}) =>{
     
         try{

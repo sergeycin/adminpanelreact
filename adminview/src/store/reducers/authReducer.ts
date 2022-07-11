@@ -26,7 +26,7 @@ interface themeState {
   }
 
   
- export const userReducer = (state = themeColor,action: ThemeAction ) : themeState => {
+ export const authReducer = (state = themeColor,action: ThemeAction ) : themeState => {
    switch (action.type) {
       case  UserActionTypes.DARK_THEME:
   return {...state, theme: state.theme = action.payload}
@@ -38,3 +38,5 @@ interface themeState {
   
    }
   }
+
+  export const timerActionMinutes = (payload:number) => ({type: UserActionTypes.DARK_THEME, payload})
