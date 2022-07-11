@@ -9,7 +9,7 @@ export const MyRoutes : React.FC<{Authenticated: string}> = ({Authenticated}) =>
     console.log('login',Authenticated)
     return(
   <>
-     <Navigate to="/admin/main" />
+     {/* <Navigate to="/admin/main" /> */}
     <Routes > 
        
 

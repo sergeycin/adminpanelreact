@@ -14,7 +14,7 @@ function Navbar(){
 
     const logoutHandler = () =>{
         try {
-            navigate("/")
+            navigate("/admin")
             auth.logout()
             
        
