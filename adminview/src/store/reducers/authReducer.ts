@@ -1,37 +1,32 @@
 
 
-interface themeState {
-    theme: number
+interface ListState {
+    isOpen: boolean
   }
   export enum UserActionTypes{
-    DARK_THEME= 'DARK_THEME',
-    WHITE_THEME = 'WHITE_THEME',
+    DARK_THEME= 'FIRST_LIST',
+   
   
   }
   interface DarkAction {
     type: UserActionTypes.DARK_THEME,
-    payload: 0
+    payload: false
   }
-  interface WhiteAction{
-    type:  UserActionTypes.WHITE_THEME,
-    payload: 0
+
   
-  }
+  type ThemeAction = DarkAction ;
   
-  type ThemeAction = DarkAction | WhiteAction;
-  
-  const themeColor: themeState = {
-    theme: 1,
+  const isOpen: ListState = {
+    isOpen: false,
   
   }
 
   
- export const authReducer = (state = themeColor,action: ThemeAction ) : themeState => {
+ export const authReducer = (state = isOpen,action: ThemeAction ) : ListState => {
    switch (action.type) {
       case  UserActionTypes.DARK_THEME:
-  return {...state, theme: state.theme = action.payload}
-        case UserActionTypes.WHITE_THEME:
-  return {...state, theme: state.theme = action.payload}
+  // return {...state, theme: state.isOpen = action.payload}
+    
      default:
      return state
   

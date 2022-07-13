@@ -11,7 +11,10 @@ export const MyRoutes : React.FC<{Authenticated: string}> = ({Authenticated}) =>
   <>
      {/* <Navigate to="/admin/main" /> */}
     <Routes > 
-       
+    <Route
+        path="/admin"
+        element={<Navigate to="/admin/main" replace />}
+    />
 
        <Route path="/admin/main" element={<Main/>}/>  
          </Routes>
@@ -21,7 +24,7 @@ export const MyRoutes : React.FC<{Authenticated: string}> = ({Authenticated}) =>
     )
  
   }
-  console.log(Authenticated)
+
     return(
   <>
     <Routes > 

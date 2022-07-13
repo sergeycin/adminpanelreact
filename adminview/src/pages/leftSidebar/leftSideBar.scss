@@ -1,0 +1,91 @@
+@keyframes animlist{
+    from{
+        opacity: 0;
+    }
+    to{
+      opacity: 1;
+    }
+}
+
+.leftSidaBar{
+margin-top: 1px;
+    width: 25%;
+    background: #5653F3;
+height: 100vh;
+
+.leftSideBar__content{
+    padding-left: 1.4rem;
+}
+
+.leftSideBar__list{
+    margin-top: 0%;
+    
+    .leftSideBar__list-item{
+        cursor: pointer;
+
+
+   
+        .leftSideBar__list-open{
+            animation: animlist 1s  ease-in-out;
+            animation-fill-mode: forwards;
+            opacity: 0;
+            ul{
+                margin-top: 10%;
+                li{
+                    line-height: 2.48;
+                    a{
+                        color: white;
+                        text-decoration: none;
+                        &:hover{
+                            color: #4CAF50;
+                            text-decoration: none;
+                        }
+                    }
+                    font-size: 1.095rem;
+                    position: relative;
+                    list-style: none;
+                    color: #8f8f8f;
+                    &:hover{
+                        color: white;
+                    }
+                  
+                }
+            }   
+
+        }
+
+      
+        h5.arrowOpen{
+            &::after {
+                transform: rotate(180deg);
+            }
+        }
+        h5{
+            margin: 0;
+            margin-top: 10%;
+            position: relative;
+            font-size: 1.095rem;
+            font-weight: lighter;
+            color: white;
+            &::after {
+                cursor: pointer;
+                content: "";
+                /* В любом случае необходим, даже пустой. Иначе не будет работать */
+                
+                position: absolute;
+             left: 83%;
+              top: 40%;
+                width: 16px;
+                height: 9px;
+              
+                background: url(../../assets/img/up.svg);
+              
+                background-size: 16px 9px;
+            }
+        }
+    }
+}
+}
+
+
+
