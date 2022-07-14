@@ -1,5 +1,6 @@
 import React from 'react'
 import {BrowserRouter,Navigate,Route,Routes } from 'react-router-dom'
+import CreateUser from './pages/createUser/CreeateUser'
 import Login from './pages/login/login'
 import Main from './pages/main/main'
 
@@ -17,6 +18,7 @@ export const MyRoutes : React.FC<{Authenticated: string}> = ({Authenticated}) =>
     />
 
        <Route path="/admin/main" element={<Main/>}/>  
+       <Route path="/admin/create" element={<CreateUser/>}/>  
          </Routes>
   </>
     

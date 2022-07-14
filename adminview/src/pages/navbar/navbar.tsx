@@ -5,6 +5,7 @@ import user from '../../assets/img/user.svg'
 import door from '../../assets/img/door.svg'
 import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 
 
@@ -29,7 +30,7 @@ function Navbar(){
     return(
         <div className="header">
             <div className="header__left">
-                <div className="header__name"><h2>LEXUS</h2></div>
+                <div className="header__name"><h2><NavLink to="/admin/main">LEXUS</NavLink> </h2></div>
                 <div className="header__logo"><img src={lexus} alt="" /></div>
             </div>
             <div className="header__right">

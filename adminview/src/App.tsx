@@ -20,7 +20,10 @@ function App() {
 {isAuthenticated && <Navbar/>}
 <div className="wrapper">
 {isAuthenticated && <LeftSidaBar/>}
+
 <MyRoutes Authenticated={isAuthenticated} />
+
+
 </div>
 
   

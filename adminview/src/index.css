@@ -13,9 +13,12 @@ body {
 display: flex;
 height: 100%;
 }
+  .wrapper__right{
+    width: 80%;
+  }
 
 @media(max-width: 1600px){
   html,body{
-    font-size: 14px;
+    font-size: 15px;
   }
 }

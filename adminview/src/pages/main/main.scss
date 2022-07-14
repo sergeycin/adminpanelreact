@@ -1,0 +1,52 @@
+$purple : #5653F3;
+
+.main{
+   width: 100%;
+    &__top{
+        background: linear-gradient(180deg, #5653F3 0%, #5653F3 36.07%, #F6F7FB 36.07%, #F6F7FB 36.08%);
+        width: 100%;
+        padding-top: 1.85rem;
+        padding-left: 2.9rem;
+        padding-right: 0.9rem;
+        h2{
+            font-size: 1.8rem;
+            padding-bottom: 1.95rem;
+            margin: 0;
+            color: white;
+        }
+    }
+    &__bottom{
+        padding-left: 2.9rem;
+        padding-right: 0.9rem;
+            h2{
+                font-size: 1.8rem;
+                padding-top: 1.95rem;
+                padding-bottom: 1.95rem;
+                margin: 0;
+                color:black;
+            }
+    
+    }
+    &__cardmini{
+        &-wrap{
+            display: flex;
+            justify-content: space-between;
+        }
+        img{
+            width: 17.5rem;
+        }
+    }
+    &__card{
+    &-wrap{
+        display: flex;
+        justify-content: space-between;
+    }
+        img{
+            width: 35.5rem;
+        }
+    }
+}
+
+.main__cardmmini img{
+    width: 17.5rem;
+}

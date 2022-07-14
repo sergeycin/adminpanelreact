@@ -11,6 +11,12 @@ $purple: #5653F3;
             font-size: 1.8rem;
             color: white;
             font-weight: 400;
+            a{
+                color: white;
+                :hover{
+                    color: #4CAF50;
+                }
+            }
         }
        
     }
