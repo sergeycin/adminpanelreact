@@ -1,18 +1,12 @@
-import {combineReducers, createStore, applyMiddleware} from 'redux'
-import {composeWithDevTools} from 'redux-devtools-extension'
-import { authReducer} from './reducers/authReducer';
-import thunk from "redux-thunk"
-
-
-import { TypedUseSelectorHook, useSelector} from 'react-redux';
-
-export  const rootReducer = combineReducers({
-    userReducer: authReducer
-   
+import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers } from "redux";
+import pagesSlice from "./slices/pagesSlice";
+const rootReducer = combineReducers({
+    pages: pagesSlice
 })
-  /*Хук для использования данных в useSelector */
-  type RootState = ReturnType<typeof rootReducer>
-  export const useTypesSelector: TypedUseSelectorHook<RootState> = useSelector
-  /*end */
 
-export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
+export function setupStore() {
+  return configureStore({
+    reducer: rootReducer
+  })
+}
