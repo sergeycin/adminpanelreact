@@ -1,13 +1,25 @@
 import './leftSideBar.scss'
 import lexus from '../../assets/img/lexus.svg'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { fetchPages } from '../../store/actions/pagesActions';
+import { useAppDispatch } from '../../hooks/redux';
 
 
 
 
 
 function LeftSidaBar(){
+
+const dispatch = useAppDispatch()
+
+useEffect(() => {
+    // dispatch(fetchPages)
+})
+
+
+
   const [isOpen,setIsOpen] = useState<number>(0)
 
  const openList = (event: React.MouseEvent, num:number) =>{
