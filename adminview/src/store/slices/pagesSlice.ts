@@ -18,6 +18,8 @@ export const pagesSLice = createSlice({
     name: 'pages',
     initialState,
     reducers: {
+        
+
         fetching(state){
            state.loading = true 
         },
@@ -29,6 +31,8 @@ export const pagesSLice = createSlice({
             state.loading = false
             state.error = action.payload.message
         }
+
+
     }
 })
 

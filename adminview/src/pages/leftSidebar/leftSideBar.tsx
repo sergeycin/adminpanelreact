@@ -11,12 +11,8 @@ function LeftSidaBar(){
   const [isOpen,setIsOpen] = useState<number>(0)
 
  const openList = (event: React.MouseEvent, num:number) =>{
-if(isOpen == num){
-    setIsOpen(0)
-}
-else{
-setIsOpen(num)
-}
+isOpen == num ? setIsOpen(0) : setIsOpen(num)
+
  } 
 
     
