@@ -15,8 +15,9 @@ function LeftSidaBar(){
 const dispatch = useAppDispatch()
 
 useEffect(() => {
-    // dispatch(fetchPages)
-})
+    dispatch(fetchPages())
+  
+},[])
 
 
 
