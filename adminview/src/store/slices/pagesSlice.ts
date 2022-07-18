@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
-export interface PagesState{
+interface PagesState{
     loading: boolean,
     error: string,
     pages: string[]
@@ -13,6 +13,12 @@ const initialState: PagesState = {
 
 }
 
+interface AirportPayload {
+    pages: string[],
+    count: number
+  }
+  
+
 
 export const pagesSLice = createSlice({
     name: 'pages',
@@ -23,7 +29,7 @@ export const pagesSLice = createSlice({
         fetching(state){
            state.loading = true 
         },
-        fetchSuccess(state,action: PayloadAction<string[]>){
+        fetchSuccess(state,action: PayloadAction<any[]>){
             state.loading = false
             state.pages = action.payload
         },

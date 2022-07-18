@@ -2,7 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { combineReducers } from "redux";
 import pagesSlice from "./slices/pagesSlice";
 const rootReducer = combineReducers({
-    pages: pagesSlice
+   pagesSlice
 })
 
 export function setupStore() {
