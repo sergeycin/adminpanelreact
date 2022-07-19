@@ -5,13 +5,15 @@ import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { fetchPages } from '../../store/actions/pagesActions';
 import { useAppDispatch } from '../../hooks/redux';
+import { pageSLice } from '../../store/slices/pagesSlice';
+
 
 
 
 
 
 function LeftSidaBar(){
-
+    const {fetching} =  pageSLice.actions
 const dispatch = useAppDispatch()
 
 useEffect(() => {

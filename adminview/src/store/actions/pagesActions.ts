@@ -1,11 +1,11 @@
 import { Dispatch } from "@reduxjs/toolkit"
 import { AppDispatch } from ".."
 import { makeRequest } from "../../hooks/fetch.hooks"
-import pagesSlice from "../slices/pagesSlice"
+import pagesSlice, { pageSLice } from "../slices/pagesSlice"
 
 
 export const fetchPages = () => {
-    const {fetching} = pagesSlice.actions
+    const {fetching} =  pageSLice.actions
     return async (dispatch:AppDispatch) =>{
         try{
             dispatch(pagesSlice.actions)

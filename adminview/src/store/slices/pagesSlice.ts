@@ -20,7 +20,7 @@ interface AirportPayload {
   
 
 
-export const pagesSLice = createSlice({
+export const pageSLice = createSlice({
     name: 'pages',
     initialState,
     reducers: {
@@ -43,4 +43,6 @@ export const pagesSLice = createSlice({
 })
 
 
-export default pagesSLice.reducer
+export default pageSLice.reducer
+
+
