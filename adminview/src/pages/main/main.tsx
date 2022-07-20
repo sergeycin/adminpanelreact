@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+
 import card from '../../assets/img/card.svg'
 import post from '../../assets/img/post.svg'
 import './main.scss'

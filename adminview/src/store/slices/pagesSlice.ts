@@ -3,7 +3,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 interface PagesState{
     loading: boolean,
     error: string,
-    pages: string[]
+    pages: any[]
 }
 
 const initialState: PagesState = {

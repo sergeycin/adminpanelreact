@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { fetchPages } from '../../store/actions/pagesActions';
-import { useAppDispatch } from '../../hooks/redux';
+import { useAppDispatch, UseAppSelector } from '../../hooks/redux';
 import { pageSLice } from '../../store/slices/pagesSlice';
 
 
@@ -13,8 +13,11 @@ import { pageSLice } from '../../store/slices/pagesSlice';
 
 
 function LeftSidaBar(){
-    const {fetching} =  pageSLice.actions
+
 const dispatch = useAppDispatch()
+const {error,loading,pages} = UseAppSelector(state => state.pagesSlice)
+
+
 
 useEffect(() => {
     dispatch(fetchPages())
@@ -26,7 +29,7 @@ useEffect(() => {
   const [isOpen,setIsOpen] = useState<number>(0)
 
  const openList = (event: React.MouseEvent, num:number) =>{
-isOpen == num ? setIsOpen(0) : setIsOpen(num)
+isOpen === num ? setIsOpen(0) : setIsOpen(num)
 
  } 
 
@@ -41,10 +44,7 @@ isOpen == num ? setIsOpen(0) : setIsOpen(num)
                       <h5 onClick={(e) => openList(e,1)}>Pages</h5>
                       {isOpen == 1 ?    <div className="leftSideBar__list-open">
                           <ul>
-                              <li><a href=""> News</a></li>
-                              <li><a href=""> Stocks</a></li>
-                              <li><a href=""> Contact</a></li>
-                              <li><a href=""> History of company</a></li>
+                              {pages.page.map(p =>  <li><a href="">{p}</a></li>)}
                           </ul>
                       </div> : ''}
                     

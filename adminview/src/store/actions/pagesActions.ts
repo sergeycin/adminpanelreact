@@ -1,20 +1,21 @@
-import { Dispatch } from "@reduxjs/toolkit"
+
 import { AppDispatch } from ".."
 import { makeRequest } from "../../hooks/fetch.hooks"
-import pagesSlice, { pageSLice } from "../slices/pagesSlice"
+import  { pageSLice } from "../slices/pagesSlice"
+
 
 
 export const fetchPages = () => {
-    const {fetching} =  pageSLice.actions
+    const {fetching,fetchSuccess,fetchError} =  pageSLice.actions
     return async (dispatch:AppDispatch) =>{
         try{
             dispatch(fetching)
-            const data = await makeRequest('https://openexchangerates.org/api/latest.json?app_id=771a6bee690546a8829f7887b24585c9','GET')
+            const data = await makeRequest('/api/pages/all','GET')
             console.log('data',data)
-        
+            dispatch(fetchSuccess(data))
         }
         catch (e){
-
+            dispatch(fetchError(e as Error))
         }
     }
 }
