@@ -1,15 +1,26 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
+interface Ipages {
+    Page :  string[],
+    Forms: string[]
+}
+
 interface PagesState{
     loading: boolean,
     error: string,
-    pages: any[]
+    pages: {
+        Page :  string[],
+    Forms: string[]
+    }
 }
 
 const initialState: PagesState = {
     loading: false,
     error: '',
-    pages: []
+    pages: {
+        Page: [],
+        Forms: []
+    }
 
 }
 
@@ -29,7 +40,7 @@ export const pageSLice = createSlice({
         fetching(state){
            state.loading = true 
         },
-        fetchSuccess(state,action: PayloadAction<any[]>){
+        fetchSuccess(state,action: PayloadAction<Ipages>){
             state.loading = false
             state.pages = action.payload
         },

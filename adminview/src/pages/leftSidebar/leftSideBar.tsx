@@ -17,8 +17,6 @@ function LeftSidaBar(){
 const dispatch = useAppDispatch()
 const {error,loading,pages} = UseAppSelector(state => state.pagesSlice)
 
-let page = pages.page;
-
 useEffect(() => {
     dispatch(fetchPages())
   
@@ -44,7 +42,7 @@ isOpen === num ? setIsOpen(0) : setIsOpen(num)
                       <h5 onClick={(e) => openList(e,1)}>Pages</h5>
                       {isOpen == 1 ?    <div className="leftSideBar__list-open">
                           <ul>
-                              {page.map(p =>  <li><a href="">{p}</a></li>)}
+                              {pages.Page.map(p =>  <li><a href="">{p}</a></li>)}
                           </ul>
                       </div> : ''}
                     
@@ -68,7 +66,7 @@ isOpen === num ? setIsOpen(0) : setIsOpen(num)
                       <h5 onClick={(e) => openList(e,3)}>Forms</h5>
                       {isOpen == 3 ?    <div className="leftSideBar__list-open">
                           <ul>
-                              <li><a href=""> Test Drive</a></li>
+                          {pages.Forms.map(p =>  <li><a href="">{p}</a></li>)}
                              
                           </ul>
                       </div> : ''}
