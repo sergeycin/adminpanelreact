@@ -42,7 +42,7 @@ isOpen === num ? setIsOpen(0) : setIsOpen(num)
                       <h5 onClick={(e) => openList(e,1)}>Pages</h5>
                       {isOpen == 1 ?    <div className="leftSideBar__list-open">
                           <ul>
-                              {pages.Page.map(p =>  <li><a href="">{p}</a></li>)}
+                              {pages.Page.map(p =>  <li><NavLink to="/admin/createModel">{p}</NavLink></li>)}
                           </ul>
                       </div> : ''}
                     
