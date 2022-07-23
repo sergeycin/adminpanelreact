@@ -1,3 +1,5 @@
+@import '../../index.scss';
+
 @keyframes animlist{
     from{
         opacity: 0;
@@ -7,10 +9,12 @@
     }
 }
 
+
+
 .leftSidaBar{
 margin-top: 1px;
     width: 20%;
-    background: #5653F3;
+    background: $purple;
 height: 100vh;
 
 .leftSideBar__content{
@@ -34,7 +38,7 @@ height: 100vh;
                 li{
                     line-height: 2.48;
                     a{
-                        color: white;
+                        color: $white;
                         text-decoration: none;
                         &:hover{
                             color: #4CAF50;
@@ -46,7 +50,7 @@ height: 100vh;
                     list-style: none;
                     color: #8f8f8f;
                     &:hover{
-                        color: white;
+                        color: $white;
                     }
                   
                 }
@@ -66,7 +70,7 @@ height: 100vh;
             position: relative;
             font-size: 1.095rem;
             font-weight: lighter;
-            color: white;
+            color: $white;
             &::after {
                 cursor: pointer;
                 content: "";

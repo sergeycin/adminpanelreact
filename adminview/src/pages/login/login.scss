@@ -1,5 +1,5 @@
 
-$purple: #5653F3;
+@import '../../index.scss';
 
 
 .login{
@@ -13,7 +13,7 @@ $purple: #5653F3;
     // }
     &__block{
         display: flex;
-        background: white;
+        background: $white;
         width: 861px;
         height: 441px;
     }
@@ -21,7 +21,7 @@ $purple: #5653F3;
         background: $purple;
         height: 100%;
         width: 50%;
-        color: white;
+        color: $white;
         padding: 53px;
         display: flex;
         flex-direction: column;
@@ -71,13 +71,13 @@ $purple: #5653F3;
     box-shadow: none;
     background: $purple;
     cursor: pointer;
-    color: white;
+    color: $white;
     transition: all 0.4s;
     display: block;
     margin: 0 auto;
     &:hover{
         color: $purple;
-        background: white;
+        background: $white;
         border: 2px solid $purple;
     }
 

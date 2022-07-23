@@ -1,0 +1,11 @@
+.list{
+    margin-top: 75px;
+    margin-left: 65px;
+    margin-right: 30px;
+    width: 100%;
+    &__top{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+}

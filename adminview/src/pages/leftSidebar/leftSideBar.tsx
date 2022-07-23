@@ -28,7 +28,6 @@ useEffect(() => {
 
  const openList = (event: React.MouseEvent, num:number) =>{
 isOpen === num ? setIsOpen(0) : setIsOpen(num)
-
  } 
 
     

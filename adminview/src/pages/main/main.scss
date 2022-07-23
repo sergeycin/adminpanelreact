@@ -1,9 +1,9 @@
-$purple : #5653F3;
+@import '../../index.scss';
 
 .main{
    width: 100%;
     &__top{
-        background: linear-gradient(180deg, #5653F3 0%, #5653F3 36.07%, #F6F7FB 36.07%, #F6F7FB 36.08%);
+        background: linear-gradient(180deg, $purple 0%, $purple 36.07%, #F6F7FB 36.07%, #F6F7FB 36.08%);
         width: 100%;
         padding-top: 1.85rem;
         padding-left: 2.9rem;
@@ -12,7 +12,7 @@ $purple : #5653F3;
             font-size: 1.8rem;
             padding-bottom: 1.95rem;
             margin: 0;
-            color: white;
+            color: $white;
         }
     }
     &__bottom{
@@ -23,7 +23,7 @@ $purple : #5653F3;
                 padding-top: 1.95rem;
                 padding-bottom: 1.95rem;
                 margin: 0;
-                color:black;
+                color:$black;
             }
     
     }

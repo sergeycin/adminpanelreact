@@ -1,5 +1,5 @@
 
-$purple: #5653F3;
+@import '../../index.scss';
 
 
 .header{
@@ -9,10 +9,10 @@ $purple: #5653F3;
         h2{
             margin-top: 15px;
             font-size: 1.8rem;
-            color: white;
+            color: $white;
             font-weight: 400;
             a{
-                color: white;
+                color: $white;
                 :hover{
                     color: #4CAF50;
                 }
@@ -38,7 +38,7 @@ $purple: #5653F3;
         width: 80%;
         display: flex;
         justify-content: flex-end;
-        background-color: white;
+        background-color: $white;
         padding-right: 24px;
         align-items: center;
         p{
