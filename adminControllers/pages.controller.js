@@ -9,7 +9,7 @@ const Forms = FormsObject
 
 
 
-  // /api/auth/login
+
   router.get(
     '/all', 
   async (req,res) =>{
@@ -22,7 +22,21 @@ const Forms = FormsObject
         
      res.json(dataObject)
     }catch(e){
-        res.status(500).json({message: "Вы точно не right"})
+        res.status(500).json({message: "Что-то пошло не так"})
+    }
+  })
+  
+
+  router.post(
+    '/modelList', 
+  async (req,res) =>{
+    try{
+      // const model = req.body
+    
+      console.log(req.body)
+     res.json('newmodel')
+    }catch(e){
+      res.status(500).json({message: "Что-то пошло не так"})      
     }
   })
   

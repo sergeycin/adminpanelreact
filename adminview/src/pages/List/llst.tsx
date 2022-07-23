@@ -1,7 +1,12 @@
 import './list.scss'
 import trash from '../../assets/img/trash.svg'
+import { useParams } from 'react-router-dom';
 
 function List(){
+    const params = useParams<'id'>()
+
+
+
 
     return(
         <>
@@ -10,7 +15,7 @@ function List(){
     
 
                 <div className="list__top">
-                    <h2>List</h2>
+                    <h2>List {params.id}</h2>
                     <div className="list__buttons">
                         <button className="createNew">+ Create new</button>
                     </div>

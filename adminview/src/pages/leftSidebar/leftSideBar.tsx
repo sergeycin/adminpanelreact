@@ -1,7 +1,7 @@
 import './leftSideBar.scss'
 import lexus from '../../assets/img/lexus.svg'
-import { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { fetchPages } from '../../store/actions/pagesActions';
 import { useAppDispatch, UseAppSelector } from '../../hooks/redux';
@@ -16,6 +16,7 @@ function LeftSidaBar(){
 
 const dispatch = useAppDispatch()
 const {error,loading,pages} = UseAppSelector(state => state.pagesSlice)
+const navigate = useNavigate() 
 
 useEffect(() => {
     dispatch(fetchPages())
@@ -30,6 +31,12 @@ useEffect(() => {
 isOpen === num ? setIsOpen(0) : setIsOpen(num)
  } 
 
+ const goList = (event:React.MouseEvent,p:string) =>{
+    event.preventDefault()
+   
+
+    navigate(`admin/${p}`)
+ }
     
 
     return(
@@ -41,7 +48,7 @@ isOpen === num ? setIsOpen(0) : setIsOpen(num)
                       <h5 onClick={(e) => openList(e,1)}>Pages</h5>
                       {isOpen == 1 ?    <div className="leftSideBar__list-open">
                           <ul>
-                              {pages.Page.map(p =>  <li><NavLink to="/admin/createModel">{p}</NavLink></li>)}
+                              {pages.Page.map(p =>  <li><a onClick={(event) => goList(event,p)} href="#">{p}</a></li>)}
                           </ul>
                       </div> : ''}
                     

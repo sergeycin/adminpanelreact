@@ -20,7 +20,7 @@ export const MyRoutes : React.FC<{Authenticated: string}> = ({Authenticated}) =>
 
        <Route path="/admin/main" element={<Main/>}/>  
        <Route path="/admin/create" element={<CreateUser/>}/>  
-       <Route path="/admin/createModel" element={<List/>}/>  
+       <Route path="/admin/:id" element={<List/>}/>  
          </Routes>
   </>
     
