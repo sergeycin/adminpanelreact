@@ -1,11 +1,14 @@
 import './list.scss'
 import trash from '../../assets/img/trash.svg'
 import { useParams } from 'react-router-dom';
+import { makeRequest } from "../../hooks/fetch.hooks"
 
 function List(){
     const params = useParams<'id'>()
-
-
+    const form = {news: 'News'}
+    const data =  makeRequest('/api/pages/modelList','POST',{...form})
+    
+    console.log(data)
 
 
     return(
