@@ -32,10 +32,9 @@ var dataObject ={
     try{
       const model = req.body
      
-      // console.log(dataObject)
 
       for(let modelPage in Pages){
-        // console.log('IN',Pages[modelPage])
+
         if(modelPage == String(Object.values(model))){
           console.log('have model')
    
@@ -46,23 +45,18 @@ var dataObject ={
           // })
 
           // news.save()
-         const dataPages = Pages[modelPage].find({title:"First News"})
-         console.log(dataPages)
+        var dataPages = await Pages[modelPage].find({})
+    
+
         }
 
         
       }
 
-      // for (let object of Pages){
-      //   console.log(Object.keys(object))
-        
-        // if(String(object) == String(Object.values(model))){
-        //   console.log('have model')
-        // }
-      // }
     
-      console.log(resultData)
-     res.json(dataPages)
+    
+      
+     res.json(dataPages[0])
     }catch(e){
       res.status(500).json({message: "Что-то пошло не так"})      
     }

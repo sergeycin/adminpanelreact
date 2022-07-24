@@ -1,8 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { combineReducers } from "redux";
 import pagesSlice from "./slices/pagesSlice";
+import FieldSlice from "./slices/FieldListSlice";
 const rootReducer = combineReducers({
-   pagesSlice
+   pagesSlice,
+   FieldSlice
 })
 
 export function setupStore() {
