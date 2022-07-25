@@ -11,7 +11,6 @@ export const fetchPages = () => {
         try{
             dispatch(fetching)
             const data = await makeRequest('/api/pages/all','GET')
-            console.log('data',data)
             dispatch(fetchSuccess(data))
         }
         catch (e){
