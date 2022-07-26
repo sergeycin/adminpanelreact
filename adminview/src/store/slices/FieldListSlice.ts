@@ -4,7 +4,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 interface PagesState{
     loading: boolean,
     error: string,
-   fields: string[]
+   fields: any[]
 }
 
 const initialState: PagesState = {
@@ -14,15 +14,15 @@ const initialState: PagesState = {
 
 }
 
-interface AirportPayload {
-    pages: string[],
-    count: number
-  }
+// interface AirportPayload {
+//     pages: string[],
+//     count: number
+//   }
   
 
 
 export const FieldSLice = createSlice({
-    name: 'pages',
+    name: 'fields',
     initialState,
     reducers: {
         

@@ -36,8 +36,7 @@ var dataObject ={
       for(let modelPage in Pages){
 
         if(modelPage == String(Object.values(model))){
-          console.log('have model')
-   
+ 
           // const news = new Pages[modelPage]({
           //   title: "First News",
           //   description: "Description",
@@ -53,10 +52,7 @@ var dataObject ={
         
       }
 
-    
-    
-      
-     res.json(dataPages[0])
+     res.json(dataPages)
     }catch(e){
       res.status(500).json({message: "Что-то пошло не так"})      
     }

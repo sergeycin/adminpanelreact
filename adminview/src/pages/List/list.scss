@@ -47,11 +47,13 @@
             }
             .center__top-item{
                 width: 20%;
+               
             }
         }
 
         &-middle{
-          
+          overflow: scroll;
+          max-height: 80%;
             padding: 1.5rem;
             padding-top: 0rem;
             padding-bottom: 0rem;
@@ -67,6 +69,9 @@
                 width: 20%;
                 padding-top: 0.7rem;
                 padding-bottom: 0.7rem;
+                p{
+                    max-width: 100%;
+                }
             }
         }
     }

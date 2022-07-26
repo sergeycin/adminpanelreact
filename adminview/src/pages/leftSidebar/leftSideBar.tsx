@@ -18,9 +18,13 @@ const dispatch = useAppDispatch()
 const {error,loading,pages} = UseAppSelector(state => state.pagesSlice)
 const navigate = useNavigate() 
 
+
+
 useEffect(() => {
+
     dispatch(fetchPages())
-  
+ 
+    
 },[])
 
 
@@ -33,8 +37,6 @@ isOpen === num ? setIsOpen(0) : setIsOpen(num)
 
  const goList = (event:React.MouseEvent,p:string) =>{
     event.preventDefault()
-   
-
     navigate(`admin/${p}`)
  }
     
@@ -48,7 +50,11 @@ isOpen === num ? setIsOpen(0) : setIsOpen(num)
                       <h5 onClick={(e) => openList(e,1)}>Pages</h5>
                       {isOpen == 1 ?    <div className="leftSideBar__list-open">
                           <ul>
-                              {pages.Page.map(p =>  <li><a onClick={(event) => goList(event,p)} href="#">{p}</a></li>)}
+
+                              {
+                               pages.Page ?   
+                              pages.Page.map(p =>  <li><a key={p} onClick={(event) => goList(event,p)} href="#">{p}</a></li>) : ''
+                              }
                           </ul>
                       </div> : ''}
                     
@@ -72,7 +78,7 @@ isOpen === num ? setIsOpen(0) : setIsOpen(num)
                       <h5 onClick={(e) => openList(e,3)}>Forms</h5>
                       {isOpen == 3 ?    <div className="leftSideBar__list-open">
                           <ul>
-                          {pages.Forms.map(p =>  <li><a href="">{p}</a></li>)}
+                          {pages.Forms.map(p =>  <li key={p}><a href="">{p}</a></li>)}
                              
                           </ul>
                       </div> : ''}

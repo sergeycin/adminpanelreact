@@ -9,7 +9,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cross-env NODE_ENV=production nodemon server.js ",
     "dev": "cross-env NODE_ENV=development concurrently \" npm run server\" \"npm run client\"",
-    "build": "node server.js"
+    "prod": "node server.js",
+    "build": "npm run build --prefix adminview"
   },
   "repository": {
     "type": "git",

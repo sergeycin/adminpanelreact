@@ -6,25 +6,54 @@ import { useAppDispatch, UseAppSelector } from '../../hooks/redux';
 import { useEffect } from 'react';
 import { fieldList } from '../../store/actions/fieldActions';
 
+
 function List(){
     const params = useParams<'id'>()
     const dispatch = useAppDispatch()
 const {error,loading,fields} = UseAppSelector(state => state.FieldSlice)
-let listFields:String[] = [] 
-
+let nameFields:String[] = [] 
+let listFields:any[] = [] 
     const form = {model: params.id}
   
+    
     useEffect (()=>{
         dispatch(fieldList(form))
+       
+        
     },[])
 
-    for(let field in fields){
+    for(let field in fields[0]){
         if(field != '__v'){
-            listFields.push(field)
+            nameFields.push(field)
         }
        
     }
 
+    const createDataList = () =>{
+        
+        for (let key in fields){
+            let masItem = []
+   
+            
+            for(let j in fields[key]){
+                masItem.push(<div key={fields[key].id} className="center__top-item"><p>{fields[key][j]}</p></div>)
+            }
+
+            listFields.push(
+                <div key={key} className="middle__item">
+                <div className="center__top-item trash"><img src={trash} alt="" /></div>
+                {masItem}
+                
+                </div>
+            
+                
+            )
+        }
+    }
+
+
+   
+    createDataList()
     
 
     return(
@@ -43,44 +72,13 @@ let listFields:String[] = []
                 <div className="list__center">
                     <div className="list__center-top">
                        <div className="center__top-item trash"><img src={trash} alt="" /></div>
-                    
-                          {listFields.map(field =>   <div className="center__top-item"><p>{field}</p></div>)}
+
+                          {nameFields.map(field =>   <div key={field.toString()} className="center__top-item"><p>{field}</p></div>)}
                 
                     </div>
 
                     <div className="list__center-middle">
-                        <div className="middle__item">
-                        <div className="center__top-item trash"><img src={trash} alt="" /></div>
-                       <div className="center__top-item"><p>id</p></div>
-                       <div className="center__top-item"><p>En Name</p></div>
-                       <div className="center__top-item"><p>EN Description</p></div>
-                       <div className="center__top-item"><p>Ru Name</p></div>
-                       <div className="center__top-item"><p>EN Description</p></div>
-                       <div className="center__top-item"><p>image</p></div>
-                        </div>
-                    
-
-                        <div className="middle__item">
-                        <div className="center__top-item trash"><img src={trash} alt="" /></div>
-                       <div className="center__top-item"><p>id</p></div>
-                       <div className="center__top-item"><p>En Name</p></div>
-                       <div className="center__top-item"><p>EN Description</p></div>
-                       <div className="center__top-item"><p>Ru Name</p></div>
-                       <div className="center__top-item"><p>EN Description</p></div>
-                       <div className="center__top-item"><p>image</p></div>
-                        </div>
-
-
-
-                        <div className="middle__item">
-                        <div className="center__top-item trash"><img src={trash} alt="" /></div>
-                       <div className="center__top-item"><p>id</p></div>
-                       <div className="center__top-item"><p>En Name</p></div>
-                       <div className="center__top-item"><p>EN Description</p></div>
-                       <div className="center__top-item"><p>Ru Name</p></div>
-                       <div className="center__top-item"><p>EN Description</p></div>
-                       <div className="center__top-item"><p>image</p></div>
-                        </div>
+              {listFields}
                     </div>
                 </div>
         </div>
