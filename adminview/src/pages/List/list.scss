@@ -13,11 +13,11 @@
         align-items: center;
         .createNew{
             background-color: $purple;
-            width: 7.7rem;
-            height: 1.7rem;
+            width: 10.7rem;
+            height: 2.7rem;
             border: none;
             color: white;
-            font-size: 0.9rem;
+            font-size: 1.0rem;
         }
         h2{
             font-size: 1.8rem;
@@ -42,8 +42,9 @@
             padding: 1.5rem;
             padding-top: 0.7rem;
             padding-bottom: 0.7rem;
-            .trash{
+            .center__top-item.trash{
                 width: 10%;
+                cursor: pointer;
             }
             .center__top-item{
                 width: 20%;
@@ -62,8 +63,9 @@
                 justify-content: space-between;
                 align-items: center;
             }
-            .trash{
+            .center__top-item.trash{
                 width: 10%;
+                cursor: pointer;
             }
             .center__top-item{
                 width: 20%;

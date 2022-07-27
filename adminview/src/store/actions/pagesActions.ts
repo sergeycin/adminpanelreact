@@ -9,7 +9,7 @@ export const fetchPages = () => {
     const {fetching,fetchSuccess,fetchError} =  pageSLice.actions
     return async (dispatch:AppDispatch) =>{
         try{
-            dispatch(fetching)
+            dispatch(fetching())
             const data = await makeRequest('/api/pages/all','GET')
             dispatch(fetchSuccess(data))
         }

@@ -13,6 +13,7 @@ var dataObject ={
   "Forms": Object.keys(Forms),
 }
 
+var CurrentPage; // Текущая используемая страница
 
   router.get(
     '/all', 
@@ -36,7 +37,7 @@ var dataObject ={
       for(let modelPage in Pages){
 
         if(modelPage == String(Object.values(model))){
- 
+          CurrentPage = Pages[modelPage]
           // const news = new Pages[modelPage]({
           //   title: "First News",
           //   description: "Description",
@@ -44,7 +45,7 @@ var dataObject ={
           // })
 
           // news.save()
-        var dataPages = await Pages[modelPage].find({})
+        var dataPages = await CurrentPage.find({})
     
 
         }
@@ -60,8 +61,26 @@ var dataObject ={
   
   
 
+  router.post(
+    '/deleteField', 
+  async (req,res) =>{
+    try{
+      
+      const currentId = req.body
 
+      const deleteField =  CurrentPage.deleteOne({currentId})
 
+      if(deleteField){
+        res.json("Данные успешно удалено")
+      }
+      else{
+        res.json("По данному id поле не найдено")
+      }
+
+    }catch(e){
+      res.status(500).json({message: "Что-то пошло не так"})      
+    }
+  })
 
 
 module.exports = router

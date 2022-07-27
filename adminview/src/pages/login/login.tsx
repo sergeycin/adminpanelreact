@@ -32,7 +32,7 @@ function Login() {
   const loginHandler = async (event:any) =>{
     event.preventDefault()
     try{
-    console.log('login')
+
       const data = await request('/api/auth/login','POST',{...form})
       console.log(data)
       auth.login(data.token,data.userId)

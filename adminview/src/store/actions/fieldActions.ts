@@ -11,9 +11,9 @@ export const fieldList= (form: formModel) => {
     const {fetching,fetchSuccess,fetchError} =  FieldSLice.actions
     return async (dispatch:AppDispatch) =>{
         try{
-            dispatch(fetching)
+            dispatch(fetching()) 
             const data = await makeRequest('/api/pages/modelList','POST',{...form})
-        
+           
             dispatch(fetchSuccess(data))
         }
         catch (e){

@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { fetchPages } from '../../store/actions/pagesActions';
 import { useAppDispatch, UseAppSelector } from '../../hooks/redux';
 import { pageSLice } from '../../store/slices/pagesSlice';
+import Loader from '../loader/loader';
 
 
 
@@ -42,7 +43,9 @@ isOpen === num ? setIsOpen(0) : setIsOpen(num)
     
 
     return(
+        
         <div className="leftSidaBar">
+              {loading && <Loader/>}
            <div className="leftSideBar__content">
 
                <div className="leftSideBar__list">

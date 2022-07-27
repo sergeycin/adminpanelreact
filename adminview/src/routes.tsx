@@ -8,7 +8,7 @@ import Main from './pages/main/main'
 export const MyRoutes : React.FC<{Authenticated: string}> = ({Authenticated}) => {
 
   if(Authenticated){
-    console.log('login',Authenticated)
+    // console.log('login',Authenticated)
     return(
   <>
      {/* <Navigate to="/admin/main" /> */}
