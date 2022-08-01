@@ -16,12 +16,12 @@ function List(){
     let nameFields:String[] = [] 
     let listFields:any[] = [] 
     const form = {model: params.id}
-    // const {fieldsChange,setChange} = useState<Number>(0)
+    const [fieldsChange,setChange] = useState<number>(0)
   
 
     useEffect (()=>{
         dispatch(fieldList(form))
-    },[params])
+    },[params,fieldsChange])
   
     for(let field in fields[0]){
         if(field != '__v'  && field != '_id' ){
@@ -30,8 +30,12 @@ function List(){
     }
     const removeField = (event:any) =>{
         let currentField = event.target
-        dispatch( deleteField(currentField.getAttribute("_id")))
-        // setChange(fieldsChange + 1)
+        let idCurrent = currentField.getAttribute("id")
+        let IdObject = {
+            _id : idCurrent
+        }
+        dispatch( deleteField(IdObject))
+        setChange(fieldsChange + 1)
         // console.log(currentField.getAttribute("_id"))
     }
     const createDataList = () =>{

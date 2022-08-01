@@ -39,7 +39,7 @@ var CurrentPage; // Текущая используемая страница
         if(modelPage == String(Object.values(model))){
           CurrentPage = Pages[modelPage]
           // const news = new Pages[modelPage]({
-          //   title: "First News",
+          //   title: "Three News",
           //   description: "Description",
           //   image: "first.png"
           // })
@@ -67,15 +67,14 @@ var CurrentPage; // Текущая используемая страница
     try{
       
       const currentId = req.body
+  
 
-      const deleteField =  CurrentPage.deleteOne({currentId})
 
-      if(deleteField){
+      CurrentPage.deleteOne(currentId).then(function(){
         res.json("Данные успешно удалено")
-      }
-      else{
-        res.json("По данному id поле не найдено")
-      }
+    }).catch(function(error){
+      res.json("По данному id поле не найдено",error)
+    });
 
     }catch(e){
       res.status(500).json({message: "Что-то пошло не так"})      

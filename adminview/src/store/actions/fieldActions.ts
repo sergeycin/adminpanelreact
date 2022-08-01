@@ -6,6 +6,9 @@ import  { FieldSLice } from "../slices/FieldListSlice"
 interface formModel {
     model: string | undefined
 }
+interface deleteMode {
+    _id: string | undefined
+}
 
 export const fieldList= (form: formModel) => {
     const {fetching,fetchSuccess,fetchError} =  FieldSLice.actions
@@ -23,12 +26,12 @@ export const fieldList= (form: formModel) => {
 }
 
 
-export const deleteField = (idField: string) => {
+export const deleteField = (form: deleteMode) => {
     const {fetching,fetchSuccessDelete,fetchError} =  FieldSLice.actions
     return async (dispatch:AppDispatch) =>{
         try{
             dispatch(fetching()) 
-            const data = await makeRequest('/api/pages/modelList','POST',idField)
+            const data = await makeRequest('/api/pages/deleteField','POST',{...form})
             console.log(data)
             dispatch(fetchSuccessDelete())
         }
