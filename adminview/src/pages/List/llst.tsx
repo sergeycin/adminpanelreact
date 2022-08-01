@@ -7,6 +7,7 @@ import { useAppDispatch, UseAppSelector } from '../../hooks/redux';
 import React, { useEffect, useState } from 'react';
 import { fieldList,deleteField } from '../../store/actions/fieldActions';
 import Loader from '../loader/loader';
+import { NavLink } from 'react-router-dom';
 
 
 function List(){
@@ -47,10 +48,13 @@ function List(){
                 masItem.push(<div key={fields[key].id} className="center__top-item"><p>{fields[key][j]}</p></div>)
             }
             listFields.push(
-                <div key={key}  className="middle__item">
+                <NavLink to="/createNewModel">
+             <div key={key}  className="middle__item">
                 <div className="center__top-item trash"><img onClick={event => removeField(event)} id={fields[key]._id} src={trash} alt="" /></div>
                 {masItem}
                 </div>
+                </NavLink>
+               
             )
         }
     }

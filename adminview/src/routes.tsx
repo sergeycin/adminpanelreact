@@ -1,5 +1,6 @@
 import React from 'react'
 import {BrowserRouter,Navigate,Route,Routes } from 'react-router-dom'
+import CreateModel from './pages/createNewModel/createModel'
 import CreateUser from './pages/createUser/CreeateUser'
 import List from './pages/List/llst'
 import Login from './pages/login/login'
@@ -20,6 +21,7 @@ export const MyRoutes : React.FC<{Authenticated: string}> = ({Authenticated}) =>
 
        <Route path="/admin/main" element={<Main/>}/>  
        <Route path="/admin/create" element={<CreateUser/>}/>  
+       <Route path="/admin/createNewModel" element={<CreateModel/>}/>  
        <Route path="/admin/:id" element={<List/>}/>  
          </Routes>
   </>
