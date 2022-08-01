@@ -21,3 +21,19 @@ export const fieldList= (form: formModel) => {
         }
     }
 }
+
+
+export const deleteField = (idField: string) => {
+    const {fetching,fetchSuccessDelete,fetchError} =  FieldSLice.actions
+    return async (dispatch:AppDispatch) =>{
+        try{
+            dispatch(fetching()) 
+            const data = await makeRequest('/api/pages/modelList','POST',idField)
+            console.log(data)
+            dispatch(fetchSuccessDelete())
+        }
+        catch (e){
+            dispatch(fetchError(e as Error))
+        }
+    }
+}

@@ -4,72 +4,53 @@ import list from '../../assets/img/list.svg'
 import { useParams } from 'react-router-dom';
 import { makeRequest } from "../../hooks/fetch.hooks"
 import { useAppDispatch, UseAppSelector } from '../../hooks/redux';
-import React, { useEffect } from 'react';
-import { fieldList } from '../../store/actions/fieldActions';
+import React, { useEffect, useState } from 'react';
+import { fieldList,deleteField } from '../../store/actions/fieldActions';
 import Loader from '../loader/loader';
 
 
 function List(){
     const params = useParams<'id'>()
     const dispatch = useAppDispatch()
-const {error,loading,fields} = UseAppSelector(state => state.FieldSlice)
-let nameFields:String[] = [] 
-let listFields:any[] = [] 
+    const {error,loading,fields} = UseAppSelector(state => state.FieldSlice)
+    let nameFields:String[] = [] 
+    let listFields:any[] = [] 
     const form = {model: params.id}
+    // const {fieldsChange,setChange} = useState<Number>(0)
   
-    
-    useEffect (()=>{
-   
 
+    useEffect (()=>{
         dispatch(fieldList(form))
-       
-        
     },[params])
   
     for(let field in fields[0]){
         if(field != '__v'  && field != '_id' ){
             nameFields.push(field)
         }
-       
     }
-
     const removeField = (event:any) =>{
         let currentField = event.target
-        
-        console.log(currentField.getAttribute("_id"))
+        dispatch( deleteField(currentField.getAttribute("_id")))
+        // setChange(fieldsChange + 1)
+        // console.log(currentField.getAttribute("_id"))
     }
-
-
     const createDataList = () =>{
-        
+         listFields = [] 
         for (let key in fields){
             let masItem = []
-   
-            
             for(let j in fields[key]){
                 if(j != '__v'  && j != '_id' )
                 masItem.push(<div key={fields[key].id} className="center__top-item"><p>{fields[key][j]}</p></div>)
-
-
             }
-
             listFields.push(
                 <div key={key}  className="middle__item">
                 <div className="center__top-item trash"><img onClick={event => removeField(event)} id={fields[key]._id} src={trash} alt="" /></div>
                 {masItem}
-                
                 </div>
-            
-                
             )
         }
     }
-
-
-   
     createDataList()
-    
-
     return(
         <>
     {loading && <Loader/>}

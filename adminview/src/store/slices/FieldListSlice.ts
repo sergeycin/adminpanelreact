@@ -34,6 +34,9 @@ export const FieldSLice = createSlice({
             state.loading = false
             state.fields = action.payload
         },
+        fetchSuccessDelete(state){
+            state.loading = true 
+        },
         fetchError(state,action:PayloadAction<Error>){
             state.loading = false
             state.error = action.payload.message
