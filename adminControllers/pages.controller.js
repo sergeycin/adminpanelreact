@@ -65,11 +65,7 @@ var CurrentPage; // Текущая используемая страница
     '/deleteField', 
   async (req,res) =>{
     try{
-      
       const currentId = req.body
-  
-
-
       CurrentPage.deleteOne(currentId).then(function(){
         res.json("Данные успешно удалено")
     }).catch(function(error){
@@ -81,5 +77,24 @@ var CurrentPage; // Текущая используемая страница
     }
   })
 
+
+  router.post(
+    '/createField', 
+  async (req,res) =>{
+    try{
+      const requestField = req.body
+
+           const newField = new CurrentPage({
+            title: requestField.title,
+            description: requestField.description,
+            image: requestField.image
+          })
+
+          newField.save()
+     
+    }catch(e){
+      res.status(500).json({message: "Что-то пошло не так"})      
+    }
+  })
 
 module.exports = router
