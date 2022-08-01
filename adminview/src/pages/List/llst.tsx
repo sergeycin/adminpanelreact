@@ -48,7 +48,7 @@ function List(){
                 masItem.push(<div key={fields[key].id} className="center__top-item"><p>{fields[key][j]}</p></div>)
             }
             listFields.push(
-                <NavLink to="/createNewModel">
+                <NavLink to="/">
              <div key={key}  className="middle__item">
                 <div className="center__top-item trash"><img onClick={event => removeField(event)} id={fields[key]._id} src={trash} alt="" /></div>
                 {masItem}
@@ -70,7 +70,10 @@ function List(){
                 <div className="list__top">
                     <h2>List {params.id}</h2>
                     <div className="list__buttons">
+                        <NavLink state={{arrayFields: nameFields}} to="/admin/createNewModel">
                         <button className="createNew">+  Create new</button>
+                        </NavLink>
+                     
                     </div>
                 </div>
 
