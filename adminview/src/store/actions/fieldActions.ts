@@ -43,7 +43,7 @@ export const deleteField = (form: deleteMode) => {
 
 
 
-export const AddField = (form: deleteMode) => {
+export const AddField = (form: any) => {
     const {fetching,fetchSuccessJust,fetchError} =  FieldSLice.actions
     return async (dispatch:AppDispatch) =>{
         try{
