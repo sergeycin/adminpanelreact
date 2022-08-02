@@ -84,14 +84,13 @@ var CurrentPage; // Текущая используемая страница
     try{
       const requestField = req.body
       console.log(requestField)
-          //  const newField = new CurrentPage({
-          //   title: requestField.title,
-          //   description: requestField.description,
-          //   image: requestField.image
-          // })
+           const newField = new CurrentPage(requestField)
 
-          // newField.save()
-     
+
+          newField.save()
+          
+          res.json({message: 'Данные успешно добавлены'})
+          
     }catch(e){
       res.status(500).json({message: "Что-то пошло не так"})      
     }

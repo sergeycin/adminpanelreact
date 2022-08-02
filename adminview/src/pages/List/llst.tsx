@@ -30,6 +30,7 @@ function List(){
         }
     }
     const removeField = (event:any) =>{
+        event.preventDefault()
         let currentField = event.target
         let idCurrent = currentField.getAttribute("id")
         let IdObject = {

@@ -44,13 +44,13 @@ export const deleteField = (form: deleteMode) => {
 
 
 export const AddField = (form: any) => {
-    const {fetching,fetchSuccessJust,fetchError} =  FieldSLice.actions
+    const {fetching,fetchSuccessCreateField,fetchError} =  FieldSLice.actions
     return async (dispatch:AppDispatch) =>{
         try{
             dispatch(fetching()) 
             const data = await makeRequest('/api/pages/createField','POST',{...form})
-            console.log(data)
-            dispatch(fetchSuccessJust())
+            // console.log(data.message)
+            dispatch(fetchSuccessCreateField(data.message))
         }
         catch (e){
             dispatch(fetchError(e as Error))
