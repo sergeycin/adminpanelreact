@@ -13,7 +13,7 @@ import { NavLink } from 'react-router-dom';
 function List(){
     const params = useParams<'id'>()
     const dispatch = useAppDispatch()
-    const {error,loading,fields} = UseAppSelector(state => state.FieldSlice)
+    const {loading,fields} = UseAppSelector(state => state.FieldSlice)
     let nameFields:String[] = [] 
     let listFields:any[] = [] 
     const form = {model: params.id}

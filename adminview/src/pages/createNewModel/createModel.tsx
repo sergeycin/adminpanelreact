@@ -2,6 +2,9 @@ import arrow from '../../assets/img/arrow.svg'
 import './createModel.scss';
 import { useLocation } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
+import { useAppDispatch, UseAppSelector } from '../../hooks/redux';
+import { useEffect, useState } from 'react';
+import Loader from '../loader/loader';
 
 interface LocationState {
     state:{
@@ -15,15 +18,37 @@ function CreateModel() {
     const location = useLocation();
     const { state } = location as LocationState;
     const navigate= useNavigate();
+    const {error,loading} = UseAppSelector(state => state.FieldSlice)
+
+
+    const obj = state.arrayFields.reduce((newObj:any, item) => {
+      newObj[item] = item;
+      return newObj;
+    }, {});
+    
+
+ 
+    const [form,setForm] = useState<any>(obj)
+
 
     const backHandler = () =>{
         navigate(-1)
     }
 
+    const changeHandler = (event:any) =>{
+        setForm({ ...form, [event.target.name]: event.target.value})
+        console.log(form)
+    }
+
+    const saveHandler = () =>{
+        
+    }
+
 
     return(
-        
-        <div className="wrapper__right">
+        <>
+           {loading && <Loader/>}
+           <div className="wrapper__right">
             <div className="create">
 
                 <div className="create__top">
@@ -41,10 +66,10 @@ function CreateModel() {
                 state.arrayFields.map(field =>  
                     <div className="form__field">
                     <label htmlFor="">{field}</label>
-                    <input type="text" className="form__input" />
+                    <input  onChange={changeHandler} value={form.field}  name={field} type="text" className="form__input" />
                 </div>
                     )
-                    : 'Что-то пошло не так'
+                    : error
                 }
            <div className="form__field">
                <label htmlFor="">Email</label>
@@ -52,7 +77,7 @@ function CreateModel() {
            </div>
 
                 </div>
-                 <button  className="login-btn" >Save</button>
+                 <button onClick={saveHandler}  className="login-btn" >Save</button>
     </form> 
 
 
@@ -61,6 +86,8 @@ function CreateModel() {
 
             </div>
         </div>
+        </>
+      
     )
 }
 

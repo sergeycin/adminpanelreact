@@ -27,16 +27,34 @@ export const fieldList= (form: formModel) => {
 
 
 export const deleteField = (form: deleteMode) => {
-    const {fetching,fetchSuccessDelete,fetchError} =  FieldSLice.actions
+    const {fetching,fetchSuccessJust,fetchError} =  FieldSLice.actions
     return async (dispatch:AppDispatch) =>{
         try{
             dispatch(fetching()) 
             const data = await makeRequest('/api/pages/deleteField','POST',{...form})
             console.log(data)
-            dispatch(fetchSuccessDelete())
+            dispatch(fetchSuccessJust())
         }
         catch (e){
             dispatch(fetchError(e as Error))
         }
     }
 }
+
+
+
+export const AddField = (form: deleteMode) => {
+    const {fetching,fetchSuccessJust,fetchError} =  FieldSLice.actions
+    return async (dispatch:AppDispatch) =>{
+        try{
+            dispatch(fetching()) 
+            const data = await makeRequest('/api/pages/deleteField','POST',{...form})
+            console.log(data)
+            dispatch(fetchSuccessJust())
+        }
+        catch (e){
+            dispatch(fetchError(e as Error))
+        }
+    }
+}
+
