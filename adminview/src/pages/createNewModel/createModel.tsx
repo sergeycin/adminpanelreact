@@ -3,8 +3,9 @@ import './createModel.scss';
 import { useLocation } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, UseAppSelector } from '../../hooks/redux';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Loader from '../loader/loader';
+import { AddField } from '../../store/actions/fieldActions';
 
 interface LocationState {
     state:{
@@ -19,12 +20,14 @@ function CreateModel() {
     const { state } = location as LocationState;
     const navigate= useNavigate();
     const {error,loading} = UseAppSelector(state => state.FieldSlice)
-
-
+    const dispatch = useAppDispatch()
+    console.log(state.arrayFields)
     const obj = state.arrayFields.reduce((newObj:any, item) => {
       newObj[item] = item;
       return newObj;
     }, {});
+
+    console.log(obj)
     
 
  
@@ -37,11 +40,12 @@ function CreateModel() {
 
     const changeHandler = (event:any) =>{
         setForm({ ...form, [event.target.name]: event.target.value})
-        console.log(form)
     }
 
-    const saveHandler = () =>{
-        
+    const saveHandler = (event:React.MouseEvent) =>{
+        event.preventDefault()
+        console.log(form)
+        dispatch( AddField(form))
     }
 
 

@@ -48,7 +48,7 @@ export const AddField = (form: deleteMode) => {
     return async (dispatch:AppDispatch) =>{
         try{
             dispatch(fetching()) 
-            const data = await makeRequest('/api/pages/deleteField','POST',{...form})
+            const data = await makeRequest('/api/pages/createField','POST',{...form})
             console.log(data)
             dispatch(fetchSuccessJust())
         }

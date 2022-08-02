@@ -83,14 +83,14 @@ var CurrentPage; // Текущая используемая страница
   async (req,res) =>{
     try{
       const requestField = req.body
+      console.log(requestField)
+          //  const newField = new CurrentPage({
+          //   title: requestField.title,
+          //   description: requestField.description,
+          //   image: requestField.image
+          // })
 
-           const newField = new CurrentPage({
-            title: requestField.title,
-            description: requestField.description,
-            image: requestField.image
-          })
-
-          newField.save()
+          // newField.save()
      
     }catch(e){
       res.status(500).json({message: "Что-то пошло не так"})      
