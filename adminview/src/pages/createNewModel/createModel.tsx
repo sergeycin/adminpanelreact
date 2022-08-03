@@ -58,10 +58,12 @@ function CreateModel() {
         let Data = new FormData();
 
         for(let file of files){
-            console.log(file)
+           
             if ((file.size <= maxFileSize) && ((file.type == 'image/png') || (file.type == 'image/jpeg'))) {
                 console.log('ok')
-                Data.append('images[]', file);
+                // Data.append('file',file);
+                console.log(file)
+                Data.append("myFile", '222');
            }
         }
         console.log(Data)
