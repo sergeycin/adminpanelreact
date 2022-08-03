@@ -35,7 +35,11 @@ function CreateModel() {
     const backHandler = () =>{
         navigate(-1)
     }
-
+    const fileHandler = (input:any) =>{
+        // let files = input.files
+        // console.log(input.target.files)
+        filesave (input.target.files)
+}
     const changeHandler = (event:any) =>{
         setForm({ ...form, [event.target.name]: event.target.value})
     
@@ -49,7 +53,25 @@ function CreateModel() {
        
   
     }
+    const filesave = (files:any) =>{
+        let maxFileSize = 5242880;
+        let Data = new FormData();
 
+        for(let file of files){
+            console.log(file)
+            if ((file.size <= maxFileSize) && ((file.type == 'image/png') || (file.type == 'image/jpeg'))) {
+                console.log('ok')
+                Data.append('images[]', file);
+           }
+        }
+        console.log(Data)
+        fetch('/api/pages/sendimage', {
+            method: 'POST',
+            body: Data
+          })
+            .then(response => console.log(response))
+    
+    }
 
     return(
         <>
@@ -78,7 +100,11 @@ function CreateModel() {
                     : error
                 }
        
-
+                <div className="form__field">
+                    <label htmlFor="">Download Image</label>
+                    <input onChange={e => fileHandler(e)} id='file-input' name="myFile" type="file"/>
+                    <button   className="login-btn" >Отправить</button>
+                </div>
                 </div>
                  <button onClick={saveHandler}  className="login-btn" >Save</button>
                 

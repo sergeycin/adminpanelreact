@@ -83,13 +83,28 @@ var CurrentPage; // Текущая используемая страница
   async (req,res) =>{
     try{
       const requestField = req.body
-      console.log(requestField)
+      // console.log(requestField)
            const newField = new CurrentPage(requestField)
 
 
           newField.save()
           
           res.json({message: 'Данные успешно добавлены'})
+          
+    }catch(e){
+      res.status(500).json({message: "Что-то пошло не так"})      
+    }
+  })
+
+
+  router.post(
+    '/sendimage', 
+  async (req,res) =>{
+    try{
+      const requestField = req.body
+      // console.log(requestField)
+     console.log(requestField)
+          res.json(requestField)
           
     }catch(e){
       res.status(500).json({message: "Что-то пошло не так"})      
