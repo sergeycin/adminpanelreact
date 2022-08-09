@@ -115,7 +115,7 @@ var CurrentPage; // Текущая используемая страница
 
           let path;
           // if (parent) {
-              path = `${config.get('filePath')}\\${file.name}`
+              path = `${__dirname}\\..\\uploads\\${file.name}`
           // } else {
           //     path = `${config.get('filePath')}\\${user._id}\\${file.name}`
           // }
@@ -124,21 +124,20 @@ var CurrentPage; // Текущая используемая страница
               return res.status(400).json({message: 'File already exist'})
           }
           file.mv(path)
+          let  pathToDatBase = `./uploads${file.name}` 
+          // const type = file.name.split('.').pop()
+          // const dbFile = new File({
+          //     name: file.name,
+          //     type,
+          //     size: file.size,
+          //     path: path,
+          
+          // })
 
-          const type = file.name.split('.').pop()
-          const dbFile = new File({
-              name: file.name,
-              type,
-              size: file.size,
-              path: path,
-              // parent: parent?._id,
-              // user: user._id
-          })
+          // await dbFile.save()
+       
 
-          await dbFile.save()
-          // await user.save()
-
-          res.json(dbFile)
+          res.json('ok')
       } catch (e) {
           console.log(e)
           return res.status(500).json({message: "Upload error"})
