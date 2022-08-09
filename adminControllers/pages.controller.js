@@ -1,8 +1,9 @@
 const {Router} = require('express')
 const config = require('config') // библиотека для использования данных где угодно которые зашиты в файле config.json
 const {PagesObject,FormsObject} = require('../server')
-
+let fs = require('fs');
 const router = Router()
+// const config = require('config')
 
 const Pages = PagesObject;
 const Forms = FormsObject
@@ -102,22 +103,22 @@ var CurrentPage; // Текущая используемая страница
     async (req, res) =>{
       try {
           const file = req.files.file
+        console.log('file',file)
+          // const parent = await File.findOne({user: req.user.id, _id: req.body.parent})
+          // const user = await User.findOne({_id: req.user.id})
 
-          const parent = await File.findOne({user: req.user.id, _id: req.body.parent})
-          const user = await User.findOne({_id: req.user.id})
+          // if (user.usedSpace + file.size > user.diskSpace) {
+          //     return res.status(400).json({message: 'There no space on the disk'})
+          // }
 
-          if (user.usedSpace + file.size > user.diskSpace) {
-              return res.status(400).json({message: 'There no space on the disk'})
-          }
-
-          user.usedSpace = user.usedSpace + file.size
+          // user.usedSpace = user.usedSpace + file.size
 
           let path;
-          if (parent) {
-              path = `${config.get('filePath')}\\${user._id}\\${parent.path}\\${file.name}`
-          } else {
-              path = `${config.get('filePath')}\\${user._id}\\${file.name}`
-          }
+          // if (parent) {
+              path = `${config.get('filePath')}\\${file.name}`
+          // } else {
+          //     path = `${config.get('filePath')}\\${user._id}\\${file.name}`
+          // }
 
           if (fs.existsSync(path)) {
               return res.status(400).json({message: 'File already exist'})
@@ -129,13 +130,13 @@ var CurrentPage; // Текущая используемая страница
               name: file.name,
               type,
               size: file.size,
-              path: parent?.path,
-              parent: parent?._id,
-              user: user._id
+              path: path,
+              // parent: parent?._id,
+              // user: user._id
           })
 
           await dbFile.save()
-          await user.save()
+          // await user.save()
 
           res.json(dbFile)
       } catch (e) {

@@ -2,6 +2,7 @@ const express = require('express')
 const config = require('config')
 const mongose = require('mongoose')
 const path = require('path')
+const fileUpload = require("express-fileupload")
 const app = express()
 const User = require('./models/User')
 const News  = require('./models/News')
@@ -26,6 +27,7 @@ exports.FormsObject = {
 const PORT =  8000
 
 app.use(express.json({extended: true}))
+app.use(fileUpload({}))
  app.use('/api/auth', require('./adminControllers/auth.controller'))
  app.use('/api/pages', require('./adminControllers/pages.controller'))
 //  app.use('/api/link',require('./routes/link.routes'))

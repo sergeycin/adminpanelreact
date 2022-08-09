@@ -60,18 +60,19 @@ function CreateModel() {
         for(let file of files){
            
             if ((file.size <= maxFileSize) && ((file.type == 'image/png') || (file.type == 'image/jpeg'))) {
-                console.log('ok')
+                // console.log('ok')
                 // Data.append('file',file);
-                console.log(file)
-                Data.append("myFile", '222');
+                // console.log(file)
+                Data.append("file", file);
            }
         }
-        console.log(Data)
+        // console.log(Data)
         fetch('/api/pages/sendimage', {
             method: 'POST',
             body: Data
           })
             .then(response => console.log(response))
+            .catch(e => console.log('error',e))
     
     }
 
@@ -104,7 +105,7 @@ function CreateModel() {
        
                 <div className="form__field">
                     <label htmlFor="">Download Image</label>
-                    <input onChange={e => fileHandler(e)} id='file-input' name="myFile" type="file"/>
+                    <input  onChange={e => fileHandler(e)} id='file-input' name="myFile" type="file"/>
                     <button   className="login-btn" >Отправить</button>
                 </div>
                 </div>
