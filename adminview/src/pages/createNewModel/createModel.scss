@@ -59,3 +59,20 @@
         }
     }
 }
+
+input[type="file"] {
+    display: none;
+}
+.form__field.image__field label {
+    color: $purple;
+   background: white;
+   border: 2px solid lightgray;
+    display: inline-block;
+    height: 5rem;
+    font-size: 15px;
+ padding-top: 20px;
+ padding-bottom: 20px;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+}

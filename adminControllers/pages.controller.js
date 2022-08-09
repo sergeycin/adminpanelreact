@@ -1,6 +1,6 @@
 const {Router} = require('express')
 const config = require('config') // библиотека для использования данных где угодно которые зашиты в файле config.json
-const {PagesObject,FormsObject} = require('../server')
+const {PagesObject,FormsObject,directory} = require('../server')
 let fs = require('fs');
 const router = Router()
 // const config = require('config')
@@ -15,7 +15,7 @@ var dataObject ={
 }
 
 var CurrentPage; // Текущая используемая страница
-
+var currentPathImage;
   router.get(
     '/all', 
   async (req,res) =>{
@@ -84,12 +84,17 @@ var CurrentPage; // Текущая используемая страница
   async (req,res) =>{
     try{
       const requestField = req.body
-      // console.log(requestField)
-           const newField = new CurrentPage(requestField)
-
-
-          newField.save()
+      if(requestField.hasOwnProperty('image')){
+        requestField.image = currentPathImage
+        const newField = new CurrentPage(requestField)
+        newField.save()
+      }
+      else{
+        const newField = new CurrentPage(requestField)
+        newField.save()
           
+      }
+         
           res.json({message: 'Данные успешно добавлены'})
           
     }catch(e){
@@ -98,44 +103,25 @@ var CurrentPage; // Текущая используемая страница
   })
 
 
+
+
   router.post(
     '/sendimage', 
     async (req, res) =>{
       try {
+        console.log(req.files)
           const file = req.files.file
-        console.log('file',file)
-          // const parent = await File.findOne({user: req.user.id, _id: req.body.parent})
-          // const user = await User.findOne({_id: req.user.id})
-
-          // if (user.usedSpace + file.size > user.diskSpace) {
-          //     return res.status(400).json({message: 'There no space on the disk'})
-          // }
-
-          // user.usedSpace = user.usedSpace + file.size
-
           let path;
-          // if (parent) {
-              path = `${__dirname}\\..\\uploads\\${file.name}`
-          // } else {
-          //     path = `${config.get('filePath')}\\${user._id}\\${file.name}`
-          // }
-
+      
+              path = `${directory}/uploads/${file.name}`
+              console.log('путь к папке', `${directory}\\uploads\\${file.name}`)
+    
           if (fs.existsSync(path)) {
               return res.status(400).json({message: 'File already exist'})
           }
           file.mv(path)
-          let  pathToDatBase = `./uploads${file.name}` 
-          // const type = file.name.split('.').pop()
-          // const dbFile = new File({
-          //     name: file.name,
-          //     type,
-          //     size: file.size,
-          //     path: path,
-          
-          // })
-
-          // await dbFile.save()
-       
+          currentPathImage = `./uploads${file.name}` 
+   
 
           res.json('ok')
       } catch (e) {

@@ -10,6 +10,9 @@ const TestDrive  = require('./models/TestDriveForm')
 const AutoModel  = require('./models/AutoModel')
 let fs = require('fs');
 
+// Текущая директория
+exports.directory = `${__dirname}`;
+
 // Модели пользователей
 exports.UserObject = User;
 
@@ -30,6 +33,7 @@ app.use(express.json({extended: true}))
 app.use(fileUpload({}))
  app.use('/api/auth', require('./adminControllers/auth.controller'))
  app.use('/api/pages', require('./adminControllers/pages.controller'))
+ 
 //  app.use('/api/link',require('./routes/link.routes'))
 //  app.use('/t', require('./routes/redirect.routes'))   
 

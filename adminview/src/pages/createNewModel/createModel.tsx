@@ -6,6 +6,7 @@ import { useAppDispatch, UseAppSelector } from '../../hooks/redux';
 import React, { useEffect, useState } from 'react';
 import Loader from '../loader/loader';
 import { AddField } from '../../store/actions/fieldActions';
+import {uploadImage} from '../../store/actions/fieldActions';
 
 
 interface LocationState {
@@ -22,6 +23,7 @@ function CreateModel() {
     const navigate= useNavigate();
     const {error,loading,message} = UseAppSelector(state => state.FieldSlice)
     const dispatch = useAppDispatch()
+    const [fileState,setFile] = useState({})
   
     // console.log(state.arrayFields)
         const obj = state.arrayFields.reduce((newObj:any, item) => {
@@ -38,9 +40,10 @@ function CreateModel() {
     const fileHandler = (input:any) =>{
         // let files = input.files
         // console.log(input.target.files)
-        filesave (input.target.files)
+        setFile(input.target.files) 
 }
     const changeHandler = (event:any) =>{
+
         setForm({ ...form, [event.target.name]: event.target.value})
     
     }
@@ -48,13 +51,22 @@ function CreateModel() {
     const saveHandler = (event:React.MouseEvent) =>{
         event.preventDefault()
         // console.log(form)
-        dispatch( AddField(form))
+        if(form.hasOwnProperty('image')){
+            console.log(fileState)
+            filesave(fileState)
+            dispatch( AddField(form))
+        }
+        else{
+            dispatch( AddField(form))
+        }
+
       
        
   
     }
     const filesave = (files:any) =>{
-        let maxFileSize = 5242880;
+        console.log(files)
+        let maxFileSize = 8242880;
         let Data = new FormData();
 
         for(let file of files){
@@ -63,9 +75,12 @@ function CreateModel() {
                 // console.log('ok')
                 // Data.append('file',file);
                 // console.log(file)
+                console.log('est file')
                 Data.append("file", file);
            }
         }
+
+        // dispatch(uploadImage(Data))
         // console.log(Data)
         fetch('/api/pages/sendimage', {
             method: 'POST',
@@ -95,19 +110,22 @@ function CreateModel() {
                 {
                     state.arrayFields.length ?
                 state.arrayFields.map(field =>  
-                    <div className="form__field">
-                    <label htmlFor="">{field}</label>
-                    <input  onChange={changeHandler} value={form.field}  name={field} key={field} type="text" className="form__input" />
+                    
+                    <div className={field == 'image' ? 'form__field image__field' : 'form__field'}>
+                    <label htmlFor={field}>{field == 'image' ? 'Выберите изображение' : field }
+                    <input  onChange={field == 'image' ? fileHandler : changeHandler} value={form.field} id={field}  name={field} key={field} type={field == 'image' ? 'file' : 'text'} className="form__input" />
+                    </label>
+         
                 </div>
                     )
                     : error
                 }
        
-                <div className="form__field">
+                {/* <div className="form__field">
                     <label htmlFor="">Download Image</label>
                     <input  onChange={e => fileHandler(e)} id='file-input' name="myFile" type="file"/>
                     <button   className="login-btn" >Отправить</button>
-                </div>
+                </div> */}
                 </div>
                  <button onClick={saveHandler}  className="login-btn" >Save</button>
                 

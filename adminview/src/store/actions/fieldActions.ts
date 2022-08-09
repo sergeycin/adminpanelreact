@@ -58,3 +58,19 @@ export const AddField = (form: any) => {
     }
 }
 
+export const uploadImage = (form: any) => {
+    const {fetching,fetchSuccessJust,fetchError} =  FieldSLice.actions
+    return async (dispatch:AppDispatch) =>{
+        try{
+            // dispatch(fetching()) 
+            const data = await makeRequest('/api/pages/sendimage','POST',form)
+            // console.log(data.message)
+            // dispatch(fetchSuccessJust())
+        }
+        catch (e){
+            dispatch(fetchError(e as Error))
+        }
+    }
+}
+
+

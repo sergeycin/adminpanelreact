@@ -81,7 +81,7 @@ isOpen === num ? setIsOpen(0) : setIsOpen(num)
                       <h5 onClick={(e) => openList(e,3)}>Forms</h5>
                       {isOpen == 3 ?    <div className="leftSideBar__list-open">
                           <ul>
-                          {pages.Forms.map(p =>  <li key={p}><a href="">{p}</a></li>)}
+                          {pages.Forms.map(p =>  <li  onClick={(event) => goList(event,p)}  key={p}><a href="">{p}</a></li>)}
                              
                           </ul>
                       </div> : ''}
