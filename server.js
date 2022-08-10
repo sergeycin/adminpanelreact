@@ -43,14 +43,14 @@ app.use(fileUpload({}))
 // Настройки для delpoy
 if(process.env.NODE_ENV === 'production'){
     app.use('/admin',express.static(`${__dirname}/adminview/build`));
-
+    app.use('/',express.static(`${__dirname}/client/build`));
 
     app.get('/admin', (req,res)=>{
         res.sendFile(path.resolve(`${__dirname}/adminview/build/index.html`))
     } )
 
     app.get('/', (req,res)=>{
-        res.sendFile(path.resolve(`${__dirname}/client/index.html`))
+        res.sendFile(path.resolve(`${__dirname}/client/build/index.html`))
     } )
 }
 

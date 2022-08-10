@@ -1,0 +1,245 @@
+
+/* Текст перед футером */
+.propose{
+    margin-top: 3%;
+    margin-bottom: 3%;
+    p{
+        font-size: 0.78rem;
+      font-weight: 300;
+    }
+}
+
+@media(max-width:768px){
+    .propose{
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+}
+@media(max-width:576px){
+    .propose{
+        margin-left: 3%;
+        margin-right: 5%;
+        p{
+            font-size: 9px;
+        }
+    }
+}
+
+/*Footer*/
+.footer{
+    a{
+        color: #1a1a1a;
+        text-decoration: none;
+        &:hover{
+            color: #1a1a1a;
+            text-decoration: none;  
+        }
+    }
+    ul{
+        margin-left: 0;
+        padding-left: 0;
+        margin: 0;
+    }
+    li{
+        list-style: none;
+        font-size: 13px;
+        font-weight: 300;
+        line-height:50px;
+    }
+    border-top: 1px solid #e1e1e1;
+    &__mobile{
+        display: none;
+    }
+    &__row{
+        display: flex;
+        justify-content: space-between;
+        h2{
+            font-weight: bold;
+        }
+      
+    }
+    &__social{
+   flex-basis: 9%;
+        padding-top: 1.5%;
+        i{
+            margin-left: 10%;
+        }
+       a{
+        color: #1a1a1a;
+        &:hover{ color: #1a1a1a;}
+       }
+    }
+    &__next{
+        ul{
+            li{
+                display: inline-block;
+                list-style: none;
+           padding-left: 10px;
+              font-weight: 500;
+            }
+          
+        }
+        border-top: 1px solid #e1e1e1;
+        &-row{
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+}
+@media(max-width:768px){
+    .footer__row{
+        display: none;
+    }
+    .footer{
+        &__mobile{
+            display: block;
+            margin-top: 5%;
+            &-item{
+                margin-left: 5%;
+                margin-right: 5%;
+                border-bottom: 0.2px solid lightgray;
+            }
+            .footer__social{
+                flex-basis: 0;
+                padding-top: 0%;
+                i{
+                    margin-left: 4%;
+                }
+               margin-bottom: 10%;
+            }
+            &-li{
+                display: none;
+            }
+            h3{
+                &.footer__mobile-active{
+                    &::after{
+                        transform: rotate(180deg);
+                    }
+                }
+                position: relative;
+                &::after {
+                    cursor: pointer;
+                    content: "";
+                    /* В любом случае необходим, даже пустой. Иначе не будет работать */
+                    
+                    position: absolute;
+                 left: 96%;
+                  top: 30%;
+                    width: 20px;
+                    height: 12px;
+                  
+                    // background-image: url('../img/open_list.svg');
+                  
+                    background-size: 20px 12px;
+                }
+            }
+        }
+    }
+   
+}
+.footer__next-row{
+    margin-top: 2%;
+    margin-bottom: 2%;
+
+    ul {
+        margin-top: 2%;
+      margin: 0;
+        li{
+        font-weight: 200;
+        font-size: 12px;
+        font-weight: 500;
+    }
+}
+p{
+    font-size: 12px;
+    padding-top: 0.3%;
+}
+}
+.footer__russia {
+    font-weight: 500;
+    font-size: 12px;
+    margin-top: 0.3%;
+    padding-top: 1%;
+    position: relative;
+    /* Это важно, если псевдоэлемент нужно позиционировать относительно этого блока */
+    
+ padding-left: 5%;
+    background: white;
+  }
+  
+  .footer__russia::before {
+    content: "";
+    /* В любом случае необходим, даже пустой. Иначе не будет работать */
+    top: 20%;
+    position: absolute;
+ right: 85%;
+    width: 28px;
+    height: 20px;
+    // background-image: url('../img/RU.svg');
+  
+    background-size: 20px 20px;
+
+  }
+
+  @media(max-width:1199px){
+      .footer__next{
+          p{
+              margin-top: 1.5%;
+          }
+      }
+    .footer__russia {
+        margin-top: 0.7%;
+    }
+  }
+@media(max-width:768px){
+    .footer__next{
+        border-top: none;
+    }
+    .footer__next-row{
+       
+     display: block;
+     margin-left: 5%;
+     .footer__russia {
+      
+        font-size: 12px;
+        margin-top: 5%;
+        padding-top: 1.5%;
+        position: relative;
+        /* Это важно, если псевдоэлемент нужно позиционировать относительно этого блока */
+        
+     padding-left: 10%;
+        background: white;
+      }
+     .footer__russia::before {
+ 
+   left: 0%;
+
+      
+        background-size: 20px 20px;
+    
+      }
+      ul{
+          padding-top: 8%;
+      }
+     ul li{
+         display: block;
+         padding-left: 0;
+         line-height: 25px;
+      
+     }
+     p{
+         padding-top: 2%;
+         font-size: 10px;
+     }
+    }
+}
+
+@media(max-width:567px){
+    .footer__next-row .footer__russia {
+      
+
+        padding-top: 3%;
+
+      }
+}
