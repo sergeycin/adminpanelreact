@@ -2,6 +2,7 @@ const {Router} = require('express')
 const config = require('config') // библиотека для использования данных где угодно которые зашиты в файле config.json
 const {PagesObject,FormsObject,directory} = require('../server')
 let fs = require('fs');
+const TestDrive  = require('../models/TestDriveForm')
 const router = Router()
 // const config = require('config')
 
@@ -34,7 +35,7 @@ var currentPathImage;
     try{
       const model = req.body
      
-
+      var dataPages;
       for(let modelPage in Pages){
 
         if(modelPage == String(Object.values(model))){
@@ -46,7 +47,7 @@ var currentPathImage;
           // })
 
           // news.save()
-        var dataPages = await CurrentPage.find({})
+         dataPages = await CurrentPage.find({})
     
 
         }
@@ -54,8 +55,27 @@ var currentPathImage;
         
       }
 
+
+
+      for(let modelForm in Forms){
+        if(modelForm == String(Object.values(model))){
+      CurrentPage = Pages[modelForm]
+          // console.log(modelForm,'curentform')
+          // const news = new TestDrive({
+          //   name: "Sergey",
+          //   email: "newphone@mail.ru",
+          //   phone: "+7(978)-999-99-99"
+          // })
+
+          // news.save()
+
+      dataPages = await TestDrive.find({})
+    }
+    }
+
      res.json(dataPages)
     }catch(e){
+      console.log(e,'eror')
       res.status(500).json({message: "Что-то пошло не так"})      
     }
   })
@@ -114,7 +134,7 @@ var currentPathImage;
           let path;
       
               path = `${directory}/uploads/${file.name}`
-              console.log('путь к папке', `${directory}\\uploads\\${file.name}`)
+              // console.log('путь к папке', `${directory}\\uploads\\${file.name}`)
     
           if (fs.existsSync(path)) {
               return res.status(400).json({message: 'File already exist'})

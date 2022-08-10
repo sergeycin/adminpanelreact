@@ -24,7 +24,7 @@ AutoModel
 
 // Модели форм
 exports.FormsObject = {
-    "Test Drive": TestDrive
+    TestDrive 
 }
 
 const PORT =  8000
