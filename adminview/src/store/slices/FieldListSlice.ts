@@ -4,23 +4,31 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 interface PagesState{
     loading: boolean,
     error: string,
-   fields: any[],
+   fields: {
+    titles: any[],
+    dataFields: any[]
+   },
    message: string
 }
 
 const initialState: PagesState = {
     loading: false,
     error: '',
-    fields: [],
+    fields: {
+        titles: [],
+    dataFields: []
+    },
     message: ''
 
 }
 
-// interface AirportPayload {
-//     pages: string[],
-//     count: number
-//   }
-  
+interface Payload{
+
+        titles: any[],
+        dataFields: any[]
+
+}
+
 
 
 export const FieldSLice = createSlice({
@@ -32,7 +40,7 @@ export const FieldSLice = createSlice({
         fetching(state){
            state.loading = true 
         },
-        fetchSuccess(state,action: PayloadAction<string[]>){
+        fetchSuccess(state,action: PayloadAction<Payload>){
             state.loading = false
             state.fields = action.payload
         },

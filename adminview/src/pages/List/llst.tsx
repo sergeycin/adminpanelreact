@@ -24,7 +24,8 @@ function List(){
         dispatch(fieldList(form))
     },[params,fieldsChange])
   
-    for(let field in fields[0]){
+    // console.log(fields.titles)
+    for(let field of fields.titles){
         if(field != '__v'  && field != '_id' ){
             nameFields.push(field)
         }
@@ -42,16 +43,16 @@ function List(){
     }
     const createDataList = () =>{
          listFields = [] 
-        for (let key in fields){
+        for (let key in fields.dataFields){
             let masItem = []
-            for(let j in fields[key]){
+            for(let j in fields.dataFields[key]){
                 if(j != '__v'  && j != '_id' )
-                masItem.push(<div key={fields[key].id} className="center__top-item"><p>{fields[key][j]}</p></div>)
+                masItem.push(<div key={fields.dataFields[key].id} className="center__top-item"><p>{fields.dataFields[key][j]}</p></div>)
             }
             listFields.push(
                 <NavLink to="/">
              <div key={key}  className="middle__item">
-                <div className="center__top-item trash"><img onClick={event => removeField(event)} id={fields[key]._id} src={trash} alt="" /></div>
+                <div className="center__top-item trash"><img onClick={event => removeField(event)} id={fields.dataFields[key]._id} src={trash} alt="" /></div>
                 {masItem}
                 </div>
                 </NavLink>

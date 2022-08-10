@@ -36,10 +36,12 @@ var currentPathImage;
       const model = req.body
      
       var dataPages;
+      var dataTitles;
       for(let modelPage in Pages){
 
         if(modelPage == String(Object.values(model))){
           CurrentPage = Pages[modelPage]
+          dataTitles = Object.keys(Pages[modelPage].schema.paths)
           // const news = new Pages[modelPage]({
           //   title: "Three News",
           //   description: "Description",
@@ -60,6 +62,7 @@ var currentPathImage;
       for(let modelForm in Forms){
         if(modelForm == String(Object.values(model))){
       CurrentPage = Pages[modelForm]
+      dataTitles = Object.keys(TestDrive.schema.paths)
           // console.log(modelForm,'curentform')
           // const news = new TestDrive({
           //   name: "Sergey",
@@ -72,8 +75,11 @@ var currentPathImage;
       dataPages = await TestDrive.find({})
     }
     }
-
-     res.json(dataPages)
+    let resultData = {
+      'titles': dataTitles,
+      'dataFields': dataPages
+    }
+     res.json(resultData)
     }catch(e){
       console.log(e,'eror')
       res.status(500).json({message: "Что-то пошло не так"})      
