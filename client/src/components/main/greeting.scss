@@ -5,23 +5,26 @@
     position: relative;
     text-align: left;
 font-size: 12px;
-    .line{
-        position: absolute;
-        top: 35%;
-        right: 10%;
-      padding-left: 30%;
-    }
-    &:hover{
-        cursor: pointer;
-    }
-    &:hover .line{
-      animation-duration: 1.8s;
-      transition: all 0.5s;
-      animation-name: sliden;
-      animation-iteration-count: infinite;
-    }
+.line{
+    width: 30px;
+    border-top: 1px solid white;
+
+    position: absolute;
+    top: 50%;
+    right: 10%;
+
+}
+&:hover{
+    cursor: pointer;
+}
+&:hover .line{
+  animation-duration: 1.2s;
+  transition: all 0.5s;
+  animation-name: sliden;
+  animation-iteration-count: infinite;
+}
     color: white;
-    background: #1a1a1a;
+    background: #961010;
     border: none;
     height: 40px;
     min-width: 16.25rem;
@@ -39,9 +42,9 @@ font-size: 12px;
 
 }
 .black-btn.white-btn{
-border: 1px solid #e1e1e1;
-background: white;
-color: #1a1a1a;
+border: 1px solid #1a1a1a;
+background: #1a1a1a;
+color: white;
 font-size: 12px;
 }
 

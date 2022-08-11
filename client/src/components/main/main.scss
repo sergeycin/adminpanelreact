@@ -8,7 +8,7 @@
    
     to{
         
-        width: 80%;
+        width: 100%;
     }
 
 }
@@ -30,7 +30,7 @@
     }
     &__text-head{
         display: inline-block;
-        width: 80%;
+        width: 100%;
         border-top: 2px solid #1a1a1a;
         border-bottom: 2px solid #1a1a1a;
         &.animate{
@@ -62,16 +62,19 @@
     &__button{
         position: relative;
         .line{
+            width: 30px;
+            border-top: 1px solid white;
+    
             position: absolute;
-            top: 38%;
+            top: 50%;
             right: 10%;
-            padding-left: 20%;
+    
         }
         &:hover{
             cursor: pointer;
         }
         &:hover .line{
-          animation-duration: 1.8s;
+          animation-duration: 1.2s;
           transition: all 0.5s;
           animation-name: sliden;
           animation-iteration-count: infinite;
@@ -79,7 +82,7 @@
         color: white;
         background: #1a1a1a;
         border: none;
-        height: 40px;
+        height: 54px;
         min-width: 16.25rem;
         padding-top: 1.8%;
         padding-bottom: 8.5%;

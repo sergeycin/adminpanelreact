@@ -6,6 +6,10 @@ import './greeting.scss'
 import './card.scss'
 import './map.scss'
 import './contact.scss'
+import banner from '../../assets/img/main.jpg'
+import card1 from '../../assets/img/card1.jpg'
+import card2 from '../../assets/img/card2.jpg'
+import card3 from '../../assets/img/card3.jpg'
 function Main() {
 
 
@@ -17,14 +21,14 @@ function Main() {
       <div className="main">
      
      <div className="main-slider">
-         <div className="main__block">
+         <div className="main__block white">
             
              <div className="main__content">
-                 <img src="" alt="" />
+                 <img src={banner} alt="" />
                  <div className="main__text">
-                     <div className="main__text-head animate"><p>7 лет уверенности</p></div>
-                     <div className="main__text-parag"><span>ПРОГРАММА ПОСТГАРАНТИЙНОЙ ПОДДЕРЖКИ</span></div>
-                 <a href="">  <button className="main__button"> <p>ПОДРОБНЕЕ</p> <span className="line">——</span></button></a>  
+                     <div className="main__text-head animate"><p>новый lexus nx</p></div>
+                     <div className="main__text-parag"><span>УБЕДИТ СИЛЬНЕЙШИХ</span></div>
+                 <a href="">  <button className="main__button"> <p>ПОДРОБНЕЕ</p> <span className="line"></span></button></a>  
                  </div>
                
          </div>
@@ -32,60 +36,19 @@ function Main() {
         </div>
      
      
- 
-<div className="main__block">
-            
- <div className="main__content">
-     <img className="main__img-fone" src="img/slide4.jpg" alt=""/>
-     <div className="main__text">
-         <div className="main__text-head"><p>Сервис старше 4 лет</p></div>
-         <div className="main__text-parag"><span>ПРОГРАММА ПОДДЕРЖКИ ПОСТОЯННЫХ КЛИЕНТОВ</span></div>
-     <a href="">  <button className="main__button"> <p>ПОДРОБНЕЕ</p> <span className="line">——</span></button></a>  
-     </div>
-</div>
-
-
-</div>
-
-<div className="main__block white">
-            
- <div className="main__content">
-     <img src="img/slide6.jpg" alt=""/>
-     <div className="main__text">
-         <div className="main__text-head"><p>LEXUS BOUTIQUE</p></div>
-         <div className="main__text-parag"><span>ПРОГРАММА ПОСТГАРАНТИЙНОЙ ПОДДЕРЖКИ</span></div>
-     <a href="">  <button className="main__button"> <p>ПОДРОБНЕЕ</p> <span className="line">——</span></button></a>  
-     </div>
-</div>
-
-
-</div>
-<div className="main__block">
-            
- <div className="main__content">
-     <img className="main__img-fone" src="img/slide7.jpg" alt=""/>
-     <div className="main__text">
-         <div className="main__text-head"><p> ВРЕМЯ ПРОЙТИ ТО</p></div>
-         <div className="main__text-parag"><span>ЗАПИШИТЕСЬ ПО ВЫГОДНОЙ СТОИМОСТИ</span></div>
-     <a href="">  <button className="main__button"> <p>ПОДРОБНЕЕ</p> <span className="line">——</span></button></a>  
-     </div>
-</div>
-
-
-</div>
 
     </div>
 
     <div className="greeting">
         <div className="greeting__text"><p>Рады видеть вас в Лексус - Автодель – официальном дилерском центре легендарной марки Lexus. Оцените настоящее японское качество стандартов продажи и обслуживания Toyota Motor!</p></div>
         <div className="greeting__button">
-         <a href="">  <button className="black-btn"> <p>Предложения</p> <span className="line">——</span></button></a>  
+         <a href="">  <button className="black-btn"> <p>Предложения</p> <span className="line"></span></button></a>  
         </div>
         <div className="greeting__button">
-         <a href="">  <button className="black-btn"> <p>Автомобили в наличии</p> <span className="line">——</span></button></a>  
+         <a href="">  <button className="black-btn"> <p>Автомобили в наличии</p> <span className="line"></span></button></a>  
         </div>
         <div className="greeting__button ">
-         <a href="form.html">  <button className="black-btn white-btn"> <p>Записаться на ТО</p> <span className="line">——</span></button></a>  
+         <a href="form.html">  <button className="black-btn white-btn"> <p> Тест-Драйв</p> <span className="line"></span></button></a>  
         </div>
         
     </div>
@@ -123,10 +86,10 @@ function Main() {
                                  </div>
              </div>
              <div className="map__button">
-                 <a href="">  <button className="black-btn"> <p>Предложения</p> <span className="line">——</span></button></a>  
+                 <a href="">  <button className="black-btn"> <p>Предложения</p> <span className="line"></span></button></a>  
                 </div>
                 <div className="map__button ">
-                 <a href="">  <button className="black-btn white-btn"> <p>Предложения</p> <span className="line">——</span></button></a>  
+                 <a href="">  <button className="black-btn white-btn"> <p>Предложения</p> <span className="line"></span></button></a>  
                 </div>
              </div>
              <div className="map__yandex">
@@ -142,34 +105,34 @@ function Main() {
     
          <div className="card__item">
        
-             <img src="img/card1.png" alt=""/>
+             <img src={card1} alt=""/>
              <div className="card__item-block">
                 
                  <div className="card__text-head"><p>Онлайн - Оценка</p></div>
                  <div className="card__button ">
-                     <a href="form_rating.html">  <button className="black-btn"> <p>Предложения</p> <span className="line">——</span></button></a>  
+                     <a href="form_rating.html">  <button className="black-btn black-background"> <p>Предложения</p> <span className="line"></span></button></a>  
                     </div>
                
              </div>
          </div>
          <div className="card__item">
         
-             <img src="img/card2.png" alt=""/>
+             <img src={card2}  alt=""/>
              <div className="card__item-block">
                  <div className="card__text-head"><p>Кредитный калькулятор</p></div>
                  <div className="card__button ">
-                     <a href="">  <button className="black-btn"> <p>Рассчитать</p> <span className="line">——</span></button></a>  
+                     <a href="">  <button className="black-btn black-background"> <p>Рассчитать</p> <span className="line"></span></button></a>  
                     </div>
              
              </div>
          </div>
          <div className="card__item">
         
-             <img src="img/card3.png" alt=""/>
+             <img src={card3}  alt=""/>
              <div className="card__item-block">
                  <div className="card__text-head"><p>Обратный звонок</p></div>
                  <div className="card__button ">
-                     <a href="">  <button className="black-btn"> <p>Заказать</p> <span className="line">——</span></button></a>  
+                     <a href="">  <button className="black-btn black-background"> <p>Заказать</p> <span className="line"></span></button></a>  
                     </div>
              
              </div>

@@ -1,6 +1,6 @@
 import logo from '../../assets/img/logo.png'
 import './header.scss'
-
+import call from '../../assets/img/call.svg'
 
 export const Header : React.FC = () => {
 
@@ -20,8 +20,8 @@ export const Header : React.FC = () => {
                 </ul>
             </div>
             <div className="header__call">
-                <button className="header__name"> <p>Лексус - Автодель</p>  <span className="line">——</span></button>
-                <button className="header__telephone"><i className="fas fa-phone-alt"></i></button>
+                <button className="header__name"> <p>Лексус - Автодель</p>  <span className="line"></span></button>
+                <button className="header__telephone"><img src={call} alt="" /></button>
                 <div className="header__call-block">
                         <div className="phone-card__icon"><i className="fas fa-phone-alt"></i></div>
                         <div className="phone-card__title">Лексус - Автодель</div>
