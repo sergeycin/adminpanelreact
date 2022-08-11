@@ -1,6 +1,7 @@
 import logo from '../../assets/img/logo.png'
 import './header.scss'
 import call from '../../assets/img/call.svg'
+import { NavLink } from 'react-router-dom'
 
 export const Header : React.FC = () => {
 
@@ -38,10 +39,10 @@ export const Header : React.FC = () => {
             <div className="subheader__left">
 <div className="subheader__name">Лексус - Автодель</div>
 <ul>
-<li className="subheader__active">Главная</li>
+<li className="subheader__active"><NavLink to="/">Главная</NavLink></li>
 <li><a href="auto_have.html">Автомобили в наличии</a></li>
 <li> <a href="service.html">Сервис и запасные части</a></li>
-<li><a href="news.html">Новости</a></li>
+<li><NavLink to="/news">Новости</NavLink></li>
 <li><a href="about.html"> О нас</a></li>
 <li>Телефон диллера</li>
 </ul>
