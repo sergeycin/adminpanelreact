@@ -1,0 +1,97 @@
+
+/* Приветствие Greeting */
+.black-btn{
+      
+    position: relative;
+    text-align: left;
+font-size: 12px;
+    .line{
+        position: absolute;
+        top: 35%;
+        right: 10%;
+      padding-left: 30%;
+    }
+    &:hover{
+        cursor: pointer;
+    }
+    &:hover .line{
+      animation-duration: 1.8s;
+      transition: all 0.5s;
+      animation-name: sliden;
+      animation-iteration-count: infinite;
+    }
+    color: white;
+    background: #1a1a1a;
+    border: none;
+    height: 40px;
+    min-width: 16.25rem;
+    padding-top: 8px;
+    padding-bottom: 49px;
+    p{
+        padding-left: 4%;
+       
+        text-transform: uppercase;
+  font-size: 100%;
+        font-weight: bold;
+      
+
+    }
+
+}
+.black-btn.white-btn{
+border: 1px solid #e1e1e1;
+background: white;
+color: #1a1a1a;
+font-size: 12px;
+}
+
+
+.greeting{
+    text-align: center;
+    &__button{
+        display: inline-block;
+        margin-left: 1.8%;
+    }
+
+    &__text{ 
+        display: block;
+        margin: 0 auto;
+        max-width: 70%;
+        font-size: 1.175rem;
+      line-height: 2.5rem;
+        font-weight: 300;
+    }
+}
+
+@media(max-width:999px){
+    .greeting{
+        margin-left: 10%;
+        margin-right: 10%;
+        &__button{
+            margin-top: 10px;
+              }
+    }
+}
+@media(max-width:768px){
+    .greeting{
+        margin-top: 0%;
+    }
+}
+@media(max-width:576px){
+    .greeting{
+        margin-left: 0%;
+        margin-right: 0%;
+
+        &__text{
+            padding-left: 20px;
+            padding-right: 20px;
+        min-width: 100%;
+            p{
+                text-align: left;
+                font-size: 12px;
+                line-height: 1.9rem;
+            }
+        }
+     
+    }
+}

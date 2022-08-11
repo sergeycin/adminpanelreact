@@ -1,0 +1,57 @@
+
+/*Контакты */
+.contact{
+    text-align: center;
+    width: 100%;
+    margin-top: 6%;
+    &__head{
+        h2{
+            font-weight: 400;
+            font-size: 40px;
+        }
+    }
+    &__line{
+        display: block;
+        margin: 0 auto;
+        width: 60px;
+        height: 1px;
+        border-bottom: 1px solid #1a1a1a;
+    }
+    &__text{
+      font-weight: 300;
+        margin: 0 auto;
+        display: block;
+        font-size: 1.175rem;
+      line-height: 2.5rem;
+     
+        max-width: 740px;
+      font-weight: 100;
+            text-align: left;
+        
+    }
+}
+
+@media(max-width:567px){
+  .contact{
+    &__head{
+      h2{
+          font-weight: 400;
+          font-size: 24px;
+      }
+  }
+  &__text{
+    text-align: justify;
+    font-weight: 300;
+      margin: 0 auto;
+      display: block;
+      font-size: 12px;
+      padding-left: 20px;
+      padding-right: 20px;
+    line-height: 1.9rem;
+   
+      max-width: 720px;
+    font-weight: 100;
+      
+  }
+  }
+}
