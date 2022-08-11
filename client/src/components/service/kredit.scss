@@ -1,0 +1,229 @@
+.kredit{
+    margin-top: 3%;
+    margin-left: 2%;
+    &__block{
+position: relative;
+        max-height: 770px;
+        img{
+        object-fit: cover;
+           height: 770px;
+            width: 70%;
+        }
+    }
+    &__text{
+        position: absolute;
+        top: 10%;
+        left: 60%;
+        background: white;
+     
+        // padding-bottom: 120px;
+        max-width: 25%;
+        padding: 6%;
+        h5{
+            text-transform: uppercase;
+            font-size: 1.525rem;
+            font-weight: 500;
+        }
+  p{
+  margin-top: 5%;
+  margin-bottom: 5%;
+  }
+            .kredit__text-head{
+                display:block;
+                border-top: 2px solid #1a1a1a;
+                border-bottom: 2px solid #1a1a1a;
+    
+            
+                p{
+        
+                margin: 0;
+                    text-transform: uppercase;
+                    padding-top: 2%;
+                    padding-bottom: 2%;
+                    font-size: 48px;
+                  font-weight: 500;
+                }
+            }
+        
+    }
+    &__btn{
+        .black-btn{
+      
+            position: relative;
+            .line{
+                position: absolute;
+                top: 35%;
+                right: 10%;
+                padding-left: 20%;
+            }
+            &:hover{
+                cursor: pointer;
+            }
+            &:hover .line{
+              animation-duration: 1.8s;
+              transition: all 0.5s;
+              animation-name: sliden;
+              animation-iteration-count: infinite;
+            }
+            color: white;
+            background: #1a1a1a;
+            border: none;
+            height: 40px;
+            min-width: 16.25rem;
+            padding-top: 8px;
+            padding-bottom: 49px;
+            p{
+                text-transform: uppercase;
+           padding-right: 30%;font-size: 100%;
+                font-weight: bold;
+                text-align: left;
+                display: inline-block;
+            }
+        
+        }
+        .black-btn.white-btn{
+        border: 1px solid #e1e1e1;
+        background: white;
+        color: #1a1a1a;
+        }
+        
+    }
+}
+.kredit__text .kredit__text-head{
+    .emotion-text{
+        font-size: 36px;
+    }
+}
+@media(max-width:1199px){
+    .kredit{
+        .kredit__text-head{
+            p{
+    
+            margin: 0;
+                text-transform: uppercase;
+                padding-top: 2%;
+                padding-bottom: 2%;
+                font-size: 52px;
+              font-weight: 500;
+            }
+        }
+        h5{
+            font-size: 1.425rem;
+            font-weight: 500;
+        }
+    }
+}
+@media(max-width:999px){
+  
+    .kredit{
+      
+        height: 200%;
+        &__block{
+    
+            max-height: 770px;
+            img{ 
+                height: 100%;
+                max-height: 770px;
+                width: 100%;
+            }
+        }
+
+        &__text{
+      position: static;
+   
+      margin: 0 auto;
+            background: white;
+            transform: translateY(-30%);
+            // padding-bottom: 120px;
+            max-width: 80%;
+       
+            h5{
+                font-size: 1.625rem;
+                font-weight: 500;
+            }
+      p{
+      margin-top: 5%;
+      margin-bottom: 5%;
+      }
+                .kredit__text-head{
+                    display:block;
+                    border-top: 2px solid #1a1a1a;
+                    border-bottom: 2px solid #1a1a1a;
+        
+                
+                    p{
+            
+                    margin: 0;
+                        text-transform: uppercase;
+                        padding-top: 2%;
+                        padding-bottom: 2%;
+                        font-size: 64px;
+                      font-weight: 500;
+                    }
+                }
+            
+        }
+    }
+}
+
+
+@media(max-width:768px){
+    .kredit__text .kredit__text-head{
+        .emotion-text{
+            font-size: 24px;
+        }
+    }
+    .contact.contact-model{
+        margin-top: -10%;
+     }
+    .kredit{
+        height: 200%;
+        &__block{
+    
+       
+            img{ 
+                height: 100%;
+       
+                width: 100%;
+            }
+        }
+
+        &__text{
+     
+       
+            h5{
+                font-size: 1.225rem;
+                font-weight: 500;
+            }
+      p{
+font-size: 14px;
+      margin-top: 5%;
+      margin-bottom: 5%;
+      }
+                .kredit__text-head{
+                    display:block;
+                    border-top: 2px solid #1a1a1a;
+                    border-bottom: 2px solid #1a1a1a;
+        
+                
+                    p{
+            
+                    margin: 0;
+                        text-transform: uppercase;
+                        padding-top: 2%;
+                        padding-bottom: 2%;
+                        font-size: 24px;
+                      font-weight: 500;
+                    }
+                }
+            
+        }
+    }
+}
+
+
+@media(max-width:567px){
+.contact.contact-model{
+   margin-top: -20%;
+}
+}

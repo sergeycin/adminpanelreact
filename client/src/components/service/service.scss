@@ -1,0 +1,177 @@
+.stocks{
+    margin-top: 5%;
+    &__row{
+        display: flex;
+        justify-content: space-between;
+    }
+    &__text{
+        width: 35%;
+        margin-top: 20%;
+        p{
+           margin-top: 5%;
+           margin-bottom: 5%;
+        }
+    }
+    &__image{
+  width: 60%;
+  img{
+      width: 80%;
+      display: block;
+      margin: 0 auto;
+  }
+    }
+    .stocks__text-head{
+        display:block;
+        border-top: 2px solid #1a1a1a;
+        border-bottom: 2px solid #1a1a1a;
+
+    
+        p{
+
+        margin: 0;
+            text-transform: uppercase;
+            padding-top: 2%;
+            padding-bottom: 2%;
+            font-size: 48px;
+          font-weight: 500;
+        }
+    }
+}
+@media(max-width:999px){
+    .stocks{
+        margin-top: 5%;
+        &__row{
+            display: flex;
+            justify-content: space-between;
+        }
+        &__text{
+            width: 35%;
+            margin-top: 10%;
+            p{
+                font-size: 12px;
+            }
+        }
+        &__image{
+      width: 60%;
+      img{
+          width: 100%;
+          display: block;
+          margin: 0 auto;
+      }
+        }
+        .stocks__text-head p{
+            font-size: 24px;
+        }
+    }
+}
+@media(max-width:768px){
+    .stocks{
+        margin-top: 5%;
+        margin-left: 5%;
+        margin-bottom: 5%;
+        margin-right: 5%;
+        &__row{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        &__text{
+            width: 100%;
+            margin-top: 10%;
+            p{
+                font-size: 12px;
+            }
+        }
+        &__image{
+            margin-bottom: 5%;
+            margin-top: 5%;
+      width: 100%;
+      height: 50%;
+      img{
+          object-fit: cover;
+          width: 100%;
+          height: 300px;
+          display: block;
+          margin: 0 auto;
+      }
+        }
+        .stocks__text-head p{
+            font-size: 24px;
+        }
+    }
+}
+
+
+/* Оригинальные и запасные части */
+
+.service{
+
+        .kredit__text{
+           
+            .kredit__text-head {
+               p
+                {
+                    font-size: 36px;
+                }
+              
+            }
+        }
+   
+    
+
+}
+@media(max-width:576px){
+    
+.service{
+
+    .kredit__text{
+       
+        .kredit__text-head {
+           p
+            {
+                font-size: 24px;
+            }
+          
+        }
+    }
+
+
+
+}
+}
+
+
+    /*Хлебные крошки */
+
+    ul.breadcrumb {
+        padding: 10px 1px;
+        list-style: none;
+
+      }
+      
+      /* Отображение элементов списка бок о бок */
+      ul.breadcrumb li {
+        display: inline;
+        font-size: 14px;
+      }
+
+      /* Добавить символ косой черты (/) перед/за каждым элементом списка */
+      ul.breadcrumb li+li:before {
+        padding: 8px;
+        color: black;
+        content: "|";
+      }
+      
+      /* Добавить цвет для всех ссылок внутри списка */
+      ul.breadcrumb li a {
+        color: lightgray;
+        text-decoration: none;
+      }
+      ul.breadcrumb li a:active {
+          color: #1a1a1a;
+      }
+      /* Добавить цвет на наведении курсора мыши */
+      ul.breadcrumb li a:hover {
+        color: #01447e;
+        text-decoration: underline;
+      }
