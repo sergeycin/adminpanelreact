@@ -5,6 +5,7 @@ import NewsSingle from './components/news/newssingle'
 import Service from './components/service/service'
 import History from './components/history/history'
 import Contacts from './components/contacts/contacts'
+import TestDrive from './components/TestDrive/TestDrive'
 export const MyRoutes : React.FC = () => {
 
   return(
@@ -17,7 +18,8 @@ export const MyRoutes : React.FC = () => {
 
          <Route path="/service" element={<Service/>}/>  
          <Route path="/history" element={<History/>}/>  
-         <Route path="/contacts" element={<Contacts/>}/>  
+         <Route path="/contacts" element={<Contacts/>}/>
+         <Route path="/testdrive" element={<TestDrive/>}/>    
            </Routes>
     </>
       

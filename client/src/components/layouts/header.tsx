@@ -13,7 +13,7 @@ export const Header : React.FC = () => {
             </div>
             <div className="header__menu">
                 <ul>
-                    <li><a href="TestDrive.html">Тест-драйв</a></li>
+                <li><NavLink to="/testdrive">Тест Драйв</NavLink></li>
                     <li><a href="special.html">Спецпредложения</a></li>
                     <li><a href="models.html"> Модели</a></li>
                     <li><a href="finance.html">Финансовые услуги</a></li>
