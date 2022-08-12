@@ -43,7 +43,7 @@ export const Header : React.FC = () => {
 <li><a href="auto_have.html">Автомобили в наличии</a></li>
 <li><NavLink to="/service">Cервис и запасные части</NavLink></li>
 <li><NavLink to="/news">Новости</NavLink></li>
-<li><a href="about.html"> О нас</a></li>
+<li><NavLink to="/history">История компании</NavLink></li>
 <li>Телефон диллера</li>
 </ul>
             </div>
