@@ -44,7 +44,7 @@ export const Header : React.FC = () => {
 <li><NavLink to="/service">Cервис и запасные части</NavLink></li>
 <li><NavLink to="/news">Новости</NavLink></li>
 <li><NavLink to="/history">История компании</NavLink></li>
-<li>Телефон диллера</li>
+<li><NavLink to="/contacts">Контакты</NavLink></li>
 </ul>
             </div>
           <div className="subheader__right">+7 (978) 000-00-00</div>
