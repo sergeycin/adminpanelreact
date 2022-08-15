@@ -1,0 +1,531 @@
+.feedback{
+    color: #1a1a1a;
+    &__header{
+        text-align: center;
+        font-size: 24px;
+        padding-top: 2%;
+        
+        h2{
+            font-weight: 500;
+        }
+    }
+    &__line{
+        display: block;
+        margin: 0 auto;
+        // width: 60px;
+        height: 1px;
+        border-bottom: 1px solid #1a1a1a;
+    }
+     .row{
+        width: 30%;
+        label{
+            display: block;
+        }
+    }
+    .row.accept{
+        width: 100%;
+    }
+    p{
+        padding-top: 2%;
+        font-weight: 200;
+        font-size: 1.375rem;
+        line-height: 2.5rem;
+        text-align: center;
+        max-width: 660px;
+        display: block;
+        margin: 0 auto;
+    }
+    &__row{
+        display: flex;
+     
+    }
+    input[type="text"],input[type="number"]{
+        display: inline-block;
+     
+        width: 300px;
+        height: 40px;
+        border-radius: 0;
+        border: 1px solid lightgray;
+    }
+    input + label {
+        display: block;
+    }
+    input[type="check"]{
+        display: inline-block;
+    }
+    label[for="#check"]{
+        display: inline-block;
+    font-weight: 600;
+        font-size: 13px;
+        transform: translateY(-50%);
+        padding-left: 10px;
+    }
+    textarea{
+        margin-top: 5%;
+        width: 96.2%;
+        border: 1px solid lightgray;
+        margin-bottom: 2%;
+        font-weight: 200;
+    }
+    #check{
+        border-radius: 0;
+        width: 20px;
+        height: 23px;
+    }
+    h4{
+        font-weight: 500;
+        font-size: 18px;
+        padding-top: 5%;
+    }
+}
+
+
+.row.buttons{
+    margin-top: 2%;
+    .black-btn{
+      
+        position: relative;
+        .line{
+            position: absolute;
+            top: 35%;
+            right: 10%;
+            // padding-left: 20%;
+        }
+        &:hover{
+            cursor: pointer;
+        }
+        &:hover .line{
+          animation-duration: 1.8s;
+          transition: all 0.5s;
+          animation-name: sliden;
+          animation-iteration-count: infinite;
+        }
+        color: white;
+        background: #1a1a1a;
+        border: none;
+        height: 40px;
+        min-width: 16.25rem;
+        padding-top: 5px;
+        padding-bottom: 49px;
+        p{
+            text-transform: uppercase;
+       padding-right: 30%;font-size: 100%;
+            font-weight: bold;
+            text-align: left;
+            display: inline-block;
+        }
+    
+    }
+}
+
+
+@media(max-width: 1199px){
+.feedback{
+    label[for="#check"]{
+        display: inline-block;
+    font-weight: 600;
+        font-size: 13px;
+        transform: translateY(-80%);
+        padding-left: 50px;
+    }
+    &__row{
+        .row{
+            width: 20%;
+            margin-right: 10px;
+        }
+    }
+ 
+    input[type="text"],input[type="number"]{
+        display: inline-block;
+     
+        width: 100%;
+    }
+}
+
+}
+@media(max-width: 768px){
+    .feedback{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}
+@media(max-width: 576px){
+    .feedback{
+        &__header{
+            font-size: 18px;
+        }
+        p{
+            font-size: 14px;
+        }
+        textarea{
+            margin-top: 10%;
+            width: 96.2%;
+            border: 1px solid lightgray;
+            margin-bottom: 10%;
+            font-weight: 200;
+        }
+        &__row{
+            flex-wrap: wrap;
+            .row{
+                margin-top: 10%;
+                width: 100%;
+                margin-right: 10px;
+            }
+        }
+        label[for="#check"]{
+            display: inline-block;
+        font-weight: 600;
+            font-size: 12px;
+            transform: translateY(-30%);
+            padding-left: 50px;
+        }
+    }
+}
+
+
+
+
+.rating{
+    color: #1a1a1a;
+    &__header{
+        text-align: center;
+        font-size: 24px;
+        padding-top: 2%;
+        
+        h2{
+            font-weight: 500;
+        }
+    }
+    .row{
+        width: 30%;
+        label{
+            display: block;
+        }
+    }
+        .row.accept{
+        width: 100%;
+    }
+    &__line{
+        display: block;
+        margin: 0 auto;
+        width: 60px;
+        height: 1px;
+        border-bottom: 1px solid #1a1a1a;
+    }
+    &__form-header{
+        display: block;
+
+        padding-bottom: 10px;
+        border-bottom: 1px solid lightgray;
+        h4{
+            font-size: 20px;text-transform: uppercase;
+        }
+    }
+    &__choice{
+        
+        
+        h5{
+            padding-top: 1%;
+            padding-bottom: 1%;
+            font-weight: 400;
+            font-size: 15px;
+        }
+        &-btn{
+       
+            cursor: pointer; 
+            display: inline-block;
+            border: 1px solid lightgray;
+            padding: 1%;
+            padding-right: 1.9%;
+      
+
+        }
+        input{
+            display: inline-block;
+            border-radius: 100px;
+        }
+  /* для элемента input c type="radio" */
+.custom-radio>input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+  
+  /* для элемента label связанного с .custom-radio */
+  .custom-radio>span {
+      cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+    font-size: 13px;
+    font-weight: 500;
+  }
+  
+  /* создание в label псевдоэлемента  before со следующими стилями */
+  .custom-radio>span::before {
+    content: '';
+    display: inline-block;
+    width: 1.2em;
+    height: 1.2em;
+    flex-shrink: 0;
+    flex-grow: 0;
+    border: 1px solid #adb5bd;
+    border-radius: 50%;
+    margin-right: 0.5em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+  }
+  
+  /* стили при наведении курсора на радио */
+  .custom-radio>input:not(:disabled):not(:checked)+span:hover::before {
+    border-color: black;
+  }
+  
+  /* стили для активной радиокнопки (при нажатии на неё) */
+  .custom-radio>input:not(:disabled):active+span::before {
+    background-color: white;
+    border-color: black;
+  }
+  
+  /* стили для радиокнопки, находящейся в фокусе */
+
+  
+  /* стили для радиокнопки, находящейся в фокусе и не находящейся в состоянии checked */
+  .custom-radio>input:focus:not(:checked)+span::before {
+    border-color: white;
+  }
+  
+  /* стили для радиокнопки, находящейся в состоянии checked */
+  .custom-radio>input:checked+span::before {
+    border-color: lightgray;
+    background-color: white;
+    // background-image: url("../img/check.svg");
+  }
+
+  /* стили для радиокнопки, находящейся в состоянии disabled */
+  .custom-radio>input:disabled+span::before {
+    background-color: #e9ecef;
+  }
+    }
+
+
+
+    p{
+        padding-top: 2%;
+        font-weight: 200;
+        font-size: 1.375rem;
+        line-height: 2.5rem;
+        text-align: center;
+        max-width: 660px;
+        display: block;
+        margin: 0 auto;
+    }
+    &__row{
+        display: flex;
+        margin-top: 2%;
+     
+    }
+    input[type="text"],input[type="number"]{
+        display: inline-block;
+     
+        width: 300px;
+        height: 40px;
+        border-radius: 0;
+        border: 1px solid lightgray;
+    }
+    input + label {
+        display: block;
+        font-weight: 500;
+    }
+
+
+    .accept{
+        input[type="check"]{
+            display: inline-block;
+        }
+        label[for="#check"]{
+            display: inline-block;
+        font-weight: 600;
+            font-size: 13px;
+            transform: translateY(-50%);
+            padding-left: 40px;
+        }
+    }
+
+#row__email{
+    display: none;
+}
+    textarea{
+        margin-top: 5%;
+        width: 96.2%;
+        border: 1px solid lightgray;
+        margin-bottom: 2%;
+        font-weight: 200;
+    }
+    #check{
+        border-radius: 0;
+        width: 20px;
+        height: 23px;
+    }
+    h4{
+        font-weight: 500;
+
+        padding-top: 5%;
+    }
+}
+
+
+.row.buttons{
+    margin-top: 2%;
+    .black-btn{
+      
+        position: relative;
+        .line{
+            position: absolute;
+            top: 35%;
+            right: 10%;
+            // padding-left: 20%;
+        }
+        &:hover{
+            cursor: pointer;
+        }
+        &:hover .line{
+          animation-duration: 1.8s;
+          transition: all 0.5s;
+          animation-name: sliden;
+          animation-iteration-count: infinite;
+        }
+        color: white;
+        background: #961010;
+        border: none;
+        height: 40px;
+        min-width: 16.25rem;
+        padding-top: 5px;
+        padding-bottom: 49px;
+        p{
+            text-transform: uppercase;
+       padding-right: 30%;font-size: 100%;
+            font-weight: bold;
+            text-align: left;
+            display: inline-block;
+        }
+    
+    }
+}
+
+
+@media(max-width: 1199px){
+.rating{
+    label{
+        font-size: 10px;
+    }
+    label[for="#check"]{
+        display: inline-block;
+    font-weight: 600;
+        font-size: 13px;
+        transform: translateY(-80%);
+        padding-left: 50px;
+    }
+    &__row{
+        .row{
+            width: 20%;
+            margin-right: 10px;
+        }
+    }
+ 
+    input[type="text"],input[type="number"]{
+        display: inline-block;
+     
+        width: 100%;
+    }
+}
+
+}
+@media(max-width:999px){
+    .rating{
+        &__row{
+            flex-wrap: wrap;
+            .row{
+                width: 48%;
+                margin-top: 1%;
+                margin-right: 2%;
+            }
+        }
+        .accept{
+            width: 100%;
+            label[for="#check"]{
+                display: inline-block;
+            font-weight: 600;
+                font-size: 12px;
+                transform: translateY(-80%);
+                padding-left: 50px;
+            }
+        }
+    }
+
+}
+@media(max-width: 768px){
+    .rating{
+        margin-left: 5%;
+        margin-right: 5%;
+  
+    
+        .accept{
+            width: 100%;
+            label[for="#check"]{
+                display: inline-block;
+            font-weight: 600;
+                font-size: 12px;
+                transform: translateY(-90%);
+                padding-left: 50px;
+            }
+        }
+    }
+}
+@media(max-width: 576px){
+    .rating{
+        &__header h2{
+            font-size: 18px;
+        } 
+        .accept{
+            width: 100%;
+            label[for="#check"]{
+                display: inline-block;
+            font-weight: 600;
+                font-size: 12px;
+                transform: translateY(-50%);
+                padding-left: 50px;
+            }
+        }
+        &__header{
+            font-size: 18px;
+        }
+        p{
+            font-size: 14px;
+        }
+        textarea{
+            margin-top: 10%;
+            width: 96.2%;
+            border: 1px solid lightgray;
+            margin-bottom: 10%;
+            font-weight: 200;
+        }
+        &__row{
+            flex-wrap: wrap;
+            .row{
+                margin-top: 10%;
+                width: 100%;
+                margin-right: 10px;
+            }
+        }
+    
+        label[for="#check"]{
+            display: inline-block;
+        font-weight: 600;
+            font-size: 12px;
+            transform: translateY(-30%);
+            padding-left: 50px;
+        }
+    }
+}

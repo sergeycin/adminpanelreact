@@ -4,6 +4,7 @@ import './models.scss'
 import { Header } from "../layouts/header"
 import { Footer } from "../layouts/footer"
 import ls from "../../assets/img/ls.png"
+import { NavLink } from 'react-router-dom'
 
 function TestDrive() {
 return(
@@ -38,15 +39,15 @@ return(
             
                 </div>
                 <div className="models__item" >
-                    <a href="model_single.html">   
+                    <NavLink to="/UX">   
                             <h2>UX</h2>
                             <p>Встречай рассвет в движении</p>
                             <div className="models__image"><img src={ls} alt=""/></div>
-                        </a>  
+                        </NavLink>  
                         <div className="testDrive__neither">
                      
                             <div className="testDrive__models-btn">
-                                <a href="">  <button className="black-btn white-btn"> <p>Заказать</p> <span className="line"></span></button></a>  
+                            <NavLink to="UX">   <button className="black-btn white-btn"> <p>Заказать</p> <span className="line"></span></button>  </NavLink>  
                             </div>
                         </div>
                     

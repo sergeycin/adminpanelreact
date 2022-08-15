@@ -6,6 +6,7 @@ import Service from './components/service/service'
 import History from './components/history/history'
 import Contacts from './components/contacts/contacts'
 import TestDrive from './components/TestDrive/TestDrive'
+import FormTestDrive from './components/TestDrive/formTestDrive'
 export const MyRoutes : React.FC = () => {
 
   return(
@@ -20,6 +21,7 @@ export const MyRoutes : React.FC = () => {
          <Route path="/history" element={<History/>}/>  
          <Route path="/contacts" element={<Contacts/>}/>
          <Route path="/testdrive" element={<TestDrive/>}/>    
+         <Route path="/testdrive/:id" element={<FormTestDrive/>}/>    
            </Routes>
     </>
       
