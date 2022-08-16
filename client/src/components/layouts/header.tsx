@@ -12,13 +12,26 @@ export const Header : React.FC = () => {
                 <img src={logo} alt="img" />
             </div>
             <div className="header__menu">
-                <ul>
+            <nav>
+            <ul className="topmenu">
+        <li><a href="">Главная</a></li>
+        <li><a href="" className="submenu-link">О нас</a>
+          <ul className="submenu">
+            <li><a href="">Производство</a></li>
+            <li><a href="">Магазин</a></li>
+            <li><a href="">Сервис</a></li>
+          </ul>
+        </li>
+        <li><a href="">Проекты</a></li>
+  
+      </ul>
+      </nav>
+                {/* <ul>
                 <li><NavLink to="/testdrive">Тест Драйв</NavLink></li>
-                    <li><a href="special.html">Спецпредложения</a></li>
-                    <li><a href="models.html"> Модели</a></li>
-                    <li><a href="finance.html">Финансовые услуги</a></li>
+                <li><NavLink to="/service">Cервис</NavLink></li>
+                    <li><NavLink to="/history">История компании</NavLink></li>
                    
-                </ul>
+                </ul> */}
             </div>
             <div className="header__call">
                 <button className="header__name"> <p>Лексус - Автодель</p>  <span className="line"></span></button>
@@ -40,10 +53,9 @@ export const Header : React.FC = () => {
 <div className="subheader__name">Лексус - Автодель</div>
 <ul>
 <li className="subheader__active"><NavLink to="/">Главная</NavLink></li>
-<li><a href="auto_have.html">Автомобили в наличии</a></li>
-<li><NavLink to="/service">Cервис и запасные части</NavLink></li>
+<li><NavLink to="/models">Автомобили в наличии</NavLink></li>
 <li><NavLink to="/news">Новости</NavLink></li>
-<li><NavLink to="/history">История компании</NavLink></li>
+
 <li><NavLink to="/contacts">Контакты</NavLink></li>
 </ul>
             </div>

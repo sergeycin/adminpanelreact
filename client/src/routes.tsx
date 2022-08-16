@@ -7,6 +7,7 @@ import History from './components/history/history'
 import Contacts from './components/contacts/contacts'
 import TestDrive from './components/TestDrive/TestDrive'
 import FormTestDrive from './components/TestDrive/formTestDrive'
+import Models from './components/models/Models'
 export const MyRoutes : React.FC = () => {
 
   return(
@@ -22,6 +23,8 @@ export const MyRoutes : React.FC = () => {
          <Route path="/contacts" element={<Contacts/>}/>
          <Route path="/testdrive" element={<TestDrive/>}/>    
          <Route path="/testdrive/:id" element={<FormTestDrive/>}/>    
+
+         <Route path="/models" element={<Models/>}/>    
            </Routes>
     </>
       
