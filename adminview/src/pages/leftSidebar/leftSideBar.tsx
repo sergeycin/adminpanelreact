@@ -55,8 +55,8 @@ isOpen === num ? setIsOpen(0) : setIsOpen(num)
                           <ul>
 
                               {
-                               pages.Page ?   
-                              pages.Page.map(p =>  <li><a key={p} onClick={(event) => goList(event,p)} href="#">{p}</a></li>) : ''
+                                 
+                                 pages.Page ?  pages.Page.map(p =>  <li><a key={p} onClick={(event) => goList(event,p)} href="#">{p}</a></li>) : ''
                               }
                           </ul>
                       </div> : ''}
