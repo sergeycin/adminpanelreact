@@ -6,18 +6,13 @@ import './credit.scss'
 import { Header } from "../layouts/header"
 import { Footer } from "../layouts/footer"
 import maslo from '../../assets/img/maslo.jpg'
-import coup from '../../assets/img/coup.jpg'
-import tex from '../../assets/img/tex.jpg'
 import ser from '../../assets/img/ser.jpg'
-function Service() {
+function AutoService() {
 return(
   
 <div className="wrapper">
 <Header/>  
 
-{/* <div className="container">
-   
-    </div> */}
      <div className="auto_have">
       
       <div className="news">
@@ -45,26 +40,26 @@ return(
     </div>
 
     <div className="stocks">
-       
+        <div className="container">
+            <div className="stocks__row">
+                <div className="stocks__text">
+                  
+                    <div className="stocks__text-head "><p>Автосервис</p></div>
+                   <p>В официальном сервисном центре Lexus вас ждут выгодные условия и специальные предложения на услуги сервиса.Наша цель-сделать каждое посещение комфортным и выгодным для вас</p>
+                    <div className="stocks__btn">
+                        <a href="">  <button className="black-btn"> <p>Предложения</p> <span className="line"></span></button></a>  
+                    </div>
+            </div>
+            <div className="stocks__image">
+                <img src={maslo} alt=""/>
+            </div>
+        </div>
+        </div>
+
  <div className="service">
    
 
-    <div className="credit">
-        <div className="credit__block">
-            <img src={tex} alt=""/>
-            <div className="credit__text">
-         
-
-                <div className="credit__text-head "><p>ТЕХНИЧЕСКОЕ ОБСЛУЖИВАНИЕ</p></div>
-                <p>Регулярное техническое обслуживание - гарантия надежности вашего Lexus на протяжении всего срока эксплуатации</p>
-                <div className="credit__btn">
-                    <a href="">  <button className="black-btn"> <p>Записаться</p> <span className="line"></span></button></a>  
-                </div>
-            </div>
-    
-           
-        </div>
-    </div>
+   
     
 </div>
 
@@ -75,4 +70,4 @@ return(
     )
 }
 
-export default Service
+export default AutoService

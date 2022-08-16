@@ -14,15 +14,21 @@ export const Header : React.FC = () => {
             <div className="header__menu">
             <nav>
             <ul className="topmenu">
-        <li><a href="">Главная</a></li>
-        <li><a href="" className="submenu-link">О нас</a>
+            <li><NavLink to="/testdrive">Тест Драйв</NavLink></li>
+    <li><NavLink className="submenu-link" to="/autoservice">Cервис</NavLink>
+          <ul className="submenu">
+          <li><NavLink to="/autoservice">Автосервис</NavLink></li>
+          <li><NavLink to="/parts">Запчасти</NavLink></li>
+          <li><NavLink to="/service">Обслуживание</NavLink></li>
+          </ul>
+        </li>
+        <li><NavLink className="submenu-link" to="/history">История компании</NavLink>
           <ul className="submenu">
             <li><a href="">Производство</a></li>
             <li><a href="">Магазин</a></li>
             <li><a href="">Сервис</a></li>
           </ul>
         </li>
-        <li><a href="">Проекты</a></li>
   
       </ul>
       </nav>

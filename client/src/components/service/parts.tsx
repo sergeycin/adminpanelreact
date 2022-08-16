@@ -5,20 +5,16 @@ import './credit.scss'
 
 import { Header } from "../layouts/header"
 import { Footer } from "../layouts/footer"
-import maslo from '../../assets/img/maslo.jpg'
-import coup from '../../assets/img/coup.jpg'
-import tex from '../../assets/img/tex.jpg'
 import ser from '../../assets/img/ser.jpg'
-function Service() {
+import coup from '../../assets/img/coup.jpg'
+
+
+function Parts() {
 return(
   
 <div className="wrapper">
 <Header/>  
-
-{/* <div className="container">
-   
-    </div> */}
-     <div className="auto_have">
+<div className="auto_have">
       
       <div className="news">
           <div className="news__image">   <img src={ser} alt=""/></div>
@@ -43,30 +39,21 @@ return(
         </div>
         
     </div>
-
-    <div className="stocks">
-       
- <div className="service">
-   
-
-    <div className="credit">
-        <div className="credit__block">
-            <img src={tex} alt=""/>
-            <div className="credit__text">
-         
-
-                <div className="credit__text-head "><p>ТЕХНИЧЕСКОЕ ОБСЛУЖИВАНИЕ</p></div>
-                <p>Регулярное техническое обслуживание - гарантия надежности вашего Lexus на протяжении всего срока эксплуатации</p>
-                <div className="credit__btn">
-                    <a href="">  <button className="black-btn"> <p>Записаться</p> <span className="line"></span></button></a>  
+   <div className="service-kredit">
+    <div className="kredit">
+        <div className="kredit__block">
+            <img src={coup} alt=""/>
+            <div className="kredit__text">
+                
+                <div className="kredit__text-head "><p>ОРИГИНАЛЬНЫЕ ЗАПАСНЫЕ ЧАСТИ LEXUS</p></div>
+                <p>Наши высококвалифицированные специалисты всегда работают только с оригинальными запасными частями Lexus.Именно оригинальные запасные части Lexus гарантируют наилучшую производительность автомобиля и вашу безопасность</p>
+                <div className="kredit__btn">
+                    <a href="">  <button className="black-btn "> <p>Обратный звонок</p> <span className="line"></span></button></a>  
                 </div>
             </div>
-    
-           
         </div>
     </div>
-    
-</div>
+
 
 <Footer/>
     </div>
@@ -75,4 +62,4 @@ return(
     )
 }
 
-export default Service
+export default Parts
