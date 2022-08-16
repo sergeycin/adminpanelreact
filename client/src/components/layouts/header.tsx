@@ -24,9 +24,9 @@ export const Header : React.FC = () => {
         </li>
         <li><NavLink className="submenu-link" to="/history">История компании</NavLink>
           <ul className="submenu">
-            <li><a href="">Производство</a></li>
-            <li><a href="">Магазин</a></li>
-            <li><a href="">Сервис</a></li>
+          <li><NavLink to="/autosalon">Об автосалоне</NavLink></li>
+          <li><NavLink to="/history">Об марке авто</NavLink></li>
+           
           </ul>
         </li>
   

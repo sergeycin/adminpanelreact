@@ -10,6 +10,7 @@ import FormTestDrive from './components/TestDrive/formTestDrive'
 import Models from './components/models/models'
 import AutoService from './components/service/autoservice'
 import Parts from './components/service/parts'
+import AutoSalon from './components/history/autosalon'
 export const MyRoutes : React.FC = () => {
 
   return(
@@ -24,6 +25,7 @@ export const MyRoutes : React.FC = () => {
          <Route path="/autoservice" element={<AutoService/>}/>  
          <Route path="/parts" element={<Parts/>}/>  
          <Route path="/history" element={<History/>}/>  
+         <Route path="/autosalon" element={<AutoSalon/>}/>  
          <Route path="/contacts" element={<Contacts/>}/>
          <Route path="/testdrive" element={<TestDrive/>}/>    
          <Route path="/testdrive/:id" element={<FormTestDrive/>}/>    
