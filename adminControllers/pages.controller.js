@@ -93,6 +93,15 @@ var currentPathImage;
   async (req,res) =>{
     try{
       const currentId = req.body
+      console.log('id',currentId)
+      const findElement =  CurrentPage.findOne(currentId)
+      console.log('find',findElement)
+      if(findElement.hasOwnProperty('image') ){
+        fs.unlink(`${directory}${findElement.image}`, err => {
+          if(err) throw err; // не удалось удалить файл
+          console.log('Файл успешно удалён');
+       });
+      }
       CurrentPage.deleteOne(currentId).then(function(){
         res.json("Данные успешно удалено")
     }).catch(function(error){
@@ -146,7 +155,7 @@ var currentPathImage;
               return res.status(400).json({message: 'File already exist'})
           }
           file.mv(path)
-          currentPathImage = `./uploads${file.name}` 
+          currentPathImage = `/uploads/${file.name}` 
    
 
           res.json('ok')
