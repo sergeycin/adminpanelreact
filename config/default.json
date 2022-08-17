@@ -2,6 +2,5 @@
     "port": 5000,
     "jwtSecret": "sergeySPG",
     "mongoUrl": "mongodb+srv://sergey:admin222@fields.jrywo02.mongodb.net/?retryWrites=true&w=majority",
-    "filePath": "C:\\Sergey\\github\\sergeyGit\\adminpanelreact\\uploads",
     "baseUrl": "http://localhost:8000"
 }

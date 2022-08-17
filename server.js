@@ -28,16 +28,16 @@ exports.FormsObject = {
 }
 
 const PORT =  8000
-
+// Роуты для административной панели
 app.use(express.json({extended: true}))
 app.use(fileUpload({}))
- app.use('/api/auth', require('./adminControllers/auth.controller'))
- app.use('/api/pages', require('./adminControllers/pages.controller'))
+app.use('/api/auth', require('./adminControllers/auth.controller'))
+app.use('/api/pages', require('./adminControllers/pages.controller'))
  
-//  app.use('/api/link',require('./routes/link.routes'))
-//  app.use('/t', require('./routes/redirect.routes'))   
 
 
+// Роуты для клиента
+app.use('/api/news', require('./Controllers/NewsController'))
 
 
 // Настройки для delpoy

@@ -1,8 +1,10 @@
 const {Schema, model, Types} = require('mongoose')
 
 const schema = new Schema({
-    title: {type: String, required:true, unique:true},
-    description: {type: String, required: true},
+    rutitle: {type: String, required:true, unique:true},
+    entitle: {type: String, required:true, unique:true},
+    rudescription: {type: String, required: true},
+    endescription: {type: String, required: true},
     image: {type: String, required: true},
 })
 
