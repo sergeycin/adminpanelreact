@@ -94,8 +94,8 @@ var currentPathImage;
     try{
       const currentId = req.body
       console.log('id',currentId)
-      const findElement =  CurrentPage.findOne(currentId)
-      console.log('find',findElement)
+      const findElement = CurrentPage.find(currentId)
+      // console.log('find',findElement)
       if(findElement.hasOwnProperty('image') ){
         fs.unlink(`${directory}${findElement.image}`, err => {
           if(err) throw err; // не удалось удалить файл
@@ -103,7 +103,7 @@ var currentPathImage;
        });
       }
       CurrentPage.deleteOne(currentId).then(function(){
-        res.json("Данные успешно удалено")
+        res.json("Данные успешно удалено",findElement)
     }).catch(function(error){
       res.json("По данному id поле не найдено",error)
     });
