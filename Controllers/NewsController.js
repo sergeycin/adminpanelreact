@@ -7,19 +7,25 @@ router.get(
     '/ru', 
   async (req,res) =>{
     try{
-      
+      let resultObject = {}
        
     dataNews = await News.find({})
-    // for(let data of dataNews){
+    for(let data of dataNews){
     
-    //     for(let key of Object.keys(data.schema.paths)){
+        for(let key of Object.keys(data.schema.paths)){
            
-    //         if(!String(key).includes("en")){
-    //             console.log(key)
-    //         }
-    //     }
+            if(!String(key).includes("en")){
+              resultData(key)
+            }
+        }
       
-    // }
+    }
+
+    function resultData(key){
+      for(let data of dataNews){
+        console.log(data[`${key}`])
+      }
+    }
     res.json(dataNews)
     }catch(e){
         console.log(e)

@@ -54,8 +54,11 @@ function CreateModel() {
         if(form.hasOwnProperty('image')){
             console.log(fileState)
             filesave(fileState)
-          
+            
+            setTimeout(()=>{
                 dispatch( AddField(form))
+            },2000)
+                
       
             
         }

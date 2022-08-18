@@ -113,14 +113,43 @@ var currentPathImage;
       res.status(500).json({message: "Что-то пошло не так"})      
     }
   })
+  router.post(
+    '/sendimage', 
+    async (req, res) =>{
+      try {
+  
+          const file = req.files.file
+          let path;
+      
+              path = `${directory}/uploads/${file.name}`
+              // console.log('путь к папке', `${directory}\\uploads\\${file.name}`)
+    
+          if (fs.existsSync(path)) {
+              return res.status(400).json({message: 'File already exist'})
+          }
+         file.mv(path)
+          currentPathImage = `/uploads/${file.name}` 
+          console.log(currentPathImage,'path')
 
+          res.json('ok')
+      } catch (e) {
+          console.log(e)
+          return res.status(500).json({message: "Upload error"})
+      }
+  }
+
+  
+  
+  )
 
   router.post(
     '/createField', 
   async (req,res) =>{
     try{
       const requestField = req.body
-      if(requestField.hasOwnProperty('image')){
+      console.log(requestField,'path create')
+      if(requestField.image){
+        console.log(currentPathImage,'path create')
         requestField.image = currentPathImage
         const newField = new CurrentPage(requestField)
         newField.save()
@@ -142,33 +171,6 @@ var currentPathImage;
 
 
 
-  router.post(
-    '/sendimage', 
-    async (req, res) =>{
-      try {
-        console.log(req.files)
-          const file = req.files.file
-          let path;
-      
-              path = `${directory}/uploads/${file.name}`
-              // console.log('путь к папке', `${directory}\\uploads\\${file.name}`)
-    
-          if (fs.existsSync(path)) {
-              return res.status(400).json({message: 'File already exist'})
-          }
-        await file.mv(path)
-          currentPathImage = `/uploads/${file.name}` 
-   
 
-          res.json('ok')
-      } catch (e) {
-          console.log(e)
-          return res.status(500).json({message: "Upload error"})
-      }
-  }
-
-  
-  
-  )
 
 module.exports = router
