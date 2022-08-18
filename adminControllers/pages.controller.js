@@ -93,22 +93,23 @@ var currentPathImage;
   async (req,res) =>{
     try{
       const currentId = req.body
-      console.log('id',currentId)
-      const findElement = CurrentPage.find(currentId)
-      // console.log('find',findElement)
-      if(findElement.hasOwnProperty('image') ){
+ 
+      const findElement = await CurrentPage.findOne({currentId})
+    
+      if(findElement.image){
         fs.unlink(`${directory}${findElement.image}`, err => {
           if(err) throw err; // не удалось удалить файл
           console.log('Файл успешно удалён');
        });
       }
       CurrentPage.deleteOne(currentId).then(function(){
-        res.json("Данные успешно удалено",findElement)
+        res.json("Данные успешно удалено")
     }).catch(function(error){
       res.json("По данному id поле не найдено",error)
     });
-
+    res.json("Данные успешно удалено")
     }catch(e){
+      console.log(e,'error')
       res.status(500).json({message: "Что-то пошло не так"})      
     }
   })
@@ -123,6 +124,7 @@ var currentPathImage;
         requestField.image = currentPathImage
         const newField = new CurrentPage(requestField)
         newField.save()
+        currentPathImage = ''
       }
       else{
         const newField = new CurrentPage(requestField)
@@ -154,7 +156,7 @@ var currentPathImage;
           if (fs.existsSync(path)) {
               return res.status(400).json({message: 'File already exist'})
           }
-          file.mv(path)
+        await file.mv(path)
           currentPathImage = `/uploads/${file.name}` 
    
 

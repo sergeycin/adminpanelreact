@@ -54,7 +54,10 @@ function CreateModel() {
         if(form.hasOwnProperty('image')){
             console.log(fileState)
             filesave(fileState)
-            dispatch( AddField(form))
+          
+                dispatch( AddField(form))
+      
+            
         }
         else{
             dispatch( AddField(form))

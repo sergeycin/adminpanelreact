@@ -36,6 +36,7 @@ export const deleteField = (form: deleteMode) => {
             dispatch(fetchSuccessJust())
         }
         catch (e){
+            console.log(e)
             dispatch(fetchError(e as Error))
         }
     }
