@@ -97,15 +97,17 @@ var currentPathImage;
       const findElement = await CurrentPage.findOne({currentId})
     
       if(findElement.image){
+        if (fs.existsSync(`${directory}${findElement.image}`)) {
         fs.unlink(`${directory}${findElement.image}`, err => {
           if(err) throw err; // не удалось удалить файл
           console.log('Файл успешно удалён');
        });
       }
+      }
       CurrentPage.deleteOne(currentId).then(function(){
         res.json("Данные успешно удалено")
     }).catch(function(error){
-      res.json("По данному id поле не найдено",error)
+      res.json("По данному id поле не найдено")
     });
     res.json("Данные успешно удалено")
     }catch(e){
