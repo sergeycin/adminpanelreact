@@ -9,37 +9,10 @@ router.get(
     try{
       let resultObject = {}
        
-    dataNews = await News.find({})
-    var newobj = []
-    for(let data of dataNews){
-    
-        for(let key of Object.keys(data.schema.paths)){
-           
-            if(!String(key).includes("en")){
-              // console.log(key)
-              let object = {}
-              object = JSON.parse(data);
-              delete object[`${key}`]
-              console.log(object)
-              // resultData(key)
-            }
-        }
-      
-    }
-    // const found_names = dataNews.filter(v => v.entitle != "Joe" && v.age < 30);
-  
-    function resultData(key){
-
-      for(let data of dataNews){
-       
-        delete data[`${key}`]
-         newobj = Object.assign({},newobj,data);
-        
-     
-      
-      }
-    }
+    dataNews = await News.find({}).select('rutitle rudescription image');
    
+
+    // console.log(dataNews)
   
     // console.log(newArray)
     res.json(dataNews)

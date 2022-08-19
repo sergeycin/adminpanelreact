@@ -3,12 +3,26 @@ import { Header } from "../layouts/header"
 import { Footer } from "../layouts/footer"
 import './newslist.scss'
 import newsfone from '../../assets/img/newsfone.jpg'
-import news from '../../assets/img/news.jpg'
+import newsimg from '../../assets/img/news.jpg'
 import { NavLink } from "react-router-dom"
+import { useEffect } from "react"
+import { makeRequest } from "../../hooks/fetch.hook"
+import { useAppDispatch, UseAppSelector } from "../../hooks/redux"
+import { getNews } from "../../store/actions/newsActions"
 
 function News() {
-
-
+    const dispatch = useAppDispatch()
+    const {error,loading,news} = UseAppSelector(state => state.newsSlice)
+    
+    
+    useEffect(() => {
+    
+        dispatch(getNews())
+        
+        console.log(news)      
+    },[])
+  
+    
     return (
        <div className="wrapper">
       <Header/>
@@ -41,7 +55,7 @@ function News() {
             <div className="container">
                 <div className="newslist__row">
                 <div className="newslist__item lexus_lc" >
-                            <div className="newslist__image"><img src={news} alt=""/></div>
+                            <div className="newslist__image"><img src={newsimg} alt=""/></div>
                             <div className="newslist__text">
                   
                         <div className="newslist__text-head"><p>NEW LEXUS LS</p></div>
@@ -56,7 +70,7 @@ function News() {
                        </div>
                    
                     <div className="newslist__item service" >
-                        <div className="newslist__image"><img src={news} alt=""/></div>
+                        <div className="newslist__image"><img src={newsimg} alt=""/></div>
                         <div className="newslist__text">
               
                     <div className="newslist__text-head"><p>NEW LEXUS LS</p></div>
@@ -71,7 +85,7 @@ function News() {
                    </div>
              
                 <div className="newslist__item lexus_lc" >
-                    <div className="newslist__image"><img src={news} alt=""/></div>
+                    <div className="newslist__image"><img src={newsimg} alt=""/></div>
                     <div className="newslist__text">
           
                 <div className="newslist__text-head"><p>NEW LEXUS LS</p></div>
@@ -86,7 +100,7 @@ function News() {
                </div>
     
             <div className="newslist__item service" >
-                <div className="newslist__image"><img src={news} alt=""/></div>
+                <div className="newslist__image"><img src={newsimg} alt=""/></div>
                 <div className="newslist__text">
       
             <div className="newslist__text-head"><p>NEW LEXUS LS</p></div>
@@ -101,7 +115,7 @@ function News() {
            </div>
 
       <div className="newslist__item service" >
-            <div className="newslist__image"><img src={news} alt=""/></div>
+            <div className="newslist__image"><img src={newsimg} alt=""/></div>
             <div className="newslist__text">
   
         <div className="newslist__text-head"><p>NEW LEXUS LS</p></div>
@@ -116,7 +130,7 @@ function News() {
        </div>
 
   <div className="newslist__item lexus_lc" >
-        <div className="newslist__image"><img src={news}alt=""/></div>
+        <div className="newslist__image"><img src={newsimg}alt=""/></div>
         <div className="newslist__text">
 
     <div className="newslist__text-head"><p>NEW LEXUS LS</p></div>
