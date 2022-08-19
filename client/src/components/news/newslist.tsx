@@ -22,6 +22,14 @@ function News() {
         console.log(news)      
     },[])
   
+    for(let item of news){
+        for(let key of Object.keys(item)){
+            if(!String(key).includes("en")){
+            //    delete item[`${key}`]
+            }
+        }
+       
+    }
     
     return (
        <div className="wrapper">

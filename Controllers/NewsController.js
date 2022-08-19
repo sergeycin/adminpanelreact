@@ -9,12 +9,9 @@ router.get(
     try{
       let resultObject = {}
        
-    dataNews = await News.find({}).select('rutitle rudescription image');
-   
+      dataNews = await News.find({}).select('rutitle rudescription image');
+ 
 
-    // console.log(dataNews)
-  
-    // console.log(newArray)
     res.json(dataNews)
     }catch(e){
         console.log(e)
