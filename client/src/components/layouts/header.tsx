@@ -3,17 +3,19 @@ import './header.scss'
 import call from '../../assets/img/call.svg'
 import { NavLink } from 'react-router-dom'
 import { useContext, useState } from 'react'
-import { LanguageContext } from "../../context/LanguageContext";
+import { useLanguage } from '../../context/LanguageContext'
+
 
 export const Header : React.FC = () => {
     const [currentLanguage,setLanguage]= useState<string>('ru')
-    const lang = useContext(LanguageContext);
+    const {lang,toggleLanguage} = useLanguage()
     const changeLanguage = (event:any) =>{
         event.preventDefault()
      
         setLanguage(event.target.innerHTML)
-        lang.language = event.target.innerHTML
-        console.log(lang.language)
+        toggleLanguage(event.target.innerHTML)
+        // lang.language = event.target.innerHTML
+        // console.log(lang.language)
     }
     return(
         <header className="header">
