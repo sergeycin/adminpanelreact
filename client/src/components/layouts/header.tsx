@@ -71,7 +71,7 @@ export const Header : React.FC = () => {
             <div className="subheader__left">
 <div className="subheader__name">Лексус - Автодель</div>
 <ul>
-<li className="subheader__active"><NavLink to="/">Главная</NavLink></li>
+<li ><NavLink to="/">Главная</NavLink></li>
 <li><NavLink to="/models">Автомобили в наличии</NavLink></li>
 <li><NavLink to="/news">Новости</NavLink></li>
 

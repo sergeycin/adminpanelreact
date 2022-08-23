@@ -30,14 +30,14 @@ function News() {
       <div className="news">
         <div className="news__image">   <img src={newsfone} alt=""/></div>
         <div className="news__text">
-            <div  className="news__text-head"><p>Новости</p></div>
+            <div  className="news__text-head"><p>{lang  == 'ru' ? 'Новости' : 'News'}</p></div>
           
         </div>
-        <div className="news__text-parag"><p> Узнайте о важных событиях нашего дилерского центра Lexus и будьте в курсе предстоящих мероприятий</p>
+        <div className="news__text-parag"><p> {lang  == 'ru' ? 'Узнайте о важных событиях нашего дилерского центра Lexus и будьте в курсе предстоящих мероприятий' : 'Find out about important events at our Lexus Dealership and stay up to date on upcoming events'}</p>
         </div>
     </div>
     <div className="container">
-<div className="bread-block">
+{/* <div className="bread-block">
     <div className="bread">
         <div className="container">
         <ul className="breadcrumb">
@@ -48,7 +48,7 @@ function News() {
         </div>
     </div>
     
-</div>
+</div> */}
 
         <div className="newslist">
             <div className="container">
@@ -60,7 +60,7 @@ function News() {
                         <div className="newslist__text-head"><p>{lang  == 'ru' ? item.rutitle : item.entitle}</p></div>
                         <p>{lang  == 'ru' ? item.rudescription : item.endescription}</p>
                         <div className="newslist__btn">
-                            <NavLink to="/news/sample">  <button className="black-btn"> <p>Подробнее</p> <span className="line"></span></button></NavLink>  
+                            <NavLink state={{title: lang  == 'ru' ? item.rutitle : item.entitle, description:lang  == 'ru' ? item.rudescription : item.endescription,image: item.image}} to="/news/sample">  <button className="black-btn"> <p>Подробнее</p> <span className="line"></span></button></NavLink>  
                         </div>
                             </div>
                      
