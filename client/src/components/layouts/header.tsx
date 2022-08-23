@@ -2,9 +2,19 @@ import logo from '../../assets/img/logo.png'
 import './header.scss'
 import call from '../../assets/img/call.svg'
 import { NavLink } from 'react-router-dom'
+import { useContext, useState } from 'react'
+import { LanguageContext } from "../../context/LanguageContext";
 
 export const Header : React.FC = () => {
-
+    const [currentLanguage,setLanguage]= useState<string>('ru')
+    const lang = useContext(LanguageContext);
+    const changeLanguage = (event:any) =>{
+        event.preventDefault()
+     
+        setLanguage(event.target.innerHTML)
+        lang.language = event.target.innerHTML
+        console.log(lang.language)
+    }
     return(
         <header className="header">
         <div className="header__row">
@@ -29,10 +39,11 @@ export const Header : React.FC = () => {
            
           </ul>
         </li>
+
   
       </ul>
       </nav>
-                {/* <ul>
+          {/* <ul>
                 <li><NavLink to="/testdrive">Тест Драйв</NavLink></li>
                 <li><NavLink to="/service">Cервис</NavLink></li>
                     <li><NavLink to="/history">История компании</NavLink></li>
@@ -64,6 +75,15 @@ export const Header : React.FC = () => {
 
 <li><NavLink to="/contacts">Контакты</NavLink></li>
 </ul>
+<div className="dropdown">
+  <div className="dropbtn">{currentLanguage}</div>
+  <div className="dropdown-content" onClick={(event) => changeLanguage(event)}>
+  <a href="#">en</a>
+    <a href="#">ru</a>
+ 
+  </div>
+</div>
+          
             </div>
           <div className="subheader__right">+7 (978) 000-00-00</div>
             <div className="subheader__modal"><button id="modal-btn" className="subheader__modal-btn"><i className="fa fa-bars" aria-hidden="true"></i></button></div>

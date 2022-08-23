@@ -5,7 +5,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 interface PagesState{
     loading: boolean,
     error: string,
-    news: string[]
+    news: any[]
 }
 
 const initialState: PagesState = {
@@ -26,7 +26,7 @@ export const newsSLice = createSlice({
         fetching(state){
            state.loading = true 
         },
-        fetchSuccess(state,action: PayloadAction<string[]>){
+        fetchSuccess(state,action: PayloadAction<any[]>){
             state.loading = false
             state.news = action.payload
         },

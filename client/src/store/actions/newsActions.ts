@@ -9,7 +9,7 @@ export const getNews = (form?: any) => {
     return async (dispatch:AppDispatch) =>{
         try{
             dispatch(fetching()) 
-            const data = await makeRequest('/api/news/ru','GET')
+            const data = await makeRequest('/api/news/','GET')
           
             dispatch(fetchSuccess(data))
         }

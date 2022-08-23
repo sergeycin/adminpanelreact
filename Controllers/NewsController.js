@@ -4,12 +4,11 @@ const News  = require('../models/NewNews')
 const router = Router()
 
 router.get(
-    '/ru', 
+    '/', 
   async (req,res) =>{
     try{
-      let resultObject = {}
        
-      dataNews = await News.find({}).select('rutitle rudescription image');
+      dataNews = await News.find({})
  
 
     res.json(dataNews)

@@ -8,6 +8,6 @@ export type GlobalContent = {
   }
 
 export const LanguageContext =createContext<GlobalContent>({
-    language: '',
+    language: 'ru',
   
 })

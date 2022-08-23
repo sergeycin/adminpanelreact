@@ -43,7 +43,9 @@ app.use('/api/news', require('./Controllers/NewsController'))
 // Настройки для delpoy
 if(process.env.NODE_ENV === 'production'){
     app.use('/admin',express.static(`${__dirname}/adminview/build`));
-    app.use('/',express.static(`${__dirname}/client/build`));
+    app.use('/client',express.static(`${__dirname}/client/build`));
+    app.use('/',express.static(`${__dirname}`));
+
 
     app.get('/admin', (req,res)=>{
         res.sendFile(path.resolve(`${__dirname}/adminview/build/index.html`))

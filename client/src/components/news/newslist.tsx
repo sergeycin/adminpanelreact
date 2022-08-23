@@ -5,15 +5,15 @@ import './newslist.scss'
 import newsfone from '../../assets/img/newsfone.jpg'
 import newsimg from '../../assets/img/news.jpg'
 import { NavLink } from "react-router-dom"
-import { useEffect } from "react"
+import { useContext, useEffect } from "react"
 import { makeRequest } from "../../hooks/fetch.hook"
 import { useAppDispatch, UseAppSelector } from "../../hooks/redux"
 import { getNews } from "../../store/actions/newsActions"
-
+import { LanguageContext } from "../../context/LanguageContext";
 function News() {
     const dispatch = useAppDispatch()
     const {error,loading,news} = UseAppSelector(state => state.newsSlice)
-    
+    const lang = useContext(LanguageContext);
     
     useEffect(() => {
     
@@ -22,15 +22,6 @@ function News() {
         console.log(news)      
     },[])
   
-    for(let item of news){
-        for(let key of Object.keys(item)){
-            if(!String(key).includes("en")){
-            //    delete item[`${key}`]
-            }
-        }
-       
-    }
-    
     return (
        <div className="wrapper">
       <Header/>
@@ -62,12 +53,12 @@ function News() {
         <div className="newslist">
             <div className="container">
                 <div className="newslist__row">
-                <div className="newslist__item lexus_lc" >
-                            <div className="newslist__image"><img src={newsimg} alt=""/></div>
+                    {news.map((item) =>        <div className="newslist__item " >
+                            <div className="newslist__image"><img src={item.image} alt=""/></div>
                             <div className="newslist__text">
                   
-                        <div className="newslist__text-head"><p>NEW LEXUS LS</p></div>
-                        <p>Lexus объявляет о старте заказов на обновлённый флагманский седан Lexus LS в России с 21 апреля 2021 года.</p>
+                        <div className="newslist__text-head"><p>{lang.language  == 'ru' ? item.rutitle : item.entitle}</p></div>
+                        <p>{lang.language  == 'ru' ? item.rudescription : item.endescription}</p>
                         <div className="newslist__btn">
                             <NavLink to="/news/sample">  <button className="black-btn"> <p>Подробнее</p> <span className="line"></span></button></NavLink>  
                         </div>
@@ -75,83 +66,7 @@ function News() {
                      
         
                       
-                       </div>
-                   
-                    <div className="newslist__item service" >
-                        <div className="newslist__image"><img src={newsimg} alt=""/></div>
-                        <div className="newslist__text">
-              
-                    <div className="newslist__text-head"><p>NEW LEXUS LS</p></div>
-                    <p>Lexus объявляет о старте заказов на обновлённый флагманский седан Lexus LS в России с 21 апреля 2021 года.</p>
-                    <div className="newslist__btn">
-                        <a href="">  <button className="black-btn"> <p>Подробнее</p> <span className="line"></span></button></a>  
-                    </div>
-                        </div>
-                 
-    
-                  
-                   </div>
-             
-                <div className="newslist__item lexus_lc" >
-                    <div className="newslist__image"><img src={newsimg} alt=""/></div>
-                    <div className="newslist__text">
-          
-                <div className="newslist__text-head"><p>NEW LEXUS LS</p></div>
-                <p>Lexus объявляет о старте заказов на обновлённый флагманский седан Lexus LS в России с 21 апреля 2021 года.</p>
-                <div className="newslist__btn">
-                    <a href="">  <button className="black-btn"> <p>Подробнее</p> <span className="line"></span></button></a>  
-                </div>
-                    </div>
-             
-
-              
-               </div>
-    
-            <div className="newslist__item service" >
-                <div className="newslist__image"><img src={newsimg} alt=""/></div>
-                <div className="newslist__text">
-      
-            <div className="newslist__text-head"><p>NEW LEXUS LS</p></div>
-            <p>Lexus объявляет о старте заказов на обновлённый флагманский седан Lexus LS в России с 21 апреля 2021 года.</p>
-            <div className="newslist__btn">
-                <a href="">  <button className="black-btn"> <p>Подробнее</p> <span className="line"></span></button></a>  
-            </div>
-                </div>
-         
-
-          
-           </div>
-
-      <div className="newslist__item service" >
-            <div className="newslist__image"><img src={newsimg} alt=""/></div>
-            <div className="newslist__text">
-  
-        <div className="newslist__text-head"><p>NEW LEXUS LS</p></div>
-        <p>Lexus объявляет о старте заказов на обновлённый флагманский седан Lexus LS в России с 21 апреля 2021 года.</p>
-        <div className="newslist__btn">
-            <a href="">  <button className="black-btn"> <p>Подробнее</p> <span className="line"></span></button></a>  
-        </div>
-            </div>
-     
-
-      
-       </div>
-
-  <div className="newslist__item lexus_lc" >
-        <div className="newslist__image"><img src={newsimg}alt=""/></div>
-        <div className="newslist__text">
-
-    <div className="newslist__text-head"><p>NEW LEXUS LS</p></div>
-    <p>Lexus объявляет о старте заказов на обновлённый флагманский седан Lexus LS в России с 21 апреля 2021 года.</p>
-    <div className="newslist__btn">
-        <a href="">  <button className="black-btn"> <p>Подробнее</p> <span className="line"></span></button></a>  
-    </div>
-        </div>
- 
-
-  
-   </div>
-
+                       </div>)}
 
             </div>
         </div>
