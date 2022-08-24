@@ -9,7 +9,6 @@ router.get(
     try{
        
       dataMain = await MainPAge.find({})
- 
 
     res.json(dataMain)
     }catch(e){

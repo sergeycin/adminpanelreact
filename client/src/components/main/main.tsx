@@ -8,9 +8,22 @@ import './map.scss'
 import './contact.scss'
 import banner from '../../assets/img/main.jpg'
 import Cards from "../cards/cards"
+import { useAppDispatch, UseAppSelector } from "../../hooks/redux"
+import { useLanguage } from "../../context/LanguageContext"
+import { getMain } from "../../store/actions/mainAction"
+import { useEffect } from "react"
 
 function Main() {
-
+    const dispatch = useAppDispatch()
+    const {error,loading,main} = UseAppSelector(state => state.mainSlice)
+    const {lang,toggleLanguage} = useLanguage()
+    
+    useEffect(() => {
+    
+        dispatch(getMain())
+        
+        console.log(main)      
+    },[])
 
     return (
        <div className="wrapper">

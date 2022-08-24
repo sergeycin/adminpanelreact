@@ -47,7 +47,7 @@ function List(){
             let masItem = []
             for(let j in fields.dataFields[key]){
                 if(j != '__v'  && j != '_id' )
-                masItem.push(<div key={fields.dataFields[key].id} className="center__top-item"><p>{fields.dataFields[key][j]}</p></div>)
+                masItem.push(<div key={fields.dataFields[key].id} className="center__top-item"><p>{fields.dataFields[key][j].substring(0, 40)}..</p></div>)
             }
             listFields.push(
                 <NavLink to="/">
