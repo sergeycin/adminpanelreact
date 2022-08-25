@@ -10,8 +10,8 @@ export const getMain = (form?: any) => {
         try{
             dispatch(fetching()) 
             const data = await makeRequest('/api/main/','GET')
-          
-            dispatch(fetchSuccess(data))
+            console.log(data)
+           dispatch( fetchSuccess(data))
         }
         catch (e){
             console.log(e)

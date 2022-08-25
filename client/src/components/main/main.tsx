@@ -22,7 +22,7 @@ function Main() {
     
         dispatch(getMain())
         
-        console.log(main)      
+        console.log('main',main)      
     },[])
 
     return (
@@ -38,7 +38,7 @@ function Main() {
              <div className="main__content">
                  <img src={banner} alt="" />
                  <div className="main__text">
-                     <div className="main__text-head animate"><p>новый lexus nx</p></div>
+                     <div className="main__text-head animate"><p></p></div>
                      <div className="main__text-parag"><span>УБЕДИТ СИЛЬНЕЙШИХ</span></div>
                  <a href="">  <button className="main__button"> <p>ПОДРОБНЕЕ</p> <span className="line"></span></button></a>  
                  </div>

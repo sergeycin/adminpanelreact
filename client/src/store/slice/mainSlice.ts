@@ -17,7 +17,7 @@ const initialState: PagesState = {
 
 
 
-export const mainSlice = createSlice({
+export  const   mainSlice = createSlice({
     name: 'pages',
     initialState,
     reducers: {
