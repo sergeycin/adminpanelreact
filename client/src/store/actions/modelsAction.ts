@@ -1,0 +1,22 @@
+
+import { AppDispatch } from ".."
+import { makeRequest } from "../../hooks/fetch.hook"
+import { modelsSLice } from "../slice/modelsSlice"
+
+
+export const getModels= () => {
+    const {fetching,fetchSuccess,fetchError} =  modelsSLice.actions
+   
+    return async (dispatch:AppDispatch) =>{
+        try{
+            dispatch(fetching()) 
+            const data = await makeRequest('/api/models/','GET')
+            console.log(data)
+         
+            dispatch(fetchSuccess(data))
+        }
+        catch (e){
+            dispatch(fetchError(e as Error))
+        }
+    }
+}

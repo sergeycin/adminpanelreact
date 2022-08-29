@@ -13,28 +13,30 @@ import { useLanguage } from "../../context/LanguageContext"
 import { useEffect, useState } from "react"
 import { makeRequest } from "../../hooks/fetch.hook"
 import ContactsContent from "../contacts/contactContent"
+import Loader from "../loader/loader"
 
 function Main() {
-    const dispatch = useAppDispatch()
+
     const [main,setMain] = useState({rutitlebanner : '',entitlebanner: '',rudescriptionbanner: '', endescriptionbanner: '', rutextgreeting: '',entextgreeting: '',rulasttext: '', enlasttext: ''})
-     // const {error,loading,maindata} = UseAppSelector(state => state.mainSlice)
+
     const {lang,toggleLanguage} = useLanguage()
     
     useEffect( () => {
 
-     
+            
             getdata()
     
      
     },[])
    const   getdata = async () =>{
     const data = await makeRequest('/api/main/','GET')
-    console.log(data[0].rutitlebanner)
     setMain({rutitlebanner : data[0].rutitlebanner,entitlebanner: data[0].entitlebanner,rudescriptionbanner: data[0].rudescriptionbanner, endescriptionbanner: data[0].endescriptionbanner, rutextgreeting: data[0].rutextgreeting,entextgreeting: data[0].entextgreeting,rulasttext: data[0].rulasttext, enlasttext: data[0].enlasttext})
 
     }
     return (
+        
        <div className="wrapper">
+        {main.rutitlebanner == '' && <Loader/>}
       <Header/>
 
 

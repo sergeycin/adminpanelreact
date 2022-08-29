@@ -1,24 +1,27 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
 
-
 interface PagesState{
     loading: boolean,
     error: string,
-    contactdata: any[]
+   fields: any[]
+   message: string
 }
 
 const initialState: PagesState = {
     loading: false,
     error: '',
-    contactdata: []
+    fields: [],
+    message: ''
 
 }
 
 
 
-export  const   mainSlice = createSlice({
-    name: 'pages',
+
+
+export const ContactsSLice = createSlice({
+    name: 'fields',
     initialState,
     reducers: {
         
@@ -26,10 +29,11 @@ export  const   mainSlice = createSlice({
         fetching(state){
            state.loading = true 
         },
-        fetchMainSuccess(state,action: PayloadAction<any[]>){
+        fetchSuccess(state,action: PayloadAction<any[]>){
             state.loading = false
-            state.contactdata = action.payload
+            state.fields = action.payload
         },
+       
         fetchError(state,action:PayloadAction<Error>){
             state.loading = false
             state.error = action.payload.message
@@ -40,6 +44,6 @@ export  const   mainSlice = createSlice({
 })
 
 
-export default mainSlice.reducer
+export default ContactsSLice.reducer
 
 

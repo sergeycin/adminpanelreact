@@ -10,6 +10,7 @@ import { makeRequest } from "../../hooks/fetch.hook"
 import { useAppDispatch, UseAppSelector } from "../../hooks/redux"
 import { getNews } from "../../store/actions/newsActions"
 import {  useLanguage } from "../../context/LanguageContext";
+import Loader from "../loader/loader"
 function News() {
     const dispatch = useAppDispatch()
     const {error,loading,news} = UseAppSelector(state => state.newsSlice)
@@ -18,12 +19,13 @@ function News() {
     useEffect(() => {
     
         
-        
+        dispatch(getNews())
         console.log(news)      
     },[])
   
     return (
        <div className="wrapper">
+        {loading && <Loader/>}
       <Header/>
 
 
@@ -53,7 +55,7 @@ function News() {
         <div className="newslist">
             <div className="container">
                 <div className="newslist__row">
-                    {news.map((item) =>        <div className="newslist__item " >
+                    {news.length ? news.map((item) =>        <div className="newslist__item " >
                             <div className="newslist__image"><img src={item.image} alt=""/></div>
                             <div className="newslist__text">
                   
@@ -66,7 +68,7 @@ function News() {
                      
         
                       
-                       </div>)}
+                       </div>) : ''}
 
             </div>
         </div>

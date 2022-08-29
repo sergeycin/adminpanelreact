@@ -5,109 +5,48 @@ import { Header } from "../layouts/header"
 import { Footer } from "../layouts/footer"
 import ls from "../../assets/img/ls.png"
 import { NavLink } from 'react-router-dom'
+import { useAppDispatch, UseAppSelector } from '../../hooks/redux'
+import { useLanguage } from '../../context/LanguageContext'
+import { useEffect } from 'react'
+import { getModels } from '../../store/actions/modelsAction'
 
 function TestDrive() {
+    const dispatch = useAppDispatch()
+    const {lang,toggleLanguage} = useLanguage()
+    const {error,loading,models} = UseAppSelector(state => state.modelsSlice)
+    useEffect(()=>{
+        dispatch(getModels())
+    },[])
 return(
   
 <div className="wrapper">
 <Header/>  
 
 <div className="testDrive">
-        <div className="rating__header"><h2>ЗАПИСЬ НА ТЕСТ-ДРАЙВ</h2></div>
+        <div className="rating__header"><h2>{lang == 'ru' ? 'ЗАПИСЬ НА ТЕСТ-ДРАЙВ' : 'RECORDING FOR A TEST DRIVE'}</h2></div>
         <div className="rating__line"></div>
         <div className="testDrive__way">
-            <a href="TestDrive.html">    <div className="testDrive__way-item" id="way-model" ><p>МОДЕЛЬ</p> <p className="mob-way">1</p> <div className="testDrive__line line-model"></div> </div></a>
-          <a id="way-contact" href="form__testDrive.html"><div className="testDrive__way-item"  ><p>КОНТАКТНАЯ ИНФОРМАЦИЯ</p> <p className="mob-way">2</p> <div className="testDrive__line line-model"></div> </div></a>
-       <a  id="way-accept" href="#">   <div className="testDrive__way-item" id="way-model" ><p>ПОДТВЕРЖДЕНИЕ</p> <p className="mob-way">3</p> <div className="testDrive__line line-model"></div> </div></a>  
+        <a href="TestDrive.html">    <div className="testDrive__way-item" id="way-model" ><p>{lang == 'ru' ? 'МОДЕЛЬ' : 'MODEL'}</p> <p className="mob-way">1</p> <div className="testDrive__line line-model"></div> </div></a>
+        <a id="way-contact" href="form__testDrive.html"><div className="testDrive__way-item"  ><p>{lang == 'ru' ? 'КОНТАКТНАЯ ИНФОРМАЦИЯ' : 'CONTACT INFORMATION'}</p> <p className="mob-way">2</p> <div className="testDrive__line line-model"></div> </div></a>
+     <a  id="way-accept" href="#">   <div className="testDrive__way-item" id="way-model" ><p>{lang == 'ru' ? 'ПОДТВЕРЖДЕНИЕ' : 'CONFIRM'}</p> <p className="mob-way">3</p> <div className="testDrive__line line-model"></div> </div></a>  
         </div>
 <div className="container">
     <div className="testDrive__models">
         <div className="models__wrap">
             <div className="models__row">
-         <div className="models__item" >
-     
-                    <h2>UX</h2>
-                    <p>Встречай рассвет в движении</p>
-                    <div className="models__image"><img src={ls} alt=""/></div>
-           
-                <div className="testDrive__neither">
+            {models.length ? models.map((item) =><div className="models__item" >
+  
+  <h2>{item.title}</h2>
+  <p>{lang == 'ru' ? item.rudescription : item.endescription}</p>
+  <div className="models__image"><img src={item.image} alt=""/></div>
+  <div className="testDrive__neither">
               
-                    <div className="testDrive__models-btn">
-                        <a className="a-accept" href="form__testDrive.html">  <button className="black-btn white-btn"> <p>Выбрать</p> <span className="line"></span></button></a>  
-                    </div>
-                </div>
-            
-                </div>
-                <div className="models__item" >
-                    <NavLink to="/UX">   
-                            <h2>UX</h2>
-                            <p>Встречай рассвет в движении</p>
-                            <div className="models__image"><img src={ls} alt=""/></div>
-                        </NavLink>  
-                        <div className="testDrive__neither">
-                     
-                            <div className="testDrive__models-btn">
-                            <NavLink to="UX">   <button className="black-btn white-btn"> <p>Заказать</p> <span className="line"></span></button>  </NavLink>  
-                            </div>
-                        </div>
-                    
-                        </div>
-                        <div className="models__item" >
-                            <a href="model_single.html">   
-                                    <h2>UX</h2>
-                                    <p>Встречай рассвет в движении</p>
-                                    <div className="models__image"><img src={ls} alt=""/></div>
-                                </a>  
-                                <div className="testDrive__neither">
-                                  
-                                    <div className="testDrive__models-btn">
-                                        <a href="">  <button className="black-btn white-btn"> <p>Заказать</p> <span className="line"></span></button></a>  
-                                    </div>
-                                </div>
-                            
-                                </div>
-                                <div className="models__item" >
-                                    <a href="model_single.html">   
-                                            <h2>UX</h2>
-                                            <p>Встречай рассвет в движении</p>
-                                            <div className="models__image"><img src={ls} alt=""/></div>
-                                        </a>  
-                                        <div className="testDrive__neither">
-                                          
-                                            <div className="testDrive__models-btn">
-                                                <a href="">  <button className="black-btn white-btn"> <p>Заказать</p> <span className="line"></span></button></a>  
-                                            </div>
-                                        </div>
-                                    
-                                        </div>
-                                        <div className="models__item" >
-                                            <a href="model_single.html">   
-                                                    <h2>UX</h2>
-                                                    <p>Встречай рассвет в движении</p>
-                                                    <div className="models__image"><img src={ls} alt=""/></div>
-                                                </a>  
-                                                <div className="testDrive__neither">
-                                                  
-                                                    <div className="testDrive__models-btn">
-                                                        <a href="">  <button className="black-btn white-btn"> <p>Заказать</p> <span className="line"></span></button></a>  
-                                                    </div>
-                                                </div>
-                                            
-                                                </div>
-                                                <div className="models__item" >
-                                                    <a href="model_single.html">   
-                                                            <h2>UX</h2>
-                                                            <p>Встречай рассвет в движении</p>
-                                                            <div className="models__image"><img src={ls} alt=""/></div>
-                                                        </a>  
-                                                        <div className="testDrive__neither">
-                                                    
-                                                            <div className="testDrive__models-btn">
-                                                                <a href="">  <button className="black-btn white-btn"> <p>Заказать</p> <span className="line"></span></button></a>  
-                                                            </div>
-                                                        </div>
-                                                    
-                                                        </div>
+              <div className="testDrive__models-btn">
+                  <NavLink state={{title: item.title}} className="a-accept" to={item.title}>  <button className="black-btn white-btn"> <p>Выбрать</p> <span className="line"></span></button></NavLink>  
+              </div>
+          </div>
+</div>) : ''}
+       
               
             </div>
         </div>

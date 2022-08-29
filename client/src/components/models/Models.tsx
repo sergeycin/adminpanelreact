@@ -6,8 +6,18 @@ import { Footer } from "../layouts/footer"
 import ls from "../../assets/img/ls.png"
 import banner from "../../assets/img/banner.jpg"
 import { NavLink } from 'react-router-dom'
+import { useAppDispatch, UseAppSelector } from "../../hooks/redux"
+import { useLanguage } from "../../context/LanguageContext"
+import { useEffect } from "react"
+import { getModels } from "../../store/actions/modelsAction"
 
 function Models() {
+    const dispatch = useAppDispatch()
+    const {lang,toggleLanguage} = useLanguage()
+    const {error,loading,models} = UseAppSelector(state => state.modelsSlice)
+    useEffect(()=>{
+        dispatch(getModels())
+    },[])
 return(
   
 <div className="wrapper">
@@ -20,55 +30,14 @@ return(
 
     <div className="models__wrap">
         <div className="models__row">
-     <div className="models__item crossover" >
-        <a href="model_single.html">   
-                <h2>UX</h2>
-                <p>Встречай рассвет в движении</p>
-                <div className="models__image"><img src={ls} alt=""/></div>
-            </a>  
-            </div>
-   
-            <div className="models__item crossover">
-                <h2>UX</h2>
-                <p>Встречай рассвет в движении</p>
-                <div className="models__image"><img src={ls} alt=""/></div>
-            </div>
-            <div className="models__item crossover">
-                <h2>UX</h2>
-                <p>Встречай рассвет в движении</p>
-                <div className="models__image"><img src={ls} alt=""/></div>
-            </div>
-            
-            <div className="sedan models__item" >
-                <h2>UX</h2>
-                <p>Встречай рассвет в движении</p>
-                <div className="models__image"><img src={ls} alt=""/></div>
-            </div>
-            <div className="models__item sedan"  >
-                <h2>UX</h2>
-                <p>Встречай рассвет в движении</p>
-                <div className="models__image"><img src={ls} alt=""/></div>
-            </div>
-            <div className="models__item" >
-                <h2>UX</h2>
-                <p>Встречай рассвет в движении</p>
-                <div className="models__image"><img src={ls} alt=""/></div>
-            </div>
-            <div className="models__item crossover">
-                <h2>UX</h2>
-                <p>Встречай рассвет в движении</p>
-                <div className="models__image"><img src={ls} alt=""/></div>
-            </div>
-            <div className="models__item crossover">
-                <h2>UX</h2>
-                <p>Встречай рассвет в движении</p>
-                <div className="models__image"><img src={ls} alt=""/></div>
-            </div>
-            <div className="models__item crossover">
-                <h2>UX</h2>
-                <p>Встречай рассвет в движении</p>
-                <div className="models__image"><img src={ls} alt=""/></div>
-            </div>
+        {models.length ? models.map((item) =><div className="models__item crossover" >
+  
+  <h2>{item.title}</h2>
+  <p>{lang == 'ru' ? item.rudescription : item.endescription}</p>
+  <div className="models__image"><img src={item.image} alt=""/></div>
+<p>{item.price}</p>
+</div>) : ''}
+  
         </div>
     </div>
 </div>

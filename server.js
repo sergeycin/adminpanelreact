@@ -44,6 +44,7 @@ app.use('/api/pages', require('./adminControllers/pages.controller'))
 app.use('/api/news', require('./Controllers/NewsController'))
 app.use('/api/main', require('./Controllers/MainPageController'))
 app.use('/api/contacts', require('./Controllers/ContactControllers'))
+app.use('/api/models', require('./Controllers/ModelsController'))
 // Настройки для delpoy
 if(process.env.NODE_ENV === 'production'){
     app.use('/admin',express.static(`${__dirname}/adminview/build`));

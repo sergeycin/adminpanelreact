@@ -1,11 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { combineReducers } from "redux";
 import newsSlice from "./slice/newsSlice";
-import mainSlice from "./slice/mainSlice";
-
+import contactSlice from "./slice/contactSlice";
+import modelsSlice from "./slice/modelsSlice";
 const rootReducer = combineReducers({
     newsSlice,
-    mainSlice
+    contactSlice,
+    modelsSlice
 })
 
 export function setupStore() {

@@ -10,7 +10,6 @@ export const getNews = (form?: any) => {
         try{
             dispatch(fetching()) 
             const data = await makeRequest('/api/news/','GET')
-          
             dispatch(fetchSuccess(data))
         }
         catch (e){
