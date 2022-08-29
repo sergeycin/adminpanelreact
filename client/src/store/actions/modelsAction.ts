@@ -11,7 +11,7 @@ export const getModels= () => {
         try{
             dispatch(fetching()) 
             const data = await makeRequest('/api/models/','GET')
-            console.log(data)
+
          
             dispatch(fetchSuccess(data))
         }

@@ -3,10 +3,12 @@ import { combineReducers } from "redux";
 import newsSlice from "./slice/newsSlice";
 import contactSlice from "./slice/contactSlice";
 import modelsSlice from "./slice/modelsSlice";
+import historySlice from "./slice/historySlice";
 const rootReducer = combineReducers({
     newsSlice,
     contactSlice,
-    modelsSlice
+    modelsSlice,
+    historySlice
 })
 
 export function setupStore() {
