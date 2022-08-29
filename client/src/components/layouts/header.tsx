@@ -78,7 +78,7 @@ export const Header : React.FC = () => {
 <li><NavLink to="/contacts">{lang == 'ru' ? 'Контакты' : 'Contact'}</NavLink></li>
 </ul>
 <div className="dropdown">
-  <div className="dropbtn">{currentLanguage}</div>
+  <div className="dropbtn">{lang}</div>
   <div className="dropdown-content" onClick={(event) => changeLanguage(event)}>
   <a href="#">en</a>
     <a href="#">ru</a>
