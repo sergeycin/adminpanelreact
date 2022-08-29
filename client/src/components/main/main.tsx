@@ -10,21 +10,29 @@ import banner from '../../assets/img/main.jpg'
 import Cards from "../cards/cards"
 import { useAppDispatch, UseAppSelector } from "../../hooks/redux"
 import { useLanguage } from "../../context/LanguageContext"
-import { getMain } from "../../store/actions/mainAction"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
+import { makeRequest } from "../../hooks/fetch.hook"
+import ContactsContent from "../contacts/contactContent"
 
 function Main() {
     const dispatch = useAppDispatch()
-    const {error,loading,main} = UseAppSelector(state => state.mainSlice)
+    const [main,setMain] = useState({rutitlebanner : '',entitlebanner: '',rudescriptionbanner: '', endescriptionbanner: '', rutextgreeting: '',entextgreeting: '',rulasttext: '', enlasttext: ''})
+     // const {error,loading,maindata} = UseAppSelector(state => state.mainSlice)
     const {lang,toggleLanguage} = useLanguage()
     
-    useEffect(() => {
-    
-        dispatch(getMain())
-        
-        console.log('main',main)      
-    },[])
+    useEffect( () => {
 
+     
+            getdata()
+    
+     
+    },[])
+   const   getdata = async () =>{
+    const data = await makeRequest('/api/main/','GET')
+    console.log(data[0].rutitlebanner)
+    setMain({rutitlebanner : data[0].rutitlebanner,entitlebanner: data[0].entitlebanner,rudescriptionbanner: data[0].rudescriptionbanner, endescriptionbanner: data[0].endescriptionbanner, rutextgreeting: data[0].rutextgreeting,entextgreeting: data[0].entextgreeting,rulasttext: data[0].rulasttext, enlasttext: data[0].enlasttext})
+
+    }
     return (
        <div className="wrapper">
       <Header/>
@@ -38,9 +46,9 @@ function Main() {
              <div className="main__content">
                  <img src={banner} alt="" />
                  <div className="main__text">
-                     <div className="main__text-head animate"><p></p></div>
-                     <div className="main__text-parag"><span>УБЕДИТ СИЛЬНЕЙШИХ</span></div>
-                 <a href="">  <button className="main__button"> <p>ПОДРОБНЕЕ</p> <span className="line"></span></button></a>  
+                     <div className="main__text-head animate"><p>{lang == 'ru' ? main.rutitlebanner : main.entitlebanner}</p></div>
+                     <div className="main__text-parag"><span>{lang == 'ru' ? main.rudescriptionbanner : main.endescriptionbanner}</span></div>
+                 <a href="">  <button className="main__button"> <p>{lang == 'ru' ? 'Подробнее' : 'More'}</p> <span className="line"></span></button></a>  
                  </div>
                
          </div>
@@ -52,15 +60,15 @@ function Main() {
     </div>
 
     <div className="greeting">
-        <div className="greeting__text"><p>Рады видеть вас в Лексус - Автодель – официальном дилерском центре легендарной марки Lexus. Оцените настоящее японское качество стандартов продажи и обслуживания Toyota Motor!</p></div>
+        <div className="greeting__text"><p>{lang == 'ru' ? main.rutextgreeting : main.entextgreeting}</p></div>
         <div className="greeting__button">
-         <a href="">  <button className="black-btn"> <p>Предложения</p> <span className="line"></span></button></a>  
+         <a href="">  <button className="black-btn"> <p>{lang == 'ru' ? 'Предложения' : 'Propose'}</p> <span className="line"></span></button></a>  
         </div>
         <div className="greeting__button">
-         <a href="">  <button className="black-btn"> <p>Автомобили в наличии</p> <span className="line"></span></button></a>  
+         <a href="">  <button className="black-btn"> <p>{lang == 'ru' ? 'Автомобили в наличии' : 'Models'}</p> <span className="line"></span></button></a>  
         </div>
         <div className="greeting__button ">
-         <a href="form.html">  <button className="black-btn white-btn"> <p> Тест-Драйв</p> <span className="line"></span></button></a>  
+         <a href="form.html">  <button className="black-btn white-btn"> <p> {lang == 'ru' ? 'Тест-драйв' : 'Test-Drive'}</p> <span className="line"></span></button></a>  
         </div>
         
     </div>
@@ -72,56 +80,11 @@ function Main() {
      
  </div>
 
- <div className="map">
-     <div className="container">
-         <div className="map__row">
-             <div className="map__text">
-                 <div className="map__text-head"><p>Лексус - Автодель</p></div>
-             <div className="map__graduate">
-               <a href="#"> <img src="img/graduate.jpg" alt=""/></a> 
-                 <p>Лучший дилер в номинации <br/>«Рекомендация клиентов»  по итогам 2014 года</p>
-             </div>
-             <div className="map__contact">
-                 <p><i className="fas fa-map-marker-alt"></i>
-                     Киевская ул., 187, Симферополь, Россия</p>
-                     <p><i className="fas fa-mobile-alt"></i>
-                         +7 (495)154-47-49</p>
-                         <p><i className="far fa-envelope"></i>
-                             cralezus-i.ru</p>
-                             <p><i className="fas fa-desktop"></i>
-                                 https://lex us-i.ru</p>
-                                 <hr />
-                                 <div className="map__social">
-                                 <a href="">  <i className="fab fa-instagram"></i></a>  
-                                 <a href="">   <i className="fab fa-facebook-f"></i></a> 
-                                 <a href="">   <i className="fab fa-vk"></i> </a> 
-                                 </div>
-             </div>
-             <div className="map__button">
-                 <a href="">  <button className="black-btn"> <p>Предложения</p> <span className="line"></span></button></a>  
-                </div>
-                <div className="map__button ">
-                 <a href="">  <button className="black-btn white-btn"> <p>Предложения</p> <span className="line"></span></button></a>  
-                </div>
-             </div>
-             <div className="map__yandex">
-                 <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A85ff14cd102e623b465776a5252c54aefd7d7892aaccaf48048224f928c98805&amp;source=constructor" width="660" height="610" ></iframe>
-             </div>
-         </div>
-     </div>
- </div>
+ <ContactsContent />
 <Cards/>
 <div className="propose">
  <div className="container">
- <p>Официальный дилерский центр Lexus предлагает широкий ассортимент новых автомобилей и с пробегом. Надежный японский автопром долгое время выпускает самые комфортные, безопасные, функциональные и динамичные автомобили в мире. В Лексусах покупателей привлекают инновационные технические решения, роскошный дизайн интерьера, мощность двигателей и стильный экстерьер.
-<br/>
-<br/>
-     В нашем салоне вы можете взять любой понравившейся автомобиль Lexus для тест-драйва, и оценить все его преимущества. Вы можете прокатиться на седанах, купе, кроссоверах и спортивных моделях, имеющихся в наличии. Если же в салоне нужной комплектации нет, то она будет доставлена от производителя в кратчайшие сроки. По техническим и эксплуатационным характеристикам вас проконсультируют сотрудники дилерского центра. У нас регулярно проходят
-     акции, благодаря которым автомобиль можно приобрести по особенно выгодным ценам. Помимо продажи автомобилей Lexus, наш центр предлагает воспользоваться сервисными услугами. Высококвалифицированные специалисты поставят оригинальное дополнительное оборудование, сделав ваш Лексус более функциональным и удобным.
-     <br/>
-
-     <br/>
-     Возможно приобретение автомобиля в кредит или в лизинг на самых выгодных условиях. Сразу же после покупки вы можете застраховать транспортное средство. В нашем дилерском центре вы можете пройти техническое обслуживание, включая кузовной ремонт и компьютерную диагностику.</p>
+ <p>{lang == 'ru' ? main.rulasttext : main.enlasttext}</p>
  </div>
 </div>
  </div>     

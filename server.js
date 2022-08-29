@@ -9,6 +9,7 @@ const News  = require('./models/NewNews')
 const TestDrive  = require('./models/TestDriveForm')
 const AutoModel  = require('./models/AutoModel')
 const MainPage = require('./models/MainPageModel')
+const ContactsModel = require('./models/ContactsModel')
 let fs = require('fs');
 
 // Текущая директория
@@ -22,6 +23,7 @@ exports.PagesObject = {
  News,
 AutoModel,
 MainPage,
+ContactsModel,
 }
 
 // Модели форм
@@ -41,7 +43,7 @@ app.use('/api/pages', require('./adminControllers/pages.controller'))
 // Роуты для клиента
 app.use('/api/news', require('./Controllers/NewsController'))
 app.use('/api/main', require('./Controllers/MainPageController'))
-
+app.use('/api/contacts', require('./Controllers/ContactControllers'))
 // Настройки для delpoy
 if(process.env.NODE_ENV === 'production'){
     app.use('/admin',express.static(`${__dirname}/adminview/build`));

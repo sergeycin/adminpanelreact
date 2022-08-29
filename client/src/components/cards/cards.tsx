@@ -1,8 +1,9 @@
 import card1 from '../../assets/img/card1.jpg'
 import card2 from '../../assets/img/card2.jpg'
 import card3 from '../../assets/img/card3.jpg'
+import { useLanguage } from '../../context/LanguageContext'
 function Cards() {
-
+    const {lang,toggleLanguage} = useLanguage()
 
     return (
         <div className="card">
@@ -14,9 +15,9 @@ function Cards() {
                 <img src={card1} alt=""/>
                 <div className="card__item-block">
                    
-                    <div className="card__text-head"><p>Онлайн - Оценка</p></div>
+                    <div className="card__text-head"><p>{lang == 'ru' ? 'Онлайн - Оценка' : 'Online-estimation'}</p></div>
                     <div className="card__button ">
-                        <a href="form_rating.html">  <button className="black-btn black-background"> <p>Предложения</p> <span className="line"></span></button></a>  
+                        <a href="form_rating.html">  <button className="black-btn black-background"> <p>{lang == 'ru' ? 'Предложения' : 'Propose'}</p> <span className="line"></span></button></a>  
                        </div>
                   
                 </div>
@@ -25,9 +26,9 @@ function Cards() {
            
                 <img src={card2}  alt=""/>
                 <div className="card__item-block">
-                    <div className="card__text-head"><p>Кредитный калькулятор</p></div>
+                    <div className="card__text-head"><p>{lang == 'ru' ? 'Больше о нас' : 'More about us'}</p></div>
                     <div className="card__button ">
-                        <a href="">  <button className="black-btn black-background"> <p>Рассчитать</p> <span className="line"></span></button></a>  
+                        <a href="">  <button className="black-btn black-background"> <p>{lang == 'ru' ? 'Подробнее' : 'More'}</p> <span className="line"></span></button></a>  
                        </div>
                 
                 </div>
@@ -36,9 +37,9 @@ function Cards() {
            
                 <img src={card3}  alt=""/>
                 <div className="card__item-block">
-                    <div className="card__text-head"><p>Обратный звонок</p></div>
+                    <div className="card__text-head"><p>{lang == 'ru' ? 'Позвонить нам' : 'Call us'}</p></div>
                     <div className="card__button ">
-                        <a href="">  <button className="black-btn black-background"> <p>Заказать</p> <span className="line"></span></button></a>  
+                        <a href="">  <button className="black-btn black-background"> <p>{lang == 'ru' ? 'Подробнее' : 'More'}</p> <span className="line"></span></button></a>  
                        </div>
                 
                 </div>

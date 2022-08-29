@@ -5,13 +5,13 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 interface PagesState{
     loading: boolean,
     error: string,
-    main: any[]
+    contactdata: any[]
 }
 
 const initialState: PagesState = {
     loading: false,
     error: '',
-    main: []
+    contactdata: []
 
 }
 
@@ -26,9 +26,9 @@ export  const   mainSlice = createSlice({
         fetching(state){
            state.loading = true 
         },
-        fetchSuccess(state,action: PayloadAction<any[]>){
+        fetchMainSuccess(state,action: PayloadAction<any[]>){
             state.loading = false
-            state.main = action.payload
+            state.contactdata = action.payload
         },
         fetchError(state,action:PayloadAction<Error>){
             state.loading = false
