@@ -17,7 +17,7 @@ function News() {
     
     useEffect(() => {
     
-        dispatch(getNews())
+        
         
         console.log(news)      
     },[])
