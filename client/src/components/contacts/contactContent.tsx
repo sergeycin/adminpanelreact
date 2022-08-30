@@ -7,6 +7,7 @@ import { useAppDispatch, UseAppSelector } from "../../hooks/redux"
 import { useEffect } from "react"
 import { fieldList } from "../../store/actions/contactsAction"
 import Loader from "../loader/loader"
+import { NavLink } from "react-router-dom"
 function ContactsContent() {
     const {lang,toggleLanguage} = useLanguage()
     const dispatch = useAppDispatch()
@@ -43,10 +44,10 @@ function ContactsContent() {
                                        </div>
                    </div>
                    <div className="map__button">
-                       <a href="">  <button className="black-btn"> <p>{lang == 'ru' ? 'Модели авто' : 'Models auto'}</p> <span className="line"></span></button></a>  
+                   <NavLink to="/models">  <button className="black-btn"> <p>{lang == 'ru' ? 'Модели авто' : 'Models auto'}</p> <span className="line"></span></button></NavLink> 
                       </div>
                       <div className="map__button ">
-                       <a href="">  <button className="black-btn white-btn"> <p>{lang == 'ru' ? 'Тест-драйв' : 'TestDrive'}</p> <span className="line"></span></button></a>  
+                      <NavLink to="/testdrive">  <button className="black-btn white-btn"> <p>{lang == 'ru' ? 'Тест-драйв' : 'TestDrive'}</p> <span className="line"></span></button></NavLink>  
                       </div>
                    </div>
                    <div className="map__yandex">

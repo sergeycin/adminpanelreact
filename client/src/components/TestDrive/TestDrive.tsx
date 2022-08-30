@@ -9,6 +9,7 @@ import { useAppDispatch, UseAppSelector } from '../../hooks/redux'
 import { useLanguage } from '../../context/LanguageContext'
 import { useEffect } from 'react'
 import { getModels } from '../../store/actions/modelsAction'
+import Loader from '../loader/loader'
 
 function TestDrive() {
     const dispatch = useAppDispatch()
@@ -21,7 +22,7 @@ return(
   
 <div className="wrapper">
 <Header/>  
-
+{loading && <Loader/>}
 <div className="testDrive">
         <div className="rating__header"><h2>{lang == 'ru' ? 'ЗАПИСЬ НА ТЕСТ-ДРАЙВ' : 'RECORDING FOR A TEST DRIVE'}</h2></div>
         <div className="rating__line"></div>

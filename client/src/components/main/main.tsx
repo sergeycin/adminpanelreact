@@ -14,6 +14,7 @@ import { useEffect, useState } from "react"
 import { makeRequest } from "../../hooks/fetch.hook"
 import ContactsContent from "../contacts/contactContent"
 import Loader from "../loader/loader"
+import { NavLink } from "react-router-dom"
 
 function Main() {
 
@@ -64,13 +65,13 @@ function Main() {
     <div className="greeting">
         <div className="greeting__text"><p>{lang == 'ru' ? main.rutextgreeting : main.entextgreeting}</p></div>
         <div className="greeting__button">
-         <a href="">  <button className="black-btn"> <p>{lang == 'ru' ? 'Предложения' : 'Propose'}</p> <span className="line"></span></button></a>  
+        <NavLink to="/contacts">  <button className="black-btn"> <p>{lang == 'ru' ? 'Предложения' : 'Propose'}</p> <span className="line"></span></button></NavLink>  
         </div>
         <div className="greeting__button">
-         <a href="">  <button className="black-btn"> <p>{lang == 'ru' ? 'Автомобили в наличии' : 'Models'}</p> <span className="line"></span></button></a>  
+        <NavLink to="/models">   <button className="black-btn"> <p>{lang == 'ru' ? 'Автомобили в наличии' : 'Models'}</p> <span className="line"></span></button></NavLink>  
         </div>
         <div className="greeting__button ">
-         <a href="form.html">  <button className="black-btn white-btn"> <p> {lang == 'ru' ? 'Тест-драйв' : 'Test-Drive'}</p> <span className="line"></span></button></a>  
+        <NavLink to="/testdrive">  <button className="black-btn white-btn"> <p> {lang == 'ru' ? 'Тест-драйв' : 'Test-Drive'}</p> <span className="line"></span></button></NavLink>  
         </div>
         
     </div>

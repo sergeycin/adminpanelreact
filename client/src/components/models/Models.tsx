@@ -10,6 +10,7 @@ import { useAppDispatch, UseAppSelector } from "../../hooks/redux"
 import { useLanguage } from "../../context/LanguageContext"
 import { useEffect } from "react"
 import { getModels } from "../../store/actions/modelsAction"
+import Loader from "../loader/loader"
 
 function Models() {
     const dispatch = useAppDispatch()
@@ -22,6 +23,7 @@ return(
   
 <div className="wrapper">
 <Header/>  
+{loading && <Loader/>}
 <div className="container">
     
     <div className="models__banner">

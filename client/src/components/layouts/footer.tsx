@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
 import './footer.scss'
 
@@ -11,7 +12,7 @@ export const Footer : React.FC = () => {
         <div className="footer__row">
             <div className="footer__models">
                 <h2>{lang == 'ru' ? 'Модели' : 'Models'}</h2>
-                <li>{lang == 'ru' ? 'Авто в наличии' : 'Cars in stock'}</li>
+                <NavLink to="/models">   <li>{lang == 'ru' ? 'Авто в наличии' : 'Cars in stock'}</li></NavLink> 
             
            
                 
@@ -19,13 +20,13 @@ export const Footer : React.FC = () => {
             <div className="footer_buyers">
                 <h3>{lang == 'ru' ? 'Покупателям' : 'Clients'}</h3>
   
-                <li>{lang == 'ru' ? 'Контакты' : 'Contacts'}</li>
+                <NavLink to="/contacts">    <li>{lang == 'ru' ? 'Контакты' : 'Contacts'}</li></NavLink> 
               
             </div>
             
             <div className="footer__owners">
                 <h2>{lang == 'ru' ? 'Тест-драйв' : 'Test-Drive'} </h2>
-                <li>{lang == 'ru' ? 'Перейти к тест-драйву' : 'Go to the test drive'}</li>
+                <NavLink to="/testdrive">    <li>{lang == 'ru' ? 'Перейти к тест-драйву' : 'Go to the test drive'}</li></NavLink> 
           
             </div>
             <div className="footer__social">

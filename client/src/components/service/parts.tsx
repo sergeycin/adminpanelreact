@@ -7,9 +7,12 @@ import { Header } from "../layouts/header"
 import { Footer } from "../layouts/footer"
 import ser from '../../assets/img/ser.jpg'
 import coup from '../../assets/img/coup.jpg'
+import { useLanguage } from '../../context/LanguageContext'
+import { NavLink } from 'react-router-dom'
 
 
 function Parts() {
+    const {lang,toggleLanguage} = useLanguage()
 return(
   
 <div className="wrapper">
@@ -19,10 +22,10 @@ return(
       <div className="news">
           <div className="news__image">   <img src={ser} alt=""/></div>
           <div className="news__text">
-              <div  className="news__text-head"><p>Сервис  </p></div>
+              <div  className="news__text-head"><p>{lang == 'ru' ? 'Сервис' : 'Service'}</p></div>
             
           </div>
-          <div className="news__text-parag"><p>Сосредоточьтесь на главном удовольствии от вождения.А мы позаботимся об обслуживании вашего автомобиля Lexus</p>
+          <div className="news__text-parag"><p>{lang == 'ru' ? 'Сосредоточьтесь на главном удовольствии от вождения.А мы позаботимся об обслуживании вашего автомобиля Lexus' : 'Focus on the main pleasure of driving.And we will take care of the maintenance of your Lexus car'}</p>
           </div>
       </div>
   </div>
@@ -31,8 +34,8 @@ return(
         <div className="bread">
             <div className="container">
             <ul className="breadcrumb">
-                <li><a href="#">Главная</a></li>
-                <li>Сервис и запасные части</li>
+            <li><a href="#">{lang == 'ru' ? 'Главная' : 'Main'}</a></li>
+                <li>{lang == 'ru' ? 'Сервис и запсные части' : 'Service and spare parts'}</li>
            
               </ul>
             </div>
@@ -45,10 +48,10 @@ return(
             <img src={coup} alt=""/>
             <div className="kredit__text">
                 
-                <div className="kredit__text-head "><p>ОРИГИНАЛЬНЫЕ ЗАПАСНЫЕ ЧАСТИ LEXUS</p></div>
-                <p>Наши высококвалифицированные специалисты всегда работают только с оригинальными запасными частями Lexus.Именно оригинальные запасные части Lexus гарантируют наилучшую производительность автомобиля и вашу безопасность</p>
+                <div className="kredit__text-head "><p>{lang == 'ru' ? 'ОРИГИНАЛЬНЫЕ ЗАПАСНЫЕ ЧАСТИ LEXUS' : 'ORIGINAL LEXUS SPARE PARTS'}</p></div>
+                <p>{lang == 'ru' ? 'Наши высококвалифицированные специалисты всегда работают только с оригинальными запасными частями Lexus.Именно оригинальные запасные части Lexus гарантируют наилучшую производительность автомобиля и вашу безопасность' : 'Our highly qualified specialists always work only with original Lexus spare parts.It is the original Lexus spare parts that guarantee the best performance of the car and your safety'}</p>
                 <div className="kredit__btn">
-                    <a href="">  <button className="black-btn "> <p>Обратный звонок</p> <span className="line"></span></button></a>  
+                <NavLink to="/contacts">   <button className="black-btn "> <p>{lang == 'ru' ? 'Обратный звонок' : 'Callback'}</p> <span className="line"></span></button></NavLink>  
                 </div>
             </div>
         </div>

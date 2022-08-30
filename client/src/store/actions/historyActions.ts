@@ -20,3 +20,21 @@ export const getAboutAutoSalon= () => {
         }
     }
 }
+
+
+
+export const getAboutMark= () => {
+    const {fetching,fetchSuccessMark,fetchError} =  historySLice.actions
+   
+    return async (dispatch:AppDispatch) =>{
+        try{
+            dispatch(fetching()) 
+            const data = await makeRequest('/api/history/mark','GET')
+          
+            dispatch(fetchSuccessMark(data))
+        }
+        catch (e){
+            dispatch(fetchError(e as Error))
+        }
+    }
+}
