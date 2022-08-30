@@ -8,6 +8,10 @@ import './formTestDrive.scss'
 import './form.scss'
 import { useLocation } from 'react-router-dom'
 import { useLanguage } from '../../context/LanguageContext'
+import { useState } from 'react'
+import { useAppDispatch, UseAppSelector } from '../../hooks/redux'
+import Loader from '../loader/loader'
+import { AddUserTestDrive } from '../../store/actions/testDriveAction'
 
 interface LocationState {
     state:{
@@ -16,15 +20,56 @@ interface LocationState {
    
 
   }
+
+  interface Iform{
+    fio: string,
+    date: string,
+    time: string,
+    phone: string,
+    email: string,
+    car: string
+  }
+
+
+
 function FormTestDrive() {
     const location = useLocation();
     const { state } = location as LocationState;
     const {lang,toggleLanguage} = useLanguage()
+    const dispatch = useAppDispatch()
+    const {error,loading,response} = UseAppSelector(state => state.testDriveSlice)
+    const [result,setResult] = useState('')
+
+    const [form,setForm] = useState<Iform>({fio: '',date: '',time: '',phone: '',email: '',car: state.title})
+
+
+    const changeHandler = (event:any) =>{
+
+        setForm({ ...form, [event.target.name]: event.target.value})
+      
+    }
+
+    
+   
+    const sendHandler =  (event: any) =>{
+        event.preventDefault()
+        if(form.fio != '' && form.phone != ''){
+            dispatch(AddUserTestDrive(form))
+            alert('Данные успешно отправлены')
+        }
+        else{
+            alert('Вы не заполнили все поля формы')
+        }
+        
+
+        console.log(response)
+    }
+
 return(
   
 <div className="wrapper">
 <Header/>  
-
+{loading && <Loader/>}
 
 
 
@@ -79,34 +124,34 @@ return(
                 <div className="rating__row">
                    <div className="row">
                        <label htmlFor="text1" className="required">{lang == 'ru' ? 'ФИО' : 'FIO'}<span className="required">*</span></label>                                           
-                       <input type="text" id="text1"  />
+                       <input onChange={changeHandler} name="fio" type="text" id="text1"  />
                    </div>
                 
                    <div className="row">
                        <label htmlFor="text3" className="required">
                        
                        {lang == 'ru' ? 'Дата тест-драйва' : 'Date Test-Drive'}<span className="required">*</span></label>
-                       <input type="text" id="text3"  />
+                       <input onChange={changeHandler} name="date" type="text" id="text3"  />
                    </div>
                    <div className="row">
                        <label htmlFor="text4" className="required">{lang == 'ru' ? 'Время тест-драйва' : 'Time to Test-Drive'} <span className="required">*</span></label>
-                       <input type="text" id="text4"  />
+                       <input onChange={changeHandler}  name='time' type="text" id="text4"  />
                    </div>
                    
                </div>
                <div className="rating__row">
                    <div className="row">
                        <label htmlFor="text1" className="required"> {lang == 'ru' ? 'Телефон' : 'Phone'}  <span className="required">*</span></label>
-                       <input type="number" id="text1"  />
+                       <input onChange={changeHandler} name='phone' type="number" id="text1"  />
                    </div>
                    <div className="row">
                        <label htmlFor="text2" className="required"> {lang == 'ru' ? 'Электронная почта' : 'EMAIL'}  <span className="required">*</span></label>
-                       <input type="text" id="text2"  />
+                       <input onChange={changeHandler} name='email' type="text" id="text2"  />
                    </div>
               
                 
                </div>
-         
+            <p className='result'>{result}</p>
             {/* <div className="row accept" >
               
                 <input id="check" type="checkbox"/>
@@ -114,7 +159,7 @@ return(
 
             </div> */}
             <div className="row buttons">
-                <button className="black-btn"> <p>{lang == 'ru' ? 'Отправить' : 'Send'} </p> <span className="line"></span></button>
+                <button onClick={event => sendHandler(event)} className="black-btn"> <p>{lang == 'ru' ? 'Отправить' : 'Send'} </p> <span className="line"></span></button>
                   </div>
         </form>
             </div>

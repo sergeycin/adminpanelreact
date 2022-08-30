@@ -6,7 +6,7 @@ const fileUpload = require("express-fileupload")
 const app = express()
 const User = require('./models/User')
 const News  = require('./models/NewNews')
-const TestDrive  = require('./models/TestDriveForm')
+const TestDriveCar  = require('./models/DriveModel')
 const AutoModel  = require('./models/AutoModel')
 const MainPage = require('./models/MainPageModel')
 const ContactsModel = require('./models/ContactsModel')
@@ -32,7 +32,7 @@ AboutMark
 
 // Модели форм
 exports.FormsObject = {
-    TestDrive 
+    TestDriveCar
 }
 
 const PORT =  8000
@@ -50,6 +50,10 @@ app.use('/api/main', require('./Controllers/MainPageController'))
 app.use('/api/contacts', require('./Controllers/ContactControllers'))
 app.use('/api/models', require('./Controllers/ModelsController'))
 app.use('/api/history', require('./Controllers/historyController'))
+app.use('/api/testdrive', require('./Controllers/TestDriveController'))
+
+
+
 // Настройки для delpoy
 if(process.env.NODE_ENV === 'production'){
     app.use('/admin',express.static(`${__dirname}/adminview/build`));

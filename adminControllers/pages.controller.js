@@ -2,7 +2,7 @@ const {Router} = require('express')
 const config = require('config') // библиотека для использования данных где угодно которые зашиты в файле config.json
 const {PagesObject,FormsObject,directory} = require('../server')
 let fs = require('fs');
-const TestDrive  = require('../models/TestDriveForm')
+const TestDrive  = require('../models/DriveModel')
 const router = Router()
 // const config = require('config')
 

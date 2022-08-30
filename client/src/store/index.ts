@@ -4,11 +4,13 @@ import newsSlice from "./slice/newsSlice";
 import contactSlice from "./slice/contactSlice";
 import modelsSlice from "./slice/modelsSlice";
 import historySlice from "./slice/historySlice";
+import testDriveSlice from "./slice/testDriveSlice";
 const rootReducer = combineReducers({
     newsSlice,
     contactSlice,
     modelsSlice,
-    historySlice
+    historySlice,
+    testDriveSlice
 })
 
 export function setupStore() {
