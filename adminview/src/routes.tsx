@@ -5,6 +5,7 @@ import CreateUser from './pages/createUser/CreeateUser'
 import List from './pages/List/llst'
 import Login from './pages/login/login'
 import Main from './pages/main/main'
+import WatchModel from './pages/watchModel/watchModel'
 
 export const MyRoutes : React.FC<{Authenticated: string}> = ({Authenticated}) => {
 
@@ -23,6 +24,7 @@ export const MyRoutes : React.FC<{Authenticated: string}> = ({Authenticated}) =>
        <Route path="/admin/create" element={<CreateUser/>}/>  
        <Route path="/admin/createNewModel" element={<CreateModel/>}/>  
        <Route path="/admin/:id" element={<List/>}/>  
+       <Route path="/admin/watch" element={<WatchModel/>}/>  
          </Routes>
   </>
     
