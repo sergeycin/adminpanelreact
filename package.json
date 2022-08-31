@@ -7,13 +7,16 @@
     "server": "nodemon app.js",
     "adminview": "npm run start --prefix adminview",
     "client": "npm run start --prefix client",
+    "clientInstall": "npm install --prefix client",
+    "adminInstall": "npm install --prefix adminview",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "cross-env NODE_ENV=production nodemon server.js ",
     "admin": "cross-env NODE_ENV=development concurrently \" npm run server\" \"npm run adminview\"",
     "dev": "cross-env NODE_ENV=development concurrently \" npm run server\" \"npm run client\"",
     "prod": "node server.js",
     "buildAdmin": "npm run build --prefix adminview",
-    "build": "npm run build --prefix client"
+    "build": "npm run build --prefix client",
+    "installAll": "cross-env NODE_ENV=development concurrently \" npm run clientInstall\" \"npm run adminInstall\""
   },
   "repository": {
     "type": "git",

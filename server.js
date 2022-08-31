@@ -12,6 +12,7 @@ const MainPage = require('./models/MainPageModel')
 const ContactsModel = require('./models/ContactsModel')
 const AboutAutoSalon = require('./models/AboutAutoSalon')
 const AboutMark = require('./models/AboutMarkModel')
+const TypesAuto = require('./models/TypesAutoModel')
 let fs = require('fs');
 
 // Текущая директория
@@ -27,7 +28,8 @@ AutoModel,
 MainPage,
 ContactsModel,
 AboutAutoSalon,
-AboutMark
+AboutMark,
+TypesAuto
 }
 
 // Модели форм

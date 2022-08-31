@@ -11,6 +11,7 @@ import { useLanguage } from "../../context/LanguageContext"
 import { useEffect } from "react"
 import { getModels } from "../../store/actions/modelsAction"
 import Loader from "../loader/loader"
+import ModelsTypes from "./typesModels"
 
 function Models() {
     const dispatch = useAppDispatch()
@@ -25,7 +26,7 @@ return(
 <Header/>  
 {loading && <Loader/>}
 <div className="container">
-    
+<ModelsTypes />
     <div className="models__banner">
         <img src={banner} alt=""/>
     </div>

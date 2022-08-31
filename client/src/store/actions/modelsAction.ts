@@ -20,3 +20,22 @@ export const getModels= () => {
         }
     }
 }
+
+
+
+export const getTypes= () => {
+    const {fetching,fetchSuccessTypes,fetchError} =  modelsSLice.actions
+   
+    return async (dispatch:AppDispatch) =>{
+        try{
+            dispatch(fetching()) 
+            const data = await makeRequest('/api/models/types','GET')
+
+         
+            dispatch(fetchSuccessTypes(data))
+        }
+        catch (e){
+            dispatch(fetchError(e as Error))
+        }
+    }
+}
