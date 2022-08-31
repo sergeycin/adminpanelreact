@@ -92,7 +92,13 @@ height: 16px;
         height: 10px;
     }
 
-
+.swiper-slide{
+    display: flex;
+    justify-content: center;
+    img{
+        width: 800px;
+    }
+}
     @media(max-width:1199px){
         .models{
             &__filter{
