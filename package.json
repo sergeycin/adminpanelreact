@@ -16,7 +16,8 @@
     "prod": "node server.js",
     "buildAdmin": "npm run build --prefix adminview",
     "build": "npm run build --prefix client",
-    "installAll": "cross-env NODE_ENV=development concurrently \" npm run clientInstall\" \"npm run adminInstall\""
+    "installAll": "cross-env NODE_ENV=development concurrently \" npm run clientInstall\" \"npm run adminInstall\" \"npm install\"",
+    "buildAll": "cross-env NODE_ENV=development concurrently \" npm run buildAdmin\" \"npm run build\""
   },
   "repository": {
     "type": "git",
